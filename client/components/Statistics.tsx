@@ -30,7 +30,7 @@ export default function Statistics() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-12">
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
-              <div className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-primary mb-2">
+              <div className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-primary mb-2">
                 {stat.number}
               </div>
               <div className="text-sm md:text-base text-muted-foreground">
