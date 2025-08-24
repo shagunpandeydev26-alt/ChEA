@@ -26,7 +26,7 @@ export default function FinalCTA() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Heading */}
           <div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-foreground leading-tight">
               Join ChEA and Ignite Your
               <br />
               Potential
