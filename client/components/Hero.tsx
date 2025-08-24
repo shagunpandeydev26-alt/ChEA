@@ -2,7 +2,7 @@ import { Button } from "./ui/button";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-start bg-background overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-start bg-background overflow-hidden pt-32">
       {/* Background overlay with chemical pattern */}
       <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/70"></div>
       
