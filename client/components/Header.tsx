@@ -32,27 +32,31 @@ export default function Header() {
       style={{ top: isVisible ? '20px' : '-100px' }}
     >
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="flex items-end justify-between h-24 pt-4">
-          {/* Logo and Brand - Positioned lower */}
-          <div className="flex items-end space-x-4 pb-2">
-            <div className="relative">
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F612e9a82b86748da836eaf9bc77dd81e%2F4e42fd0353e140c7b4e2963d14193c78?format=webp&width=800"
-                alt="ChEA Logo"
-                className="w-32 h-32 object-contain"
-                onError={(e) => {
-                  // Fallback if image fails to load
-                  e.currentTarget.style.display = 'none';
-                  e.currentTarget.nextElementSibling.style.display = 'flex';
-                }}
-              />
-              <div className="w-32 h-32 rounded-full bg-blue-600 items-center justify-center hidden">
-                <div className="w-28 h-28 rounded-full bg-blue-700 flex items-center justify-center">
-                  <span className="text-white text-xl font-bold">ChEA</span>
+        <div className="flex items-center justify-between h-20">
+          {/* Logo and Brand - Positioned with margin */}
+          <div className="flex items-center space-x-4">
+            <div className="relative mt-6">
+              {/* Circular frame for logo */}
+              <div className="w-24 h-24 rounded-full overflow-hidden bg-white shadow-lg border-2 border-white/20">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2F612e9a82b86748da836eaf9bc77dd81e%2F4e42fd0353e140c7b4e2963d14193c78?format=webp&width=800"
+                  alt="ChEA Logo"
+                  className="w-full h-full object-cover object-center scale-110"
+                  onError={(e) => {
+                    // Fallback if image fails to load
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.parentElement.nextElementSibling.style.display = 'flex';
+                  }}
+                />
+              </div>
+              {/* Fallback circular logo */}
+              <div className="w-24 h-24 rounded-full bg-blue-600 items-center justify-center hidden shadow-lg">
+                <div className="w-20 h-20 rounded-full bg-blue-700 flex items-center justify-center">
+                  <span className="text-white text-sm font-bold">ChEA</span>
                 </div>
               </div>
             </div>
-            <div className="hidden sm:block pb-4">
+            <div className="hidden sm:block mt-6">
               <div className="text-white">
                 <div className="font-bold text-2xl">ChEA</div>
                 <div className="text-lg text-white/90 font-bold">Chemical Engineering Association</div>
@@ -61,7 +65,7 @@ export default function Header() {
           </div>
 
           {/* Navigation Menu and Auth Buttons - All on Right */}
-          <div className="hidden md:flex items-center space-x-8 pb-2">
+          <div className="hidden md:flex items-center space-x-8">
             <nav className="flex items-center space-x-8">
               <a href="#vision" className="text-white hover:text-primary transition-colors text-sm font-light">
                 Vision
@@ -93,7 +97,7 @@ export default function Header() {
           </div>
 
           {/* Mobile menu button placeholder */}
-          <div className="md:hidden pb-2">
+          <div className="md:hidden">
             <Button variant="ghost" size="sm" className="text-white">
               ☰
             </Button>
