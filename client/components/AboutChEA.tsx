@@ -14,7 +14,7 @@ export default function AboutChEA() {
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* About ChEA Content */}
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8">
+            <h2 className="text-4xl md:text-5xl font-light text-foreground mb-8">
               About ChEA
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed">
@@ -38,7 +38,7 @@ export default function AboutChEA() {
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-foreground mb-3">
+                    <h3 className="text-xl font-light text-foreground mb-3">
                       Student's Corner
                     </h3>
                     <p className="text-muted-foreground leading-relaxed">
@@ -62,7 +62,7 @@ export default function AboutChEA() {
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-foreground mb-3">
+                    <h3 className="text-xl font-light text-foreground mb-3">
                       Events
                     </h3>
                     <p className="text-muted-foreground leading-relaxed">
