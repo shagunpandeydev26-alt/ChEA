@@ -101,7 +101,7 @@ export default function Hero() {
           style={{
             transform: `translateX(${isLoaded ? textTranslateX : -100}vw)`,
             opacity: isLoaded ? textOpacity : 0,
-            transition: 'transform 1.5s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 1.5s ease-out'
+            transition: 'transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.8s ease-out'
           }}
         >
           <h1 
