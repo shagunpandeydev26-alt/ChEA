@@ -60,16 +60,16 @@ export default function Header() {
 
   return (
     <header 
-      className={`fixed left-0 right-0 z-50 transition-all duration-500 ease-out ${
-        isVisible 
-          ? 'translate-y-0' 
+      className={`fixed left-0 right-0 z-50 transition-all duration-1000 ease-out ${
+        isVisible
+          ? 'translate-y-0'
           : '-translate-y-full'
       }`}
       style={{ 
         top: '20px',
         opacity: isVisible ? opacity : 0,
         transform: `translateY(${isVisible ? '0' : '-100%'}) scale(${isVisible ? 1 : 0.95})`,
-        transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)'
+        transition: 'all 1s cubic-bezier(0.4, 0, 0.2, 1)'
       }}
     >
       <div className="container mx-auto px-4 lg:px-8">
@@ -88,7 +88,7 @@ export default function Header() {
                 <img
                   src="https://cdn.builder.io/api/v1/image/assets%2F612e9a82b86748da836eaf9bc77dd81e%2F4e42fd0353e140c7b4e2963d14193c78?format=webp&width=800"
                   alt="ChEA Logo"
-                  className="w-full h-full object-cover object-center scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover object-center scale-110 transition-transform duration-1000"
                   onError={(e) => {
                     // Fallback if image fails to load
                     e.currentTarget.style.display = 'none';
@@ -104,7 +104,7 @@ export default function Header() {
               </div>
             </div>
             <div 
-              className="hidden sm:block mt-6 transition-all duration-500"
+              className="hidden sm:block mt-6 transition-all duration-1000"
               style={{
                 opacity: opacity,
                 transform: `translateX(${(1 - opacity) * -20}px)`
@@ -119,7 +119,7 @@ export default function Header() {
 
           {/* Navigation Menu and Auth Buttons - All on Right */}
           <div 
-            className="hidden md:flex items-center space-x-8 transition-all duration-500"
+            className="hidden md:flex items-center space-x-8 transition-all duration-1000"
             style={{
               opacity: opacity,
               transform: `translateX(${(1 - opacity) * 20}px)`
