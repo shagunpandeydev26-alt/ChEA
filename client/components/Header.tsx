@@ -3,20 +3,54 @@ import { useState, useEffect } from "react";
 
 export default function Header() {
   const [isVisible, setIsVisible] = useState(true);
+  const [opacity, setOpacity] = useState(1);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up');
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      const heroSectionHeight = window.innerHeight * 0.9; // Approximate hero section height
+      const heroSectionHeight = window.innerHeight; // Full hero section height
+      const trigger50Percent = heroSectionHeight * 0.5; // 50% of hero section
+      const fadeStartPoint = heroSectionHeight * 0.3; // Start fading at 30%
+      
+      // Determine scroll direction
+      const direction = currentScrollY > lastScrollY ? 'down' : 'up';
+      setScrollDirection(direction);
 
-      // Show header when at top or scrolling up, hide when scrolling down past hero
-      if (currentScrollY < heroSectionHeight || currentScrollY < lastScrollY) {
-        setIsVisible(true);
-      } else if (currentScrollY > lastScrollY && currentScrollY > heroSectionHeight) {
-        setIsVisible(false);
+      // Calculate opacity based on scroll position for smooth fade
+      let newOpacity = 1;
+      if (currentScrollY > fadeStartPoint) {
+        // Calculate fade progress from 30% to 50%
+        const fadeProgress = (currentScrollY - fadeStartPoint) / (trigger50Percent - fadeStartPoint);
+        newOpacity = Math.max(0, 1 - fadeProgress);
       }
 
+      // Determine visibility based on 50% hero section and scroll direction
+      let shouldBeVisible = true;
+      
+      if (currentScrollY > trigger50Percent) {
+        // Past 50% of hero section
+        if (direction === 'down') {
+          shouldBeVisible = false;
+        } else {
+          // Scrolling up - show with fade in effect
+          shouldBeVisible = true;
+          newOpacity = Math.min(1, (currentScrollY - trigger50Percent) / 100); // Fade in over 100px
+        }
+      } else {
+        // Within first 50% of hero section
+        shouldBeVisible = true;
+      }
+
+      // Special case: always show when very close to top
+      if (currentScrollY < 50) {
+        shouldBeVisible = true;
+        newOpacity = 1;
+      }
+
+      setOpacity(newOpacity);
+      setIsVisible(shouldBeVisible);
       setLastScrollY(currentScrollY);
     };
 
@@ -26,10 +60,17 @@ export default function Header() {
 
   return (
     <header 
-      className={`fixed left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
-        isVisible ? 'top-0 opacity-100 translate-y-0' : '-top-24 opacity-0 -translate-y-full'
+      className={`fixed left-0 right-0 z-50 transition-all duration-500 ease-out ${
+        isVisible 
+          ? 'translate-y-0' 
+          : '-translate-y-full'
       }`}
-      style={{ top: isVisible ? '20px' : '-100px' }}
+      style={{ 
+        top: '20px',
+        opacity: isVisible ? opacity : 0,
+        transform: `translateY(${isVisible ? '0' : '-100%'}) scale(${isVisible ? 1 : 0.95})`,
+        transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)'
+      }}
     >
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
@@ -37,11 +78,17 @@ export default function Header() {
           <div className="flex items-center space-x-4">
             <div className="relative mt-6">
               {/* Circular frame for logo */}
-              <div className="w-24 h-24 rounded-full overflow-hidden bg-white shadow-lg border-2 border-white/20">
+              <div 
+                className="w-24 h-24 rounded-full overflow-hidden bg-white shadow-lg border-2 border-white/20 transition-all duration-500"
+                style={{
+                  transform: `scale(${0.9 + (opacity * 0.1)})`,
+                  boxShadow: `0 10px 25px rgba(0,0,0,${0.1 * opacity})`
+                }}
+              >
                 <img
                   src="https://cdn.builder.io/api/v1/image/assets%2F612e9a82b86748da836eaf9bc77dd81e%2F4e42fd0353e140c7b4e2963d14193c78?format=webp&width=800"
                   alt="ChEA Logo"
-                  className="w-full h-full object-cover object-center scale-110"
+                  className="w-full h-full object-cover object-center scale-110 transition-transform duration-500"
                   onError={(e) => {
                     // Fallback if image fails to load
                     e.currentTarget.style.display = 'none';
@@ -56,7 +103,13 @@ export default function Header() {
                 </div>
               </div>
             </div>
-            <div className="hidden sm:block mt-6">
+            <div 
+              className="hidden sm:block mt-6 transition-all duration-500"
+              style={{
+                opacity: opacity,
+                transform: `translateX(${(1 - opacity) * -20}px)`
+              }}
+            >
               <div className="text-white">
                 <div className="font-bold text-2xl">ChEA</div>
                 <div className="text-lg text-white/90 font-bold">Chemical Engineering Association</div>
@@ -65,7 +118,13 @@ export default function Header() {
           </div>
 
           {/* Navigation Menu and Auth Buttons - All on Right */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div 
+            className="hidden md:flex items-center space-x-8 transition-all duration-500"
+            style={{
+              opacity: opacity,
+              transform: `translateX(${(1 - opacity) * 20}px)`
+            }}
+          >
             <nav className="flex items-center space-x-8">
               <a href="#vision" className="text-white hover:text-primary transition-colors text-sm font-light">
                 Vision
@@ -83,13 +142,13 @@ export default function Header() {
 
             {/* Auth Buttons */}
             <div className="flex items-center space-x-3">
-              <Button variant="ghost" size="sm" className="text-white hover:text-primary font-light">
+              <Button variant="ghost" size="sm" className="text-white hover:text-primary font-light transition-all duration-300">
                 Log In
               </Button>
               <Button
                 size="sm"
                 variant="outline"
-                className="bg-transparent border-white text-white hover:bg-white hover:text-black font-light"
+                className="bg-transparent border-white text-white hover:bg-white hover:text-black font-light transition-all duration-300"
               >
                 Join Now
               </Button>
