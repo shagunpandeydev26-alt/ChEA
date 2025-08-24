@@ -12,8 +12,7 @@ export default function FacilitiesSection() {
       </div>
 
       <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Info Cards */}
+        <div className="max-w-4xl">
           <div className="space-y-8">
             {/* Facility Details Card */}
             <Card className="bg-card border-border hover:bg-card/80 transition-colors">
@@ -29,10 +28,10 @@ export default function FacilitiesSection() {
                       Facility Details
                     </h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      Our state-of-the-art facilities are equipped with 
-                      the latest tools and technologies to provide 
-                      students with a hands-on learning experience. From 
-                      modern laboratories to conference centers, we ensure that our 
+                      Our state-of-the-art facilities are equipped with
+                      the latest tools and technologies to provide
+                      students with a hands-on learning experience. From
+                      modern laboratories to conference centers, we ensure that our
                       members have access to the best resources.
                     </p>
                   </div>
@@ -54,20 +53,15 @@ export default function FacilitiesSection() {
                       Event Registration
                     </h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      Register for our upcoming events and secure your 
-                      spot. Take advantage of this opportunity to network 
-                      with industry professionals and expand your knowledge to further your 
+                      Register for our upcoming events and secure your
+                      spot. Take advantage of this opportunity to network
+                      with industry professionals and expand your knowledge to further your
                       career in chemical engineering.
                     </p>
                   </div>
                 </div>
               </CardContent>
             </Card>
-          </div>
-
-          {/* Right side placeholder for balance */}
-          <div className="hidden lg:block">
-            {/* This space provides visual balance to the layout */}
           </div>
         </div>
       </div>
