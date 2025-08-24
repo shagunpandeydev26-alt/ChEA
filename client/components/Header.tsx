@@ -88,7 +88,7 @@ export default function Header() {
                 <img
                   src="https://cdn.builder.io/api/v1/image/assets%2F612e9a82b86748da836eaf9bc77dd81e%2F4e42fd0353e140c7b4e2963d14193c78?format=webp&width=800"
                   alt="ChEA Logo"
-                  className="w-full h-full object-cover object-center scale-110 transition-transform duration-1000"
+                  className="w-full h-full object-cover object-center scale-150 transition-transform duration-1000"
                   onError={(e) => {
                     // Fallback if image fails to load
                     e.currentTarget.style.display = 'none';
