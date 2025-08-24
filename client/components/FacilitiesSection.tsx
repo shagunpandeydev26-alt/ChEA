@@ -24,7 +24,7 @@ export default function FacilitiesSection() {
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-foreground mb-3">
+                    <h3 className="text-xl font-light text-foreground mb-3">
                       Facility Details
                     </h3>
                     <p className="text-muted-foreground leading-relaxed">
@@ -49,7 +49,7 @@ export default function FacilitiesSection() {
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-foreground mb-3">
+                    <h3 className="text-xl font-light text-foreground mb-3">
                       Event Registration
                     </h3>
                     <p className="text-muted-foreground leading-relaxed">
