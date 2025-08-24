@@ -41,16 +41,16 @@ export default function Hero() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Calculate scroll-based effects
+  // Calculate scroll-based effects - smoother and more subtle
   const heroHeight = typeof window !== 'undefined' ? window.innerHeight : 1000;
-  const scrollProgress = Math.min(scrollY / (heroHeight * 0.8), 1);
-  
-  // Zoom effect: scale up when scrolling down, scale down when scrolling up
-  const imageScale = 1 + (scrollProgress * 0.3); // Zoom from 1x to 1.3x
-  
-  // Text animation: slide left when scrolling down
-  const textTranslateX = scrollProgress * -150; // Move left up to -150px
-  const textOpacity = Math.max(0, 1 - (scrollProgress * 1.5)); // Fade out as scrolling
+  const scrollProgress = Math.min(scrollY / (heroHeight * 0.9), 1);
+
+  // Subtle zoom effect: gentle scale up when scrolling down
+  const imageScale = 1 + (scrollProgress * 0.15); // Gentle zoom from 1x to 1.15x
+
+  // Smooth text animation: gentle slide left when scrolling down
+  const textTranslateX = scrollProgress * -75; // Gentle move left up to -75px
+  const textOpacity = Math.max(0.2, 1 - (scrollProgress * 0.8)); // Smoother fade out, minimum 20%
 
   return (
     <section className="relative min-h-screen flex items-center justify-start bg-background overflow-hidden pt-32">
@@ -59,12 +59,12 @@ export default function Hero() {
         {images.map((image, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
-              index === currentImageIndex ? 'opacity-15' : 'opacity-0'
+            className={`absolute inset-0 transition-all duration-1500 ease-in-out ${
+              index === currentImageIndex ? 'opacity-70' : 'opacity-0'
             }`}
             style={{
               transform: `scale(${imageScale})`,
-              transition: 'transform 0.1s ease-out, opacity 1s ease-in-out'
+              transition: 'transform 0.3s ease-out, opacity 1.5s ease-in-out'
             }}
           >
             <img
@@ -72,15 +72,15 @@ export default function Hero() {
               alt={`ChEA Department ${index + 1}`}
               className="w-full h-full object-cover object-center"
               style={{
-                filter: 'blur(1px) brightness(0.7) contrast(1.1)',
+                filter: 'blur(0.5px) brightness(0.8) contrast(1.05)',
               }}
             />
           </div>
         ))}
       </div>
 
-      {/* Background overlay for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-background/85 via-background/70 to-background/40"></div>
+      {/* Background overlay for better text readability - reduced for more image visibility */}
+      <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-background/45 to-background/20"></div>
       
       {/* Background chemical imagery overlay */}
       <div className="absolute inset-0 opacity-10">
@@ -96,12 +96,12 @@ export default function Hero() {
 
       {/* Animated Content */}
       <div className="relative z-10 container mx-auto px-4 lg:px-8 max-w-7xl">
-        <div 
-          className="max-w-3xl transition-all duration-300 ease-out"
+        <div
+          className="max-w-3xl"
           style={{
-            transform: `translateX(${isLoaded ? textTranslateX : -200}px)`,
+            transform: `translateX(${isLoaded ? textTranslateX : -120}px)`,
             opacity: isLoaded ? textOpacity : 0,
-            transition: 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s ease-out'
+            transition: 'transform 1s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 1s ease-out'
           }}
         >
           <h1 
@@ -110,72 +110,84 @@ export default function Hero() {
               textShadow: '2px 2px 4px rgba(0,0,0,0.3)'
             }}
           >
-            <span 
-              className="inline-block transition-all duration-1000 ease-out"
+            <span
+              className="inline-block transition-all duration-1200 ease-out"
               style={{
-                transform: `translateX(${isLoaded ? 0 : -100}px)`,
-                opacity: isLoaded ? 1 : 0,
-                transitionDelay: '0.2s'
+                transform: `translateX(${isLoaded ? (textTranslateX * 0.8) : -80}px)`,
+                opacity: isLoaded ? (textOpacity * 1.1) : 0,
+                transitionDelay: '0.3s'
               }}
             >
               Welcome to ChEA -
             </span>
             <br />
-            <span 
-              className="text-foreground inline-block transition-all duration-1000 ease-out"
+            <span
+              className="text-foreground inline-block transition-all duration-1200 ease-out"
               style={{
-                transform: `translateX(${isLoaded ? 0 : -100}px)`,
-                opacity: isLoaded ? 1 : 0,
-                transitionDelay: '0.4s'
+                transform: `translateX(${isLoaded ? (textTranslateX * 0.9) : -80}px)`,
+                opacity: isLoaded ? (textOpacity * 1.05) : 0,
+                transitionDelay: '0.5s'
               }}
             >
               Chemical
             </span>
             <br />
-            <span 
-              className="text-foreground inline-block transition-all duration-1000 ease-out"
+            <span
+              className="text-foreground inline-block transition-all duration-1200 ease-out"
               style={{
-                transform: `translateX(${isLoaded ? 0 : -100}px)`,
-                opacity: isLoaded ? 1 : 0,
-                transitionDelay: '0.6s'
+                transform: `translateX(${isLoaded ? textTranslateX : -80}px)`,
+                opacity: isLoaded ? textOpacity : 0,
+                transitionDelay: '0.7s'
               }}
             >
               Engineering
             </span>
             <br />
-            <span 
-              className="text-foreground inline-block transition-all duration-1000 ease-out"
+            <span
+              className="text-foreground inline-block transition-all duration-1200 ease-out"
               style={{
-                transform: `translateX(${isLoaded ? 0 : -100}px)`,
-                opacity: isLoaded ? 1 : 0,
-                transitionDelay: '0.8s'
+                transform: `translateX(${isLoaded ? (textTranslateX * 1.1) : -80}px)`,
+                opacity: isLoaded ? (textOpacity * 0.95) : 0,
+                transitionDelay: '0.9s'
               }}
             >
               Association
             </span>
           </h1>
 
-          <p 
-            className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl font-light transition-all duration-1000 ease-out"
-            style={{
-              transform: `translateX(${isLoaded ? 0 : -100}px)`,
-              opacity: isLoaded ? 1 : 0,
-              transitionDelay: '1s',
-              textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
-            }}
-          >
-            Empowering Students of
+          <div className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl font-light">
+            <span
+              className="inline-block transition-all duration-1200 ease-out"
+              style={{
+                transform: `translateX(${isLoaded ? (textTranslateX * 0.7) : -80}px)`,
+                opacity: isLoaded ? (textOpacity * 0.9) : 0,
+                transitionDelay: '1.1s',
+                textShadow: '1px 1px 3px rgba(0,0,0,0.6)'
+              }}
+            >
+              Empowering Students of
+            </span>
             <br />
-            Chemical Engineering
-          </p>
+            <span
+              className="inline-block transition-all duration-1200 ease-out"
+              style={{
+                transform: `translateX(${isLoaded ? (textTranslateX * 0.8) : -80}px)`,
+                opacity: isLoaded ? (textOpacity * 0.85) : 0,
+                transitionDelay: '1.3s',
+                textShadow: '1px 1px 3px rgba(0,0,0,0.6)'
+              }}
+            >
+              Chemical Engineering
+            </span>
+          </div>
 
           <Button
             size="lg"
-            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg font-light transition-all duration-1000 ease-out shadow-lg hover:shadow-xl transform hover:scale-105"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg font-light transition-all duration-1200 ease-out shadow-lg hover:shadow-xl transform hover:scale-105"
             style={{
-              transform: `translateX(${isLoaded ? 0 : -100}px) scale(${isLoaded ? 1 : 0.8})`,
-              opacity: isLoaded ? 1 : 0,
-              transitionDelay: '1.2s'
+              transform: `translateX(${isLoaded ? (textTranslateX * 0.6) : -80}px) scale(${isLoaded ? 1 : 0.9})`,
+              opacity: isLoaded ? (textOpacity * 0.8) : 0,
+              transitionDelay: '1.5s'
             }}
           >
             Discover More
@@ -185,17 +197,20 @@ export default function Hero() {
 
       {/* Carousel indicators */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-        <div className="flex space-x-2">
+        <div className="flex space-x-3">
           {images.map((_, index) => (
             <div
               key={index}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentImageIndex 
-                  ? 'bg-primary scale-125' 
-                  : 'bg-white/30 hover:bg-white/50'
+              className={`w-3 h-3 rounded-full transition-all duration-500 ease-out ${
+                index === currentImageIndex
+                  ? 'bg-primary scale-125 shadow-lg'
+                  : 'bg-white/50 hover:bg-white/70 hover:scale-110'
               }`}
               onClick={() => setCurrentImageIndex(index)}
-              style={{ cursor: 'pointer' }}
+              style={{
+                cursor: 'pointer',
+                backdropFilter: 'blur(2px)'
+              }}
             />
           ))}
         </div>
