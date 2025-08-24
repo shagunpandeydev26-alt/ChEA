@@ -126,7 +126,7 @@ export default function Hero() {
               style={{
                 transform: `translateX(${isLoaded ? (textTranslateX * 0.6) : -30}px)`,
                 opacity: isLoaded ? textOpacity : 0,
-                transitionDelay: '0.7s'
+                transitionDelay: '0.4s'
               }}
             >
               Chemical
@@ -137,7 +137,7 @@ export default function Hero() {
               style={{
                 transform: `translateX(${isLoaded ? (textTranslateX * 0.7) : -30}px)`,
                 opacity: isLoaded ? textOpacity : 0,
-                transitionDelay: '1.0s'
+                transitionDelay: '0.4s'
               }}
             >
               Engineering
@@ -148,7 +148,7 @@ export default function Hero() {
               style={{
                 transform: `translateX(${isLoaded ? (textTranslateX * 0.8) : -30}px)`,
                 opacity: isLoaded ? textOpacity : 0,
-                transitionDelay: '1.3s'
+                transitionDelay: '0.4s'
               }}
             >
               Association
@@ -161,7 +161,7 @@ export default function Hero() {
               style={{
                 transform: `translateX(${isLoaded ? (textTranslateX * 0.3) : -30}px)`,
                 opacity: isLoaded ? textOpacity : 0,
-                transitionDelay: '1.6s',
+                transitionDelay: '0.4s',
                 textShadow: '1px 1px 3px rgba(0,0,0,0.6)'
               }}
             >
@@ -173,7 +173,7 @@ export default function Hero() {
               style={{
                 transform: `translateX(${isLoaded ? (textTranslateX * 0.4) : -30}px)`,
                 opacity: isLoaded ? textOpacity : 0,
-                transitionDelay: '1.9s',
+                transitionDelay: '0.4s',
                 textShadow: '1px 1px 3px rgba(0,0,0,0.6)'
               }}
             >
@@ -187,7 +187,7 @@ export default function Hero() {
             style={{
               transform: `translateX(${isLoaded ? (textTranslateX * 0.2) : -30}px) scale(${isLoaded ? 1 : 0.95})`,
               opacity: isLoaded ? textOpacity : 0,
-              transitionDelay: '2.2s'
+              transitionDelay: '0.4s'
             }}
           >
             Discover More
