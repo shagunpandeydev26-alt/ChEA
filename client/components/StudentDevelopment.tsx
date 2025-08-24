@@ -1,8 +1,39 @@
 import { Button } from "./ui/button";
+import { useState, useEffect } from "react";
 
 export default function StudentDevelopment() {
+  const [scrollY, setScrollY] = useState(0);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  // Handle scroll effects
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Page load animation
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Calculate scroll-based effects for this section
+  const sectionElement = typeof document !== 'undefined' ? document.getElementById('student-development') : null;
+  const sectionTop = sectionElement?.offsetTop || 2000;
+  const scrollProgress = Math.max(0, Math.min((scrollY - sectionTop + window.innerHeight) / window.innerHeight, 1));
+  
+  // Text animation effects
+  const textTranslateX = scrollProgress * -20;
+  const textOpacity = Math.max(0.6, 1 - (scrollProgress * 0.4));
+
   return (
-    <section className="py-32 bg-background relative overflow-hidden">
+    <section id="student-development" className="py-32 bg-background relative overflow-hidden">
       {/* Dramatic background with flowing molecular patterns */}
       <div className="absolute inset-0">
         {/* Main flowing pattern */}
@@ -48,8 +79,21 @@ export default function StudentDevelopment() {
       <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
-          <div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-foreground leading-tight mb-8">
+          <div
+            style={{
+              transform: `translateX(${isLoaded ? textTranslateX : -50}px)`,
+              opacity: isLoaded ? textOpacity : 0,
+              transition: 'transform 1.5s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 1.5s ease-out'
+            }}
+          >
+            <h2 
+              className="text-4xl md:text-5xl lg:text-6xl font-light text-foreground leading-tight mb-8 transition-all duration-1500 ease-out"
+              style={{
+                transform: `translateX(${isLoaded ? 0 : -40}px)`,
+                opacity: isLoaded ? 1 : 0,
+                transitionDelay: '0.4s'
+              }}
+            >
               Student Development
               <br />
               Initiatives
@@ -57,8 +101,21 @@ export default function StudentDevelopment() {
           </div>
 
           {/* Description and CTA */}
-          <div>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+          <div
+            style={{
+              transform: `translateX(${isLoaded ? (textTranslateX * -0.5) : 50}px)`,
+              opacity: isLoaded ? textOpacity : 0,
+              transition: 'transform 1.5s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 1.5s ease-out'
+            }}
+          >
+            <p 
+              className="text-lg text-muted-foreground leading-relaxed mb-8 transition-all duration-1500 ease-out"
+              style={{
+                transform: `translateX(${isLoaded ? 0 : 40}px)`,
+                opacity: isLoaded ? 1 : 0,
+                transitionDelay: '0.6s'
+              }}
+            >
               We are committed to providing unprecedented 
               support and resources for the holistic 
               development of our members. Our programs 
@@ -70,7 +127,12 @@ export default function StudentDevelopment() {
             
             <Button 
               size="lg" 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg font-medium"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg font-light transition-all duration-1500 ease-out shadow-lg hover:shadow-xl transform hover:scale-105"
+              style={{
+                transform: `translateX(${isLoaded ? 0 : 40}px) scale(${isLoaded ? 1 : 0.95})`,
+                opacity: isLoaded ? 1 : 0,
+                transitionDelay: '0.8s'
+              }}
             >
               Join Us
             </Button>
