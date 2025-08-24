@@ -20,7 +20,7 @@ export default function Hero() {
 
       <div className="relative z-10 container mx-auto px-4 lg:px-8 max-w-7xl">
         <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-tight mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-foreground leading-tight mb-6">
             Welcome to ChEA -
             <br />
             <span className="text-foreground">Chemical</span>
@@ -29,16 +29,16 @@ export default function Hero() {
             <br />
             <span className="text-foreground">Association</span>
           </h1>
-          
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl">
+
+          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl font-light">
             Empowering Students of
             <br />
             Chemical Engineering
           </p>
-          
-          <Button 
-            size="lg" 
-            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg font-medium"
+
+          <Button
+            size="lg"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg font-light"
           >
             Discover More
           </Button>
