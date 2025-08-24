@@ -48,9 +48,9 @@ export default function Hero() {
   // Subtle zoom effect: gentle scale up when scrolling down
   const imageScale = 1 + (scrollProgress * 0.15); // Gentle zoom from 1x to 1.15x
 
-  // Smooth text animation: gentle slide left when scrolling down
-  const textTranslateX = scrollProgress * -75; // Gentle move left up to -75px
-  const textOpacity = Math.max(0.2, 1 - (scrollProgress * 0.8)); // Smoother fade out, minimum 20%
+  // Very subtle text animation: minimal slide left when scrolling down
+  const textTranslateX = scrollProgress * -30; // Very gentle move left up to -30px
+  const textOpacity = Math.max(0.5, 1 - (scrollProgress * 0.5)); // Minimal fade out, minimum 50%
 
   return (
     <section className="relative min-h-screen flex items-center justify-start bg-background overflow-hidden pt-32">
@@ -99,9 +99,9 @@ export default function Hero() {
         <div
           className="max-w-3xl"
           style={{
-            transform: `translateX(${isLoaded ? textTranslateX : -120}px)`,
+            transform: `translateX(${isLoaded ? textTranslateX : -50}px)`,
             opacity: isLoaded ? textOpacity : 0,
-            transition: 'transform 1s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 1s ease-out'
+            transition: 'transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.8s ease-out'
           }}
         >
           <h1 
@@ -111,44 +111,44 @@ export default function Hero() {
             }}
           >
             <span
-              className="inline-block transition-all duration-1200 ease-out"
+              className="inline-block transition-all duration-800 ease-out"
               style={{
-                transform: `translateX(${isLoaded ? (textTranslateX * 0.8) : -80}px)`,
-                opacity: isLoaded ? (textOpacity * 1.1) : 0,
-                transitionDelay: '0.3s'
+                transform: `translateX(${isLoaded ? (textTranslateX * 0.5) : -30}px)`,
+                opacity: isLoaded ? textOpacity : 0,
+                transitionDelay: '0.2s'
               }}
             >
               Welcome to ChEA -
             </span>
             <br />
             <span
-              className="text-foreground inline-block transition-all duration-1200 ease-out"
+              className="text-foreground inline-block transition-all duration-800 ease-out"
               style={{
-                transform: `translateX(${isLoaded ? (textTranslateX * 0.9) : -80}px)`,
-                opacity: isLoaded ? (textOpacity * 1.05) : 0,
-                transitionDelay: '0.5s'
+                transform: `translateX(${isLoaded ? (textTranslateX * 0.6) : -30}px)`,
+                opacity: isLoaded ? textOpacity : 0,
+                transitionDelay: '0.3s'
               }}
             >
               Chemical
             </span>
             <br />
             <span
-              className="text-foreground inline-block transition-all duration-1200 ease-out"
+              className="text-foreground inline-block transition-all duration-800 ease-out"
               style={{
-                transform: `translateX(${isLoaded ? textTranslateX : -80}px)`,
+                transform: `translateX(${isLoaded ? (textTranslateX * 0.7) : -30}px)`,
                 opacity: isLoaded ? textOpacity : 0,
-                transitionDelay: '0.7s'
+                transitionDelay: '0.4s'
               }}
             >
               Engineering
             </span>
             <br />
             <span
-              className="text-foreground inline-block transition-all duration-1200 ease-out"
+              className="text-foreground inline-block transition-all duration-800 ease-out"
               style={{
-                transform: `translateX(${isLoaded ? (textTranslateX * 1.1) : -80}px)`,
-                opacity: isLoaded ? (textOpacity * 0.95) : 0,
-                transitionDelay: '0.9s'
+                transform: `translateX(${isLoaded ? (textTranslateX * 0.8) : -30}px)`,
+                opacity: isLoaded ? textOpacity : 0,
+                transitionDelay: '0.5s'
               }}
             >
               Association
@@ -157,11 +157,11 @@ export default function Hero() {
 
           <div className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl font-light">
             <span
-              className="inline-block transition-all duration-1200 ease-out"
+              className="inline-block transition-all duration-800 ease-out"
               style={{
-                transform: `translateX(${isLoaded ? (textTranslateX * 0.7) : -80}px)`,
-                opacity: isLoaded ? (textOpacity * 0.9) : 0,
-                transitionDelay: '1.1s',
+                transform: `translateX(${isLoaded ? (textTranslateX * 0.3) : -30}px)`,
+                opacity: isLoaded ? textOpacity : 0,
+                transitionDelay: '0.6s',
                 textShadow: '1px 1px 3px rgba(0,0,0,0.6)'
               }}
             >
@@ -169,11 +169,11 @@ export default function Hero() {
             </span>
             <br />
             <span
-              className="inline-block transition-all duration-1200 ease-out"
+              className="inline-block transition-all duration-800 ease-out"
               style={{
-                transform: `translateX(${isLoaded ? (textTranslateX * 0.8) : -80}px)`,
-                opacity: isLoaded ? (textOpacity * 0.85) : 0,
-                transitionDelay: '1.3s',
+                transform: `translateX(${isLoaded ? (textTranslateX * 0.4) : -30}px)`,
+                opacity: isLoaded ? textOpacity : 0,
+                transitionDelay: '0.7s',
                 textShadow: '1px 1px 3px rgba(0,0,0,0.6)'
               }}
             >
@@ -183,11 +183,11 @@ export default function Hero() {
 
           <Button
             size="lg"
-            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg font-light transition-all duration-1200 ease-out shadow-lg hover:shadow-xl transform hover:scale-105"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg font-light transition-all duration-800 ease-out shadow-lg hover:shadow-xl transform hover:scale-105"
             style={{
-              transform: `translateX(${isLoaded ? (textTranslateX * 0.6) : -80}px) scale(${isLoaded ? 1 : 0.9})`,
-              opacity: isLoaded ? (textOpacity * 0.8) : 0,
-              transitionDelay: '1.5s'
+              transform: `translateX(${isLoaded ? (textTranslateX * 0.2) : -30}px) scale(${isLoaded ? 1 : 0.95})`,
+              opacity: isLoaded ? textOpacity : 0,
+              transitionDelay: '0.8s'
             }}
           >
             Discover More
