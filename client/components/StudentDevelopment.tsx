@@ -49,7 +49,7 @@ export default function StudentDevelopment() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
           <div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-8">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-foreground leading-tight mb-8">
               Student Development
               <br />
               Initiatives
