@@ -59,12 +59,12 @@ export default function Hero() {
         {images.map((image, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-all duration-1500 ease-in-out ${
+            className={`absolute inset-0 transition-all duration-3000 ease-in-out ${
               index === currentImageIndex ? 'opacity-70' : 'opacity-0'
             }`}
             style={{
               transform: `scale(${imageScale})`,
-              transition: 'transform 0.3s ease-out, opacity 1.5s ease-in-out'
+              transition: 'transform 0.8s ease-out, opacity 3s ease-in-out'
             }}
           >
             <img
@@ -101,7 +101,7 @@ export default function Hero() {
           style={{
             transform: `translateX(${isLoaded ? textTranslateX : -50}px)`,
             opacity: isLoaded ? textOpacity : 0,
-            transition: 'transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.8s ease-out'
+            transition: 'transform 1.5s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 1.5s ease-out'
           }}
         >
           <h1 
@@ -111,44 +111,44 @@ export default function Hero() {
             }}
           >
             <span
-              className="inline-block transition-all duration-800 ease-out"
+              className="inline-block transition-all duration-1500 ease-out"
               style={{
                 transform: `translateX(${isLoaded ? (textTranslateX * 0.5) : -30}px)`,
                 opacity: isLoaded ? textOpacity : 0,
-                transitionDelay: '0.2s'
+                transitionDelay: '0.4s'
               }}
             >
               Welcome to ChEA -
             </span>
             <br />
             <span
-              className="text-foreground inline-block transition-all duration-800 ease-out"
+              className="text-foreground inline-block transition-all duration-1500 ease-out"
               style={{
                 transform: `translateX(${isLoaded ? (textTranslateX * 0.6) : -30}px)`,
                 opacity: isLoaded ? textOpacity : 0,
-                transitionDelay: '0.3s'
+                transitionDelay: '0.7s'
               }}
             >
               Chemical
             </span>
             <br />
             <span
-              className="text-foreground inline-block transition-all duration-800 ease-out"
+              className="text-foreground inline-block transition-all duration-1500 ease-out"
               style={{
                 transform: `translateX(${isLoaded ? (textTranslateX * 0.7) : -30}px)`,
                 opacity: isLoaded ? textOpacity : 0,
-                transitionDelay: '0.4s'
+                transitionDelay: '1.0s'
               }}
             >
               Engineering
             </span>
             <br />
             <span
-              className="text-foreground inline-block transition-all duration-800 ease-out"
+              className="text-foreground inline-block transition-all duration-1500 ease-out"
               style={{
                 transform: `translateX(${isLoaded ? (textTranslateX * 0.8) : -30}px)`,
                 opacity: isLoaded ? textOpacity : 0,
-                transitionDelay: '0.5s'
+                transitionDelay: '1.3s'
               }}
             >
               Association
@@ -157,11 +157,11 @@ export default function Hero() {
 
           <div className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl font-light">
             <span
-              className="inline-block transition-all duration-800 ease-out"
+              className="inline-block transition-all duration-1500 ease-out"
               style={{
                 transform: `translateX(${isLoaded ? (textTranslateX * 0.3) : -30}px)`,
                 opacity: isLoaded ? textOpacity : 0,
-                transitionDelay: '0.6s',
+                transitionDelay: '1.6s',
                 textShadow: '1px 1px 3px rgba(0,0,0,0.6)'
               }}
             >
@@ -169,11 +169,11 @@ export default function Hero() {
             </span>
             <br />
             <span
-              className="inline-block transition-all duration-800 ease-out"
+              className="inline-block transition-all duration-1500 ease-out"
               style={{
                 transform: `translateX(${isLoaded ? (textTranslateX * 0.4) : -30}px)`,
                 opacity: isLoaded ? textOpacity : 0,
-                transitionDelay: '0.7s',
+                transitionDelay: '1.9s',
                 textShadow: '1px 1px 3px rgba(0,0,0,0.6)'
               }}
             >
@@ -183,11 +183,11 @@ export default function Hero() {
 
           <Button
             size="lg"
-            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg font-light transition-all duration-800 ease-out shadow-lg hover:shadow-xl transform hover:scale-105"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg font-light transition-all duration-1500 ease-out shadow-lg hover:shadow-xl transform hover:scale-105"
             style={{
               transform: `translateX(${isLoaded ? (textTranslateX * 0.2) : -30}px) scale(${isLoaded ? 1 : 0.95})`,
               opacity: isLoaded ? textOpacity : 0,
-              transitionDelay: '0.8s'
+              transitionDelay: '2.2s'
             }}
           >
             Discover More
@@ -201,7 +201,7 @@ export default function Hero() {
           {images.map((_, index) => (
             <div
               key={index}
-              className={`w-3 h-3 rounded-full transition-all duration-500 ease-out ${
+              className={`w-3 h-3 rounded-full transition-all duration-700 ease-out ${
                 index === currentImageIndex
                   ? 'bg-primary scale-125 shadow-lg'
                   : 'bg-white/50 hover:bg-white/70 hover:scale-110'
