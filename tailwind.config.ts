@@ -57,6 +57,14 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        chea: {
+          red: "hsl(0, 72%, 51%)",
+          "red-dark": "hsl(0, 72%, 45%)",
+          "red-light": "hsl(0, 72%, 60%)",
+          dark: "hsl(220, 13%, 9%)",
+          "dark-card": "hsl(220, 13%, 11%)",
+          "dark-border": "hsl(220, 13%, 20%)",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
