@@ -18,9 +18,9 @@ export default function Footer() {
                   </div>
                 </div>
                 <div>
-                  <div className="text-foreground font-semibold text-xl">ChEA - Chemical</div>
-                  <div className="text-foreground font-semibold text-xl">Engineering</div>
-                  <div className="text-foreground font-semibold text-xl">Association</div>
+                  <div className="text-foreground font-light text-xl">ChEA - Chemical</div>
+                  <div className="text-foreground font-light text-xl">Engineering</div>
+                  <div className="text-foreground font-light text-xl">Association</div>
                 </div>
               </div>
               
@@ -37,7 +37,7 @@ export default function Footer() {
             <div className="grid md:grid-cols-3 gap-8">
               {/* Quick Links */}
               <div>
-                <h3 className="text-foreground font-semibold text-lg mb-4">Quick Links</h3>
+                <h3 className="text-foreground font-light text-lg mb-4">Quick Links</h3>
                 <Button 
                   variant="outline" 
                   className="bg-primary text-primary-foreground border-primary hover:bg-primary/90"
@@ -48,7 +48,7 @@ export default function Footer() {
 
               {/* Stay Updated */}
               <div>
-                <h3 className="text-foreground font-semibold text-lg mb-4">Stay Updated</h3>
+                <h3 className="text-foreground font-light text-lg mb-4">Stay Updated</h3>
                 <p className="text-muted-foreground text-sm">
                   Subscribe to our newsletter for the latest updates and announcements.
                 </p>
@@ -56,7 +56,7 @@ export default function Footer() {
 
               {/* Connect With Us */}
               <div>
-                <h3 className="text-foreground font-semibold text-lg mb-4">Connect With Us</h3>
+                <h3 className="text-foreground font-light text-lg mb-4">Connect With Us</h3>
                 <div className="flex space-x-3">
                   <div className="w-8 h-8 bg-muted rounded-full flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
                     <span className="text-xs">f</span>
