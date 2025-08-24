@@ -97,7 +97,7 @@ export default function Hero() {
       {/* Animated Content */}
       <div className="relative z-10 container mx-auto px-4 lg:px-8 max-w-7xl">
         <div
-          className="max-w-3xl"
+          className="max-w-3xl ml-8 md:ml-16 lg:ml-24 xl:ml-32"
           style={{
             transform: `translateX(${isLoaded ? textTranslateX : -50}px)`,
             opacity: isLoaded ? textOpacity : 0,
