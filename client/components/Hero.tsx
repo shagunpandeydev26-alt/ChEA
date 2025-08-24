@@ -111,7 +111,7 @@ export default function Hero() {
             }}
           >
             <span
-              className="inline-block transition-all duration-1500 ease-out"
+              className="inline-block transition-all duration-700 ease-out"
               style={{
                 transform: `translateX(${isLoaded ? (textTranslateX * 0.5) : -100}vw)`,
                 opacity: isLoaded ? textOpacity : 0,
@@ -122,7 +122,7 @@ export default function Hero() {
             </span>
             <br />
             <span
-              className="text-foreground inline-block transition-all duration-1500 ease-out"
+              className="text-foreground inline-block transition-all duration-700 ease-out"
               style={{
                 transform: `translateX(${isLoaded ? (textTranslateX * 0.6) : -100}vw)`,
                 opacity: isLoaded ? textOpacity : 0,
@@ -133,7 +133,7 @@ export default function Hero() {
             </span>
             <br />
             <span
-              className="text-foreground inline-block transition-all duration-1500 ease-out"
+              className="text-foreground inline-block transition-all duration-700 ease-out"
               style={{
                 transform: `translateX(${isLoaded ? (textTranslateX * 0.7) : -100}vw)`,
                 opacity: isLoaded ? textOpacity : 0,
@@ -144,7 +144,7 @@ export default function Hero() {
             </span>
             <br />
             <span
-              className="text-foreground inline-block transition-all duration-1500 ease-out"
+              className="text-foreground inline-block transition-all duration-700 ease-out"
               style={{
                 transform: `translateX(${isLoaded ? (textTranslateX * 0.8) : -100}vw)`,
                 opacity: isLoaded ? textOpacity : 0,
@@ -157,7 +157,7 @@ export default function Hero() {
 
           <div className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl font-light">
             <span
-              className="inline-block transition-all duration-1500 ease-out"
+              className="inline-block transition-all duration-700 ease-out"
               style={{
                 transform: `translateX(${isLoaded ? (textTranslateX * 0.3) : -100}vw)`,
                 opacity: isLoaded ? textOpacity : 0,
@@ -169,7 +169,7 @@ export default function Hero() {
             </span>
             <br />
             <span
-              className="inline-block transition-all duration-1500 ease-out"
+              className="inline-block transition-all duration-700 ease-out"
               style={{
                 transform: `translateX(${isLoaded ? (textTranslateX * 0.4) : -100}vw)`,
                 opacity: isLoaded ? textOpacity : 0,
@@ -183,7 +183,7 @@ export default function Hero() {
 
           <Button
             size="lg"
-            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg font-light transition-all duration-1500 ease-out shadow-lg hover:shadow-xl transform hover:scale-105"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg font-light transition-all duration-700 ease-out shadow-lg hover:shadow-xl transform hover:scale-105"
             style={{
               transform: `translateX(${isLoaded ? (textTranslateX * 0.2) : -100}vw) scale(${isLoaded ? 1 : 0.95})`,
               opacity: isLoaded ? textOpacity : 0,
