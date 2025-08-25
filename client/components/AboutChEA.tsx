@@ -156,7 +156,7 @@ export default function AboutChEA() {
             {/* Left Side - About ChEA Card with Border (50% width) */}
             <div className="flex justify-center items-center">
               <Card
-                className="relative overflow-hidden border border-white bg-black/90 h-full w-full max-w-md"
+                className="relative overflow-hidden border-[0.5px] border-white bg-black/90 h-full w-full max-w-md"
                 style={{
                   transform: `translateX(${isLoaded ? 0 : -100}px)`,
                   opacity: isLoaded ? 1 : 0,
@@ -202,7 +202,7 @@ export default function AboutChEA() {
               {/* Student's Corner Card - Aligned Left */}
               <div className="flex justify-start">
                 <Card
-                  className="bg-black border border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-80"
+                  className="bg-black border-[0.5px] border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-80"
                   style={{
                     transform: `translateX(${card1Visible ? 0 : 100}px) translateY(${card1Visible ? 0 : 20}px)`,
                     opacity: card1Visible ? 1 : 0,
@@ -241,7 +241,7 @@ export default function AboutChEA() {
               {/* Events Card - Aligned Right */}
               <div className="flex justify-end">
                 <Card
-                  className="bg-black border border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-80"
+                  className="bg-black border-[0.5px] border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-80"
                   style={{
                     transform: `translateX(${card2Visible ? 0 : -100}px) translateY(${card2Visible ? 0 : 20}px)`,
                     opacity: card2Visible ? 1 : 0,
@@ -280,7 +280,7 @@ export default function AboutChEA() {
               {/* Facility Details Card - Aligned Left */}
               <div className="flex justify-start">
                 <Card
-                  className="bg-black border border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-80"
+                  className="bg-black border-[0.5px] border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-80"
                   style={{
                     transform: `translateX(${card3Visible ? 0 : 100}px) translateY(${card3Visible ? 0 : 20}px)`,
                     opacity: card3Visible ? 1 : 0,
@@ -317,7 +317,7 @@ export default function AboutChEA() {
               {/* Event Registration Card - Aligned Right */}
               <div className="flex justify-end">
                 <Card
-                  className="bg-black border border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-80"
+                  className="bg-black border-[0.5px] border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-80"
                   style={{
                     transform: `translateX(${card4Visible ? 0 : -100}px) translateY(${card4Visible ? 0 : 20}px)`,
                     opacity: card4Visible ? 1 : 0,
@@ -361,7 +361,7 @@ export default function AboutChEA() {
         className="py-0 bg-background relative overflow-hidden"
       >
         <div className="container mx-auto px-4 lg:px-8 max-w-none relative z-10">
-          <div className="border border-white bg-black min-h-[375px]">
+          <div className="border-[0.5px] border-white bg-black min-h-[375px]">
             <div className="grid lg:grid-cols-2 gap-0 h-full">
               {/* Left Side - Image with Reverse Sliding Effect */}
               <div className="relative overflow-hidden">
@@ -385,7 +385,7 @@ export default function AboutChEA() {
 
               {/* Right Side - Content with Black Background */}
               <div className="bg-black p-8 flex flex-col justify-center">
-                <p className="text-gray-300 text-lg leading-relaxed mb-8">
+                <p className="text-gray-300 text-2xl leading-relaxed mb-8">
                   We are committed to providing unprecedented support and
                   resources for the holistic development of our members. Our
                   programs focus on enhancing technical skills, fostering
@@ -490,6 +490,48 @@ export default function AboutChEA() {
                 <div className="text-gray-300 text-sm uppercase tracking-wider font-medium">
                   Members
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* New Section Below ChEA in Numbers */}
+      <section className="py-0 bg-background relative overflow-hidden">
+        <div className="container mx-auto px-4 lg:px-8 max-w-none relative z-10">
+          <div className="border-[0.5px] border-white bg-black min-h-[188px]">
+            <div className="grid lg:grid-cols-2 gap-0 h-full">
+              {/* Left Side - Image */}
+              <div className="relative overflow-hidden">
+                <img
+                  src="https://static.wixstatic.com/media/c837a6_41aece62e57346379d12018aece18ea2~mv2.jpg/v1/fill/w_860,h_1310,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_41aece62e57346379d12018aece18ea2~mv2.jpg"
+                  alt="Additional Section Background"
+                  className="w-full h-full object-cover"
+                  style={{
+                    transform: `translateX(${studentDevImageTranslateX}px) scale(1.6)`,
+                    transition: "transform 0.5s ease-out",
+                    minWidth: "170%",
+                  }}
+                />
+                <div className="absolute inset-0 bg-black/40"></div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <h2 className="text-2xl md:text-3xl font-light text-white text-center px-8">
+                    Additional<br />Information
+                  </h2>
+                </div>
+              </div>
+
+              {/* Right Side - Content */}
+              <div className="bg-black p-6 flex flex-col justify-center">
+                <p className="text-gray-300 text-xl leading-relaxed mb-6">
+                  Explore more opportunities and resources available through our association. Connect with industry professionals and expand your network.
+                </p>
+                <Button
+                  size="lg"
+                  className="bg-red-500 hover:bg-red-600 text-white px-6 py-2 text-base font-medium transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 w-fit"
+                >
+                  Learn More
+                </Button>
               </div>
             </div>
           </div>
