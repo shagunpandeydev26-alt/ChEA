@@ -115,6 +115,21 @@ export default function AboutChEA() {
   // Text motion effect - slides in from right
   const numbersTextTranslateX = numbersScrollProgress * -100;
 
+  // Join ChEA section scroll effects (similar to hero)
+  const joinCTAElement =
+    typeof document !== "undefined"
+      ? document.getElementById("join-chea-cta")
+      : null;
+  const joinCTATop = joinCTAElement?.offsetTop || 4000;
+  const joinCTAScrollProgress = Math.min(scrollY / (joinCTATop * 0.5), 1);
+
+  // Enhanced image scaling effect (similar to hero carousel)
+  const joinCTAImageScale = 1 + (joinCTAScrollProgress * 0.25); // More dramatic zoom
+
+  // Text sliding effects (from far left like hero)
+  const joinCTATextTranslateX = isLoaded ? 0 : -100; // Starting from far left
+  const joinCTATextOpacity = isLoaded ? 1 : 0;
+
   return (
     <>
       <section
