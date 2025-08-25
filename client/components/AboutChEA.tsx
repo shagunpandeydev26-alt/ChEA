@@ -5,7 +5,7 @@ export default function AboutChEA() {
   const [scrollY, setScrollY] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
   // Single background image
-  const backgroundImage = "https://thumbs.dreamstime.com/b/abstract-dark-molecule-structure-background-utilized-science-medical-research-cosmetic-black-atom-model-connections-dna-362061577.jpg?format=webp&width=800";
+  const backgroundImage = "https://static.wixstatic.com/media/c837a6_2119733e838e4a2f8813ebde736f99d5~mv2.jpg/v1/fill/w_1901,h_1625,al_b,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_2119733e838e4a2f8813ebde736f99d5~mv2.jpg?format=webp&width=800";
 
   // Handle scroll effects
   useEffect(() => {
