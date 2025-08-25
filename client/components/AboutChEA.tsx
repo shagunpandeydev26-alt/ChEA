@@ -5,7 +5,7 @@ export default function AboutChEA() {
   const [scrollY, setScrollY] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
   // Single background image
-  const backgroundImage = "https://starktony123012.wixsite.com/chea";
+  const backgroundImage = "https://img.freepik.com/premium-photo/abstract-black-molecule-structure-background_140916-40650.jpg?format=webp&width=800";
 
   // Handle scroll effects
   useEffect(() => {
