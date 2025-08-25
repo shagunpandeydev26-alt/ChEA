@@ -39,7 +39,7 @@ export default function AboutChEA() {
         <div className="grid lg:grid-cols-2 gap-8 h-screen max-h-[800px]">
           {/* About ChEA Card - Top Left */}
           <Card 
-            className="relative group overflow-hidden border-border/20 hover:scale-105 transition-all duration-700 ease-out"
+            className="relative group overflow-hidden border-border/20 hover:scale-105 transition-all duration-[2000ms] ease-out"
             style={{
               transform: `translateX(${isLoaded ? 0 : -40}px)`,
               opacity: isLoaded ? 1 : 0,
@@ -50,7 +50,7 @@ export default function AboutChEA() {
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2F612e9a82b86748da836eaf9bc77dd81e%2F6772b371f4814bc98b2cf668c8b63c85?format=webp&width=800"
                 alt="Chemical Engineering Lab"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-black/70"></div>
             </div>
@@ -75,7 +75,7 @@ export default function AboutChEA() {
 
           {/* Student's Corner Card - Top Right */}
           <Card 
-            className="relative group overflow-hidden border-border/20 hover:scale-105 transition-all duration-700 ease-out"
+            className="relative group overflow-hidden border-border/20 hover:scale-105 transition-all duration-[2000ms] ease-out"
             style={{
               transform: `translateX(${isLoaded ? 0 : 40}px)`,
               opacity: isLoaded ? 1 : 0,
@@ -86,7 +86,7 @@ export default function AboutChEA() {
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2F612e9a82b86748da836eaf9bc77dd81e%2F7f76d15846714e82b37da415ec914a8f?format=webp&width=800"
                 alt="Students Learning"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-black/70"></div>
             </div>
@@ -112,7 +112,7 @@ export default function AboutChEA() {
 
           {/* Events Card - Bottom Left */}
           <Card 
-            className="relative group overflow-hidden border-border/20 hover:scale-105 transition-all duration-700 ease-out"
+            className="relative group overflow-hidden border-border/20 hover:scale-105 transition-all duration-[2000ms] ease-out"
             style={{
               transform: `translateX(${isLoaded ? 0 : -40}px)`,
               opacity: isLoaded ? 1 : 0,
@@ -123,7 +123,7 @@ export default function AboutChEA() {
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2F612e9a82b86748da836eaf9bc77dd81e%2F4722d5d1ce014a308bb79a3a758dd8ac?format=webp&width=800"
                 alt="Chemical Engineering Events"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-black/70"></div>
             </div>
@@ -149,7 +149,7 @@ export default function AboutChEA() {
 
           {/* Facility Details Card - Bottom Right */}
           <Card 
-            className="relative group overflow-hidden border-border/20 hover:scale-105 transition-all duration-700 ease-out"
+            className="relative group overflow-hidden border-border/20 hover:scale-105 transition-all duration-[2000ms] ease-out"
             style={{
               transform: `translateX(${isLoaded ? 0 : 40}px)`,
               opacity: isLoaded ? 1 : 0,
@@ -160,7 +160,7 @@ export default function AboutChEA() {
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2F612e9a82b86748da836eaf9bc77dd81e%2F00108060be0b49f38e94860468ddbfef?format=webp&width=800"
                 alt="Chemical Engineering Facilities"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-black/70"></div>
             </div>
@@ -188,7 +188,7 @@ export default function AboutChEA() {
         {/* Additional Event Registration Section */}
         <div className="mt-16">
           <Card 
-            className="relative group overflow-hidden border-border/20 hover:scale-[1.02] transition-all duration-700 ease-out"
+            className="relative group overflow-hidden border-border/20 hover:scale-[1.02] transition-all duration-[2000ms] ease-out"
             style={{
               transform: `translateY(${isLoaded ? 0 : 40}px)`,
               opacity: isLoaded ? 1 : 0,
@@ -199,7 +199,7 @@ export default function AboutChEA() {
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2F612e9a82b86748da836eaf9bc77dd81e%2F6772b371f4814bc98b2cf668c8b63c85?format=webp&width=800"
                 alt="Event Registration"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-black/75"></div>
             </div>
