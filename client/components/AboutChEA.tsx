@@ -124,7 +124,7 @@ export default function AboutChEA() {
   const joinCTAScrollProgress = Math.min(scrollY / (joinCTATop * 0.5), 1);
 
   // Enhanced image scaling effect (similar to hero carousel)
-  const joinCTAImageScale = 1 + (joinCTAScrollProgress * 0.25); // More dramatic zoom
+  const joinCTAImageScale = 1 + joinCTAScrollProgress * 0.25; // More dramatic zoom
 
   // Text sliding effects (from far left like hero)
   const joinCTATextTranslateX = isLoaded ? 0 : -100; // Starting from far left
@@ -321,7 +321,10 @@ export default function AboutChEA() {
                           Facility Details
                         </h3>
                         <p className="text-gray-300 leading-relaxed text-sm">
-                          Explore our state-of-the-art facilities including well-equipped laboratories, modern equipment, and research centers designed to support hands-on learning.
+                          Explore our state-of-the-art facilities including
+                          well-equipped laboratories, modern equipment, and
+                          research centers designed to support hands-on
+                          learning.
                         </p>
                       </div>
                     </div>
@@ -358,7 +361,9 @@ export default function AboutChEA() {
                           Event Registration
                         </h3>
                         <p className="text-gray-300 leading-relaxed text-sm">
-                          Register for upcoming workshops, seminars, and technical sessions. Stay connected with industry professionals and enhance your career prospects.
+                          Register for upcoming workshops, seminars, and
+                          technical sessions. Stay connected with industry
+                          professionals and enhance your career prospects.
                         </p>
                       </div>
                     </div>
@@ -393,7 +398,9 @@ export default function AboutChEA() {
                 <div className="absolute inset-0 bg-black/40"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <h2 className="text-4xl md:text-5xl font-light text-white text-center px-8">
-                    Student Development<br />Initiatives
+                    Student Development
+                    <br />
+                    Initiatives
                   </h2>
                 </div>
               </div>
@@ -420,7 +427,10 @@ export default function AboutChEA() {
       </section>
 
       {/* ChEA in Numbers Section */}
-      <section id="chea-numbers" className="py-24 bg-background relative overflow-hidden">
+      <section
+        id="chea-numbers"
+        className="py-24 bg-background relative overflow-hidden"
+      >
         {/* Section Background Image */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 overflow-hidden">
@@ -473,7 +483,9 @@ export default function AboutChEA() {
                   10+
                 </div>
                 <div className="text-gray-300 text-sm uppercase tracking-wider font-medium">
-                  Events Attended<br />Annually
+                  Events Attended
+                  <br />
+                  Annually
                 </div>
               </div>
 
@@ -512,14 +524,17 @@ export default function AboutChEA() {
       </section>
 
       {/* Join ChEA CTA Section */}
-      <section id="join-chea-cta" className="relative min-h-screen bg-background overflow-hidden">
+      <section
+        id="join-chea-cta"
+        className="relative min-h-screen bg-background overflow-hidden"
+      >
         {/* Enhanced Background Image with Dramatic Zoom Effect */}
         <div className="absolute inset-0">
           <div
             className="absolute inset-0 transition-all duration-3000 ease-in-out opacity-70"
             style={{
               transform: `scale(${joinCTAImageScale})`,
-              transition: 'transform 0.8s ease-out, opacity 3s ease-in-out'
+              transition: "transform 0.8s ease-out, opacity 3s ease-in-out",
             }}
           >
             <img
@@ -527,7 +542,7 @@ export default function AboutChEA() {
               alt="Join ChEA Background"
               className="w-full h-full object-cover object-center"
               style={{
-                filter: 'blur(0.5px) brightness(0.8) contrast(1.05)',
+                filter: "blur(0.5px) brightness(0.8) contrast(1.05)",
               }}
             />
           </div>
@@ -557,17 +572,18 @@ export default function AboutChEA() {
               style={{
                 transform: `translateX(${isLoaded ? joinCTATextTranslateX * 0.3 : -100}vw)`,
                 opacity: isLoaded ? joinCTATextOpacity : 0,
-                transition: 'transform 2.5s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 2.5s ease-out'
+                transition:
+                  "transform 2.5s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 2.5s ease-out",
               }}
             >
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-8">
                 <span
                   className="inline-block transition-all duration-[2500ms] ease-out"
                   style={{
-                    transform: `translateX(${isLoaded ? (joinCTATextTranslateX * 0.5) : -100}vw)`,
+                    transform: `translateX(${isLoaded ? joinCTATextTranslateX * 0.5 : -100}vw)`,
                     opacity: isLoaded ? joinCTATextOpacity : 0,
-                    transitionDelay: '0.2s',
-                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)'
+                    transitionDelay: "0.2s",
+                    textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
                   }}
                 >
                   Join ChEA and
@@ -576,10 +592,10 @@ export default function AboutChEA() {
                 <span
                   className="inline-block transition-all duration-[2500ms] ease-out"
                   style={{
-                    transform: `translateX(${isLoaded ? (joinCTATextTranslateX * 0.6) : -100}vw)`,
+                    transform: `translateX(${isLoaded ? joinCTATextTranslateX * 0.6 : -100}vw)`,
                     opacity: isLoaded ? joinCTATextOpacity : 0,
-                    transitionDelay: '0.4s',
-                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)'
+                    transitionDelay: "0.4s",
+                    textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
                   }}
                 >
                   Ignite Your Potential
@@ -591,9 +607,10 @@ export default function AboutChEA() {
             <div
               className="flex flex-col justify-center"
               style={{
-                transform: `translateX(${isLoaded ? (joinCTATextTranslateX * -0.3) : 100}vw)`,
+                transform: `translateX(${isLoaded ? joinCTATextTranslateX * -0.3 : 100}vw)`,
                 opacity: isLoaded ? joinCTATextOpacity : 0,
-                transition: 'transform 2.5s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 2.5s ease-out'
+                transition:
+                  "transform 2.5s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 2.5s ease-out",
               }}
             >
               <p
@@ -601,9 +618,10 @@ export default function AboutChEA() {
                 style={{
                   transform: `translateX(${isLoaded ? 0 : 80}px)`,
                   opacity: isLoaded ? 1 : 0,
-                  transition: 'transform 2s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 2s ease-out',
-                  transitionDelay: '0.6s',
-                  textShadow: '1px 1px 3px rgba(0, 0, 0, 0.6)'
+                  transition:
+                    "transform 2s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 2s ease-out",
+                  transitionDelay: "0.6s",
+                  textShadow: "1px 1px 3px rgba(0, 0, 0, 0.6)",
                 }}
               >
                 <span
@@ -611,20 +629,24 @@ export default function AboutChEA() {
                   style={{
                     transform: `translateX(${isLoaded ? 0 : 60}px)`,
                     opacity: isLoaded ? 1 : 0,
-                    transitionDelay: '0.8s'
+                    transitionDelay: "0.8s",
                   }}
                 >
-                  Take the first step towards a successful career in chemical engineering.
+                  Take the first step towards a successful career in chemical
+                  engineering.
                 </span>
                 <span
                   className="inline-block transition-all duration-[2000ms] ease-out"
                   style={{
                     transform: `translateX(${isLoaded ? 0 : 60}px)`,
                     opacity: isLoaded ? 1 : 0,
-                    transitionDelay: '1s'
+                    transitionDelay: "1s",
                   }}
                 >
-                  {" "}Join ChEA to access a world of opportunities, enrich your learning, and connect with a community of passionate individuals.
+                  {" "}
+                  Join ChEA to access a world of opportunities, enrich your
+                  learning, and connect with a community of passionate
+                  individuals.
                 </span>
               </p>
 
@@ -634,8 +656,9 @@ export default function AboutChEA() {
                 style={{
                   transform: `translateX(${isLoaded ? 0 : 100}px) scale(${isLoaded ? 1 : 0.8})`,
                   opacity: isLoaded ? 1 : 0,
-                  transition: 'transform 2s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 2s ease-out, scale 0.3s ease-out',
-                  transitionDelay: '1.2s'
+                  transition:
+                    "transform 2s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 2s ease-out, scale 0.3s ease-out",
+                  transitionDelay: "1.2s",
                 }}
               >
                 Become a Member
@@ -644,7 +667,6 @@ export default function AboutChEA() {
           </div>
         </div>
       </section>
-
     </>
   );
 }
