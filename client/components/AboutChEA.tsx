@@ -262,26 +262,6 @@ export default function AboutChEA() {
         </div>
       </div>
 
-      {/* Background Carousel indicators - Same as Hero */}
-      <div className="absolute bottom-8 right-8 z-20">
-        <div className="flex space-x-3">
-          {backgroundImages.map((_, index) => (
-            <div
-              key={index}
-              className={`w-3 h-3 rounded-full transition-all duration-700 ease-out ${
-                index === currentImageIndex
-                  ? 'bg-primary scale-125 shadow-lg'
-                  : 'bg-white/50 hover:bg-white/70 hover:scale-110'
-              }`}
-              onClick={() => setCurrentImageIndex(index)}
-              style={{
-                cursor: 'pointer',
-                backdropFilter: 'blur(2px)'
-              }}
-            />
-          ))}
-        </div>
-      </div>
     </section>
   );
 }
