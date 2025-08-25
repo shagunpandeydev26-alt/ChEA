@@ -48,9 +48,9 @@ export default function Hero() {
   // Subtle zoom effect: gentle scale up when scrolling down
   const imageScale = 1 + (scrollProgress * 0.15); // Gentle zoom from 1x to 1.15x
 
-  // Very subtle text animation: minimal slide left when scrolling down
-  const textTranslateX = scrollProgress * -30; // Very gentle move left up to -30px
-  const textOpacity = Math.max(0.5, 1 - (scrollProgress * 0.5)); // Minimal fade out, minimum 50%
+  // Text stays in place after initial animation - no scroll effects
+  const textTranslateX = 0; // No scroll-based movement
+  const textOpacity = 1; // No scroll-based opacity changes
 
   return (
     <section className="relative min-h-screen flex items-center justify-start bg-background overflow-hidden pt-32">
