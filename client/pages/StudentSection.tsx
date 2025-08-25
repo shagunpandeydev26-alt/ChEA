@@ -8,13 +8,13 @@ export default function StudentSection() {
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Calculate hero background zoom based on scroll position
   const getHeroBackgroundTransform = () => {
-    const zoomEffect = 1 + (scrollY * 0.0003);
+    const zoomEffect = 1 + scrollY * 0.0003;
     return `scale(${zoomEffect})`;
   };
 
@@ -26,10 +26,12 @@ export default function StudentSection() {
       author: "Priya Sharma",
       date: "January 15, 2024",
       category: "Academic",
-      image: "https://static.wixstatic.com/media/c837a6_1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p~mv2.jpg/v1/fill/w_600,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/process-design.jpg",
-      excerpt: "Diving deep into the fundamentals of chemical process design has been an incredible learning experience. From understanding heat exchangers to optimizing reaction conditions...",
+      image:
+        "https://static.wixstatic.com/media/c837a6_1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p~mv2.jpg/v1/fill/w_600,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/process-design.jpg",
+      excerpt:
+        "Diving deep into the fundamentals of chemical process design has been an incredible learning experience. From understanding heat exchangers to optimizing reaction conditions...",
       readTime: "5 min read",
-      tags: ["Process Design", "MATLAB", "Optimization"]
+      tags: ["Process Design", "MATLAB", "Optimization"],
     },
     {
       id: 2,
@@ -37,10 +39,12 @@ export default function StudentSection() {
       author: "Rahul Gupta",
       date: "January 12, 2024",
       category: "Technology",
-      image: "https://static.wixstatic.com/media/c837a6_2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q~mv2.jpg/v1/fill/w_600,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/industry4.jpg",
-      excerpt: "The digital transformation in chemical engineering is revolutionizing how we approach process control, data analytics, and predictive maintenance...",
+      image:
+        "https://static.wixstatic.com/media/c837a6_2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q~mv2.jpg/v1/fill/w_600,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/industry4.jpg",
+      excerpt:
+        "The digital transformation in chemical engineering is revolutionizing how we approach process control, data analytics, and predictive maintenance...",
       readTime: "7 min read",
-      tags: ["Industry 4.0", "IoT", "Digital Transformation"]
+      tags: ["Industry 4.0", "IoT", "Digital Transformation"],
     },
     {
       id: 3,
@@ -48,10 +52,12 @@ export default function StudentSection() {
       author: "Anjali Verma",
       date: "January 10, 2024",
       category: "Career",
-      image: "https://static.wixstatic.com/media/c837a6_3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r~mv2.jpg/v1/fill/w_600,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/internship.jpg",
-      excerpt: "Working at ONGC as a summer intern provided invaluable insights into the petroleum industry. From refinery operations to safety protocols...",
+      image:
+        "https://static.wixstatic.com/media/c837a6_3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r~mv2.jpg/v1/fill/w_600,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/internship.jpg",
+      excerpt:
+        "Working at ONGC as a summer intern provided invaluable insights into the petroleum industry. From refinery operations to safety protocols...",
       readTime: "6 min read",
-      tags: ["Internship", "ONGC", "Career Development"]
+      tags: ["Internship", "ONGC", "Career Development"],
     },
     {
       id: 4,
@@ -59,10 +65,12 @@ export default function StudentSection() {
       author: "Vikash Kumar",
       date: "January 8, 2024",
       category: "Sustainability",
-      image: "https://static.wixstatic.com/media/c837a6_4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s~mv2.jpg/v1/fill/w_600,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/green-chemistry.jpg",
-      excerpt: "Exploring green chemistry principles and their applications in developing environmentally friendly chemical processes and products...",
+      image:
+        "https://static.wixstatic.com/media/c837a6_4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s~mv2.jpg/v1/fill/w_600,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/green-chemistry.jpg",
+      excerpt:
+        "Exploring green chemistry principles and their applications in developing environmentally friendly chemical processes and products...",
       readTime: "8 min read",
-      tags: ["Green Chemistry", "Sustainability", "Environment"]
+      tags: ["Green Chemistry", "Sustainability", "Environment"],
     },
     {
       id: 5,
@@ -70,10 +78,12 @@ export default function StudentSection() {
       author: "Neha Agarwal",
       date: "January 5, 2024",
       category: "Academic",
-      image: "https://static.wixstatic.com/media/c837a6_5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t~mv2.jpg/v1/fill/w_600,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/thermodynamics.jpg",
-      excerpt: "Understanding thermodynamics can be challenging, but with the right approach and practical examples, it becomes much more manageable...",
+      image:
+        "https://static.wixstatic.com/media/c837a6_5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t~mv2.jpg/v1/fill/w_600,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/thermodynamics.jpg",
+      excerpt:
+        "Understanding thermodynamics can be challenging, but with the right approach and practical examples, it becomes much more manageable...",
       readTime: "10 min read",
-      tags: ["Thermodynamics", "Study Tips", "Theory"]
+      tags: ["Thermodynamics", "Study Tips", "Theory"],
     },
     {
       id: 6,
@@ -81,11 +91,13 @@ export default function StudentSection() {
       author: "Aman Singh",
       date: "January 3, 2024",
       category: "Research",
-      image: "https://static.wixstatic.com/media/c837a6_6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u~mv2.jpg/v1/fill/w_600,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/nanotechnology.jpg",
-      excerpt: "Our latest research explores how nanotechnology can revolutionize drug delivery systems, improving efficacy and reducing side effects...",
+      image:
+        "https://static.wixstatic.com/media/c837a6_6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u~mv2.jpg/v1/fill/w_600,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/nanotechnology.jpg",
+      excerpt:
+        "Our latest research explores how nanotechnology can revolutionize drug delivery systems, improving efficacy and reducing side effects...",
       readTime: "9 min read",
-      tags: ["Nanotechnology", "Research", "Bioengineering"]
-    }
+      tags: ["Nanotechnology", "Research", "Bioengineering"],
+    },
   ];
 
   // Featured posts (first 3)
@@ -95,18 +107,18 @@ export default function StudentSection() {
   return (
     <div className="min-h-screen bg-black">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 w-full h-full"
           style={{
             backgroundImage: `url('https://static.wixstatic.com/media/c837a6_d11c6c437c0f4feb9de8591b42ead168~mv2.jpg/v1/fill/w_2281,h_1119,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_d11c6c437c0f4feb9de8591b42ead168~mv2.jpg')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
             transform: getHeroBackgroundTransform(),
-            transition: 'transform 0.1s ease-out'
+            transition: "transform 0.1s ease-out",
           }}
         ></div>
         <div className="absolute inset-0 bg-black/70"></div>
@@ -119,7 +131,9 @@ export default function StudentSection() {
               Stories, Insights & Academic Excellence
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Explore the experiences, research breakthroughs, and academic journeys of ChEA members as they share their knowledge and insights.
+              Explore the experiences, research breakthroughs, and academic
+              journeys of ChEA members as they share their knowledge and
+              insights.
             </p>
           </div>
         </div>
@@ -129,22 +143,29 @@ export default function StudentSection() {
       <section className="py-20 bg-chea-dark">
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-light text-white mb-6">Featured Stories</h2>
+            <h2 className="text-4xl lg:text-5xl font-light text-white mb-6">
+              Featured Stories
+            </h2>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              Highlighted articles from our community members sharing their latest insights and experiences.
+              Highlighted articles from our community members sharing their
+              latest insights and experiences.
             </p>
           </div>
-          
+
           <div className="grid lg:grid-cols-3 gap-8 mb-20">
             {featuredPosts.map((post, index) => (
-              <Card key={post.id} className="bg-chea-dark-card border-chea-red/20 hover:border-chea-red/60 transition-all duration-500 transform hover:scale-105 overflow-hidden">
+              <Card
+                key={post.id}
+                className="bg-chea-dark-card border-chea-red/20 hover:border-chea-red/60 transition-all duration-500 transform hover:scale-105 overflow-hidden"
+              >
                 <div className="relative h-48 overflow-hidden">
                   <img
                     src={post.image}
                     alt={post.title}
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                     onError={(e) => {
-                      e.currentTarget.src = "https://static.wixstatic.com/media/c837a6_a56caf65f5424508937c5d7a4ced1619~mv2.jpg/v1/fill/w_600,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/placeholder.jpg";
+                      e.currentTarget.src =
+                        "https://static.wixstatic.com/media/c837a6_a56caf65f5424508937c5d7a4ced1619~mv2.jpg/v1/fill/w_600,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/placeholder.jpg";
                     }}
                   />
                   <div className="absolute top-4 left-4">
@@ -187,11 +208,16 @@ export default function StudentSection() {
       {/* All Posts Section */}
       <section className="py-20 bg-chea-dark">
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
-          <h2 className="text-4xl lg:text-5xl font-light text-white mb-12 text-center">Latest Articles</h2>
-          
+          <h2 className="text-4xl lg:text-5xl font-light text-white mb-12 text-center">
+            Latest Articles
+          </h2>
+
           <div className="space-y-8">
             {regularPosts.map((post, index) => (
-              <Card key={post.id} className="bg-chea-dark-card border-chea-red/20 hover:border-chea-red/40 transition-all duration-300 overflow-hidden">
+              <Card
+                key={post.id}
+                className="bg-chea-dark-card border-chea-red/20 hover:border-chea-red/40 transition-all duration-300 overflow-hidden"
+              >
                 <div className="grid lg:grid-cols-3 gap-0">
                   <div className="relative h-64 lg:h-auto overflow-hidden">
                     <img
@@ -199,7 +225,8 @@ export default function StudentSection() {
                       alt={post.title}
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                       onError={(e) => {
-                        e.currentTarget.src = "https://static.wixstatic.com/media/c837a6_a56caf65f5424508937c5d7a4ced1619~mv2.jpg/v1/fill/w_600,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/placeholder.jpg";
+                        e.currentTarget.src =
+                          "https://static.wixstatic.com/media/c837a6_a56caf65f5424508937c5d7a4ced1619~mv2.jpg/v1/fill/w_600,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/placeholder.jpg";
                       }}
                     />
                     <div className="absolute top-4 left-4">
@@ -210,7 +237,9 @@ export default function StudentSection() {
                   </div>
                   <CardContent className="lg:col-span-2 p-8 flex flex-col justify-center">
                     <div className="flex items-center gap-4 text-sm text-gray-400 mb-4">
-                      <span className="font-medium text-chea-red">{post.author}</span>
+                      <span className="font-medium text-chea-red">
+                        {post.author}
+                      </span>
                       <span>•</span>
                       <span>{post.date}</span>
                       <span>•</span>
@@ -241,9 +270,13 @@ export default function StudentSection() {
           {/* Call to Action */}
           <div className="text-center mt-16">
             <div className="bg-gradient-to-r from-chea-red/20 to-transparent p-8 rounded-2xl border border-chea-red/30">
-              <h3 className="text-3xl font-light text-white mb-4">Share Your Story</h3>
+              <h3 className="text-3xl font-light text-white mb-4">
+                Share Your Story
+              </h3>
               <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-                Have an interesting experience, research finding, or academic insight to share? We'd love to feature your story on our student blog.
+                Have an interesting experience, research finding, or academic
+                insight to share? We'd love to feature your story on our student
+                blog.
               </p>
               <button className="bg-chea-red hover:bg-chea-red-dark text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
                 Submit Your Article

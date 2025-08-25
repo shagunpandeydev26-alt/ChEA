@@ -6,7 +6,7 @@ export default function Header() {
   const [isVisible, setIsVisible] = useState(true);
   const [opacity, setOpacity] = useState(1);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up');
+  const [scrollDirection, setScrollDirection] = useState<"up" | "down">("up");
   const [isMoreDropdownOpen, setIsMoreDropdownOpen] = useState(false);
 
   useEffect(() => {
@@ -15,25 +15,27 @@ export default function Header() {
       const heroSectionHeight = window.innerHeight; // Full hero section height
       const trigger50Percent = heroSectionHeight * 0.5; // 50% of hero section
       const fadeStartPoint = heroSectionHeight * 0.3; // Start fading at 30%
-      
+
       // Determine scroll direction
-      const direction = currentScrollY > lastScrollY ? 'down' : 'up';
+      const direction = currentScrollY > lastScrollY ? "down" : "up";
       setScrollDirection(direction);
 
       // Calculate opacity based on scroll position for smooth fade
       let newOpacity = 1;
       if (currentScrollY > fadeStartPoint) {
         // Calculate fade progress from 30% to 50%
-        const fadeProgress = (currentScrollY - fadeStartPoint) / (trigger50Percent - fadeStartPoint);
+        const fadeProgress =
+          (currentScrollY - fadeStartPoint) /
+          (trigger50Percent - fadeStartPoint);
         newOpacity = Math.max(0, 1 - fadeProgress);
       }
 
       // Determine visibility based on 50% hero section and scroll direction
       let shouldBeVisible = true;
-      
+
       if (currentScrollY > trigger50Percent) {
         // Past 50% of hero section
-        if (direction === 'down') {
+        if (direction === "down") {
           shouldBeVisible = false;
         } else {
           // Scrolling up - show with fade in effect
@@ -56,22 +58,20 @@ export default function Header() {
       setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
   return (
-    <header 
+    <header
       className={`fixed left-0 right-0 z-50 transition-all duration-1000 ease-out ${
-        isVisible
-          ? 'translate-y-0'
-          : '-translate-y-full'
+        isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
-      style={{ 
-        top: '20px',
+      style={{
+        top: "20px",
         opacity: isVisible ? opacity : 0,
-        transform: `translateY(${isVisible ? '0' : '-100%'}) scale(${isVisible ? 1 : 0.95})`,
-        transition: 'all 1s cubic-bezier(0.4, 0, 0.2, 1)'
+        transform: `translateY(${isVisible ? "0" : "-100%"}) scale(${isVisible ? 1 : 0.95})`,
+        transition: "all 1s cubic-bezier(0.4, 0, 0.2, 1)",
       }}
     >
       <div className="container mx-auto px-4 lg:px-8">
@@ -80,11 +80,11 @@ export default function Header() {
           <Link to="/" className="flex items-center space-x-4">
             <div className="relative mt-6">
               {/* Circular frame for logo */}
-              <div 
+              <div
                 className="w-24 h-24 rounded-full overflow-hidden bg-white shadow-lg border-2 border-white/20 transition-all duration-500"
                 style={{
-                  transform: `scale(${0.9 + (opacity * 0.1)})`,
-                  boxShadow: `0 10px 25px rgba(0,0,0,${0.1 * opacity})`
+                  transform: `scale(${0.9 + opacity * 0.1})`,
+                  boxShadow: `0 10px 25px rgba(0,0,0,${0.1 * opacity})`,
                 }}
               >
                 <img
@@ -93,8 +93,9 @@ export default function Header() {
                   className="w-full h-full object-cover object-center scale-150 transition-transform duration-[2500ms]"
                   onError={(e) => {
                     // Fallback if image fails to load
-                    e.currentTarget.style.display = 'none';
-                    e.currentTarget.parentElement.nextElementSibling.style.display = 'flex';
+                    e.currentTarget.style.display = "none";
+                    e.currentTarget.parentElement.nextElementSibling.style.display =
+                      "flex";
                   }}
                 />
               </div>
@@ -105,36 +106,47 @@ export default function Header() {
                 </div>
               </div>
             </div>
-            <div 
+            <div
               className="hidden sm:block mt-6 transition-all duration-[2500ms]"
               style={{
                 opacity: opacity,
-                transform: `translateX(${(1 - opacity) * -20}px)`
+                transform: `translateX(${(1 - opacity) * -20}px)`,
               }}
             >
               <div className="text-white">
                 <div className="font-bold text-2xl">ChEA</div>
-                <div className="text-lg text-white/90 font-bold">Chemical Engineering Association</div>
+                <div className="text-lg text-white/90 font-bold">
+                  Chemical Engineering Association
+                </div>
               </div>
             </div>
           </Link>
 
           {/* Navigation Menu and Auth Buttons - All on Right */}
-          <div 
+          <div
             className="hidden md:flex items-center space-x-8 transition-all duration-[2500ms]"
             style={{
               opacity: opacity,
-              transform: `translateX(${(1 - opacity) * 20}px)`
+              transform: `translateX(${(1 - opacity) * 20}px)`,
             }}
           >
             <nav className="flex items-center space-x-8">
-              <Link to="/vision" className="text-white hover:text-primary transition-colors text-sm font-light">
+              <Link
+                to="/vision"
+                className="text-white hover:text-primary transition-colors text-sm font-light"
+              >
                 Vision
               </Link>
-              <Link to="/events" className="text-white hover:text-primary transition-colors text-sm font-light">
+              <Link
+                to="/events"
+                className="text-white hover:text-primary transition-colors text-sm font-light"
+              >
                 Events
               </Link>
-              <Link to="/programs" className="text-white hover:text-primary transition-colors text-sm font-light">
+              <Link
+                to="/programs"
+                className="text-white hover:text-primary transition-colors text-sm font-light"
+              >
                 Programs
               </Link>
 
@@ -146,15 +158,29 @@ export default function Header() {
               >
                 <button className="text-white hover:text-primary transition-colors text-sm font-light flex items-center">
                   More
-                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  <svg
+                    className="w-4 h-4 ml-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
                   </svg>
                 </button>
 
                 {/* Dropdown Menu */}
-                <div className={`absolute top-full left-0 mt-2 w-48 bg-black/90 backdrop-blur-sm border border-white/20 rounded-lg shadow-xl transition-all duration-300 ${
-                  isMoreDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
-                }`}>
+                <div
+                  className={`absolute top-full left-0 mt-2 w-48 bg-black/90 backdrop-blur-sm border border-white/20 rounded-lg shadow-xl transition-all duration-300 ${
+                    isMoreDropdownOpen
+                      ? "opacity-100 visible translate-y-0"
+                      : "opacity-0 invisible -translate-y-2"
+                  }`}
+                >
                   <div className="py-2">
                     <Link
                       to="/student-section"
@@ -175,7 +201,11 @@ export default function Header() {
 
             {/* Auth Buttons */}
             <div className="flex items-center space-x-3">
-              <Button variant="ghost" size="sm" className="text-white hover:text-primary font-light transition-all duration-300">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-white hover:text-primary font-light transition-all duration-300"
+              >
                 Log In
               </Button>
               <Button
