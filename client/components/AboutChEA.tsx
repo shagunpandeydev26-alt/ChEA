@@ -48,7 +48,7 @@ export default function AboutChEA() {
           <img
             src="https://cdn.builder.io/api/v1/image/assets%2F612e9a82b86748da836eaf9bc77dd81e%2F6772b371f4814bc98b2cf668c8b63c85?format=webp&width=800"
             alt="About Section Background"
-            className="w-full h-full object-cover opacity-30"
+            className="w-full h-full object-cover "
             style={{
               filter: 'brightness(0.4) contrast(1.1)',
             }}
