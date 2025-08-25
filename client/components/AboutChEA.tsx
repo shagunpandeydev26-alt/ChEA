@@ -176,12 +176,12 @@ export default function AboutChEA() {
               </Card>
             </div>
 
-            {/* Right Side - Two Cards matching main card dimensions */}
-            <div className="flex flex-col justify-center space-y-4">
-              {/* Student's Corner Card */}
-              <div className="flex justify-center">
+            {/* Right Side - Four Cards in Zig-Zag Format (50% width) */}
+            <div className="flex flex-col justify-center space-y-2">
+              {/* Student's Corner Card - Aligned Left */}
+              <div className="flex justify-start">
                 <Card
-                  className="bg-black border-2 border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-full max-w-md h-full"
+                  className="bg-black border-2 border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-80"
                   style={{
                     transform: `translateX(${card1Visible ? 0 : 100}px) translateY(${card1Visible ? 0 : 20}px)`,
                     opacity: card1Visible ? 1 : 0,
@@ -189,7 +189,7 @@ export default function AboutChEA() {
                       "transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.8s ease-out",
                   }}
                 >
-                  <CardContent className="p-8 h-full flex flex-col justify-center">
+                  <CardContent className="p-4">
                     <div className="flex items-start space-x-4">
                       <div className="flex-shrink-0 mt-1">
                         <div className="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center">
@@ -206,7 +206,7 @@ export default function AboutChEA() {
                         <h3 className="text-xl font-light text-white mb-3">
                           Student's Corner
                         </h3>
-                        <p className="text-gray-300 leading-relaxed text-lg">
+                        <p className="text-gray-300 leading-relaxed text-sm">
                           The student's corner is where our members can access
                           resources, articles, and educational materials related
                           to chemical engineering.
@@ -217,10 +217,10 @@ export default function AboutChEA() {
                 </Card>
               </div>
 
-              {/* Events Card */}
-              <div className="flex justify-center">
+              {/* Events Card - Aligned Right */}
+              <div className="flex justify-end">
                 <Card
-                  className="bg-black border-2 border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-full max-w-md h-full"
+                  className="bg-black border-2 border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-80"
                   style={{
                     transform: `translateX(${card2Visible ? 0 : -100}px) translateY(${card2Visible ? 0 : 20}px)`,
                     opacity: card2Visible ? 1 : 0,
@@ -228,7 +228,7 @@ export default function AboutChEA() {
                       "transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.8s ease-out",
                   }}
                 >
-                  <CardContent className="p-8 h-full flex flex-col justify-center">
+                  <CardContent className="p-4">
                     <div className="flex items-start space-x-4">
                       <div className="flex-shrink-0 mt-1">
                         <div className="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center">
@@ -245,10 +245,84 @@ export default function AboutChEA() {
                         <h3 className="text-xl font-light text-white mb-3">
                           Events
                         </h3>
-                        <p className="text-gray-300 leading-relaxed text-lg">
+                        <p className="text-gray-300 leading-relaxed text-sm">
                           Stay updated with our past and upcoming events. We
                           host workshops, seminars, and industry visits to give
                           students practical exposure and insights.
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Facility Details Card - Aligned Left */}
+              <div className="flex justify-start">
+                <Card
+                  className="bg-black border-2 border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-80"
+                  style={{
+                    transform: `translateX(${card3Visible ? 0 : 100}px) translateY(${card3Visible ? 0 : 20}px)`,
+                    opacity: card3Visible ? 1 : 0,
+                    transition:
+                      "transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.8s ease-out",
+                  }}
+                >
+                  <CardContent className="p-4">
+                    <div className="flex items-start space-x-4">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center">
+                          <svg
+                            className="w-6 h-6 text-red-500"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                          </svg>
+                        </div>
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-light text-white mb-3">
+                          Facility Details
+                        </h3>
+                        <p className="text-gray-300 leading-relaxed text-sm">
+                          Explore our state-of-the-art facilities including well-equipped laboratories, modern equipment, and research centers designed to support hands-on learning.
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Event Registration Card - Aligned Right */}
+              <div className="flex justify-end">
+                <Card
+                  className="bg-black border-2 border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-80"
+                  style={{
+                    transform: `translateX(${card4Visible ? 0 : -100}px) translateY(${card4Visible ? 0 : 20}px)`,
+                    opacity: card4Visible ? 1 : 0,
+                    transition:
+                      "transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.8s ease-out",
+                  }}
+                >
+                  <CardContent className="p-4">
+                    <div className="flex items-start space-x-4">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center">
+                          <svg
+                            className="w-6 h-6 text-red-500"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M9 11H7v6h2v-6zm4 0h-2v6h2v-6zm4 0h-2v6h2v-6zm2-7v2H3V4h3V2h2v2h8V2h2v2h3zM4 8h16v12H4V8z" />
+                          </svg>
+                        </div>
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-light text-white mb-3">
+                          Event Registration
+                        </h3>
+                        <p className="text-gray-300 leading-relaxed text-sm">
+                          Register for upcoming workshops, seminars, and technical sessions. Stay connected with industry professionals and enhance your career prospects.
                         </p>
                       </div>
                     </div>
