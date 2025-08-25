@@ -12,8 +12,12 @@ export default function Footer() {
             <div>
               <div className="flex items-start space-x-4 mb-8">
                 <div className="relative">
-                  <div className="w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center border-4 border-blue-500">
-                    <span className="text-white text-sm font-bold">ChEA</span>
+                  <div className="w-16 h-16 rounded-full bg-blue-600 border-4 border-blue-500 overflow-hidden">
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets%2F989f85e0810540beb17869a1dc94573c%2F97cc268de76d436394018f38ffb855c1?format=webp&width=800"
+                      alt="ChEA Logo"
+                      className="w-full h-full object-cover object-center scale-150"
+                    />
                   </div>
                 </div>
                 <div>
