@@ -156,7 +156,7 @@ export default function AboutChEA() {
             {/* Left Side - About ChEA Card with Border (50% width) */}
             <div className="flex justify-center items-center">
               <Card
-                className="relative overflow-hidden border-4 border-white bg-black/90 h-full w-full max-w-md"
+                className="relative overflow-hidden border-1 border-white bg-black/90 h-full w-full max-w-md"
                 style={{
                   transform: `translateX(${isLoaded ? 0 : -100}px)`,
                   opacity: isLoaded ? 1 : 0,
@@ -202,7 +202,7 @@ export default function AboutChEA() {
               {/* Student's Corner Card - Aligned Left */}
               <div className="flex justify-start">
                 <Card
-                  className="bg-black border-2 border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-80"
+                  className="bg-black border-1 border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-80"
                   style={{
                     transform: `translateX(${card1Visible ? 0 : 100}px) translateY(${card1Visible ? 0 : 20}px)`,
                     opacity: card1Visible ? 1 : 0,
@@ -241,7 +241,7 @@ export default function AboutChEA() {
               {/* Events Card - Aligned Right */}
               <div className="flex justify-end">
                 <Card
-                  className="bg-black border-2 border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-80"
+                  className="bg-black border-1 border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-80"
                   style={{
                     transform: `translateX(${card2Visible ? 0 : -100}px) translateY(${card2Visible ? 0 : 20}px)`,
                     opacity: card2Visible ? 1 : 0,
@@ -280,7 +280,7 @@ export default function AboutChEA() {
               {/* Facility Details Card - Aligned Left */}
               <div className="flex justify-start">
                 <Card
-                  className="bg-black border-2 border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-80"
+                  className="bg-black border-1 border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-80"
                   style={{
                     transform: `translateX(${card3Visible ? 0 : 100}px) translateY(${card3Visible ? 0 : 20}px)`,
                     opacity: card3Visible ? 1 : 0,
@@ -317,7 +317,7 @@ export default function AboutChEA() {
               {/* Event Registration Card - Aligned Right */}
               <div className="flex justify-end">
                 <Card
-                  className="bg-black border-2 border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-80"
+                  className="bg-black border-1 border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-80"
                   style={{
                     transform: `translateX(${card4Visible ? 0 : -100}px) translateY(${card4Visible ? 0 : 20}px)`,
                     opacity: card4Visible ? 1 : 0,
@@ -360,8 +360,8 @@ export default function AboutChEA() {
         id="student-development"
         className="py-0 bg-background relative overflow-hidden"
       >
-        <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
-          <div className="border-2 border-white bg-black min-h-[800px]">
+        <div className="container mx-auto px-4 lg:px-8 max-w-8xl relative z-10">
+          <div className="border-1 border-white bg-black min-h-[600px]">
             <div className="grid lg:grid-cols-2 gap-0 h-full">
               {/* Left Side - Image with Reverse Sliding Effect */}
               <div className="relative overflow-hidden">
@@ -415,7 +415,7 @@ export default function AboutChEA() {
               className="w-full h-full object-cover opacity-100"
               style={{
                 transform: `translateX(${numbersTextTranslateX}px) scale(1.3)`,
-                transition: "transform 0.5s ease-out",
+                transition: "transform 0.3s ease-out",
                 minWidth: "150%",
                 filter: "brightness(1.0) contrast(1.0)",
               }}
@@ -436,7 +436,7 @@ export default function AboutChEA() {
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
           <div className="min-h-[600px] flex flex-col justify-start pt-16">
             {/* Section Title */}
-            <h2 className="text-4xl md:text-5xl font-light text-white text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-12">
               ChEA in Numbers
             </h2>
 
@@ -444,50 +444,50 @@ export default function AboutChEA() {
             <div className="grid grid-cols-2 md:grid-cols-5 gap-8 max-w-6xl mx-auto">
               {/* Established */}
               <div className="text-center">
-                <div className="text-4xl md:text-5xl font-light text-red-500 mb-2">
+                <div className="text-4xl md:text-5xl font-bold text-red-500 mb-2">
                   2022
                 </div>
-                <div className="text-gray-300 text-sm uppercase tracking-wider">
+                <div className="text-gray-300 text-sm uppercase tracking-wider font-medium">
                   Established
                 </div>
               </div>
 
               {/* Events Attended */}
               <div className="text-center">
-                <div className="text-4xl md:text-5xl font-light text-red-500 mb-2">
+                <div className="text-4xl md:text-5xl font-bold text-red-500 mb-2">
                   10+
                 </div>
-                <div className="text-gray-300 text-sm uppercase tracking-wider">
+                <div className="text-gray-300 text-sm uppercase tracking-wider font-medium">
                   Events Attended<br />Annually
                 </div>
               </div>
 
               {/* Conferences */}
               <div className="text-center">
-                <div className="text-4xl md:text-5xl font-light text-red-500 mb-2">
+                <div className="text-4xl md:text-5xl font-bold text-red-500 mb-2">
                   3+
                 </div>
-                <div className="text-gray-300 text-sm uppercase tracking-wider">
+                <div className="text-gray-300 text-sm uppercase tracking-wider font-medium">
                   Conferences per year
                 </div>
               </div>
 
               {/* Workshops */}
               <div className="text-center">
-                <div className="text-4xl md:text-5xl font-light text-red-500 mb-2">
+                <div className="text-4xl md:text-5xl font-bold text-red-500 mb-2">
                   5+
                 </div>
-                <div className="text-gray-300 text-sm uppercase tracking-wider">
+                <div className="text-gray-300 text-sm uppercase tracking-wider font-medium">
                   No. of workshops
                 </div>
               </div>
 
               {/* Members */}
               <div className="text-center">
-                <div className="text-4xl md:text-5xl font-light text-red-500 mb-2">
+                <div className="text-4xl md:text-5xl font-bold text-red-500 mb-2">
                   50+
                 </div>
-                <div className="text-gray-300 text-sm uppercase tracking-wider">
+                <div className="text-gray-300 text-sm uppercase tracking-wider font-medium">
                   Members
                 </div>
               </div>
