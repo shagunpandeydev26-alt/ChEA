@@ -1,5 +1,6 @@
 import { Button } from "./ui/button";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const [isVisible, setIsVisible] = useState(true);
@@ -126,9 +127,9 @@ export default function Header() {
             }}
           >
             <nav className="flex items-center space-x-8">
-              <a href="#vision" className="text-white hover:text-primary transition-colors text-sm font-light">
+              <Link to="/vision" className="text-white hover:text-primary transition-colors text-sm font-light">
                 Vision
-              </a>
+              </Link>
               <a href="#events" className="text-white hover:text-primary transition-colors text-sm font-light">
                 Events
               </a>
