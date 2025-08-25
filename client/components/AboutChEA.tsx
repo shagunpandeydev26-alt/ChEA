@@ -340,7 +340,7 @@ export default function AboutChEA() {
         className="py-0 bg-background relative overflow-hidden"
       >
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
-          <div className="border-4 border-white bg-black min-h-[800px]">
+          <div className="border-2 border-white bg-black min-h-[800px]">
             <div className="grid lg:grid-cols-2 gap-0 h-full">
               {/* Left Side - Image with Reverse Sliding Effect */}
               <div className="relative overflow-hidden">
@@ -349,9 +349,9 @@ export default function AboutChEA() {
                   alt="Student Development Background"
                   className="w-full h-full object-cover"
                   style={{
-                    transform: `translateX(${studentDevImageTranslateX}px) scale(1.3)`,
+                    transform: `translateX(${studentDevImageTranslateX}px) scale(1.6)`,
                     transition: "transform 0.5s ease-out",
-                    minWidth: "150%",
+                    minWidth: "170%",
                   }}
                 />
                 <div className="absolute inset-0 bg-black/40"></div>
@@ -377,6 +377,89 @@ export default function AboutChEA() {
                 >
                   Join Now
                 </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ChEA in Numbers Section */}
+      <section className="py-0 bg-background relative overflow-hidden">
+        <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
+          <div className="border-2 border-white bg-black min-h-[600px] relative overflow-hidden">
+            {/* Background Image with Zoom Effect */}
+            <div className="absolute inset-0 overflow-hidden">
+              <img
+                src="https://static.wixstatic.com/media/c837a6_d11c6c437c0f4feb9de8591b42ead168~mv2.jpg/v1/fill/w_2281,h_1119,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_d11c6c437c0f4feb9de8591b42ead168~mv2.jpg"
+                alt="ChEA Statistics Background"
+                className="w-full h-full object-cover"
+                style={{
+                  transform: `translateX(${extendedScrollProgress * -100}px) scale(1.4)`,
+                  transition: "transform 0.5s ease-out",
+                  minWidth: "160%",
+                }}
+              />
+              <div className="absolute inset-0 bg-black/70"></div>
+            </div>
+
+            {/* Content Overlay */}
+            <div className="relative z-10 p-8 h-full flex flex-col justify-center">
+              {/* Section Title */}
+              <h2 className="text-4xl md:text-5xl font-light text-white text-center mb-16">
+                ChEA in Numbers
+              </h2>
+
+              {/* Statistics Grid */}
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-8 max-w-6xl mx-auto">
+                {/* Established */}
+                <div className="text-center">
+                  <div className="text-4xl md:text-5xl font-light text-red-500 mb-2">
+                    2022
+                  </div>
+                  <div className="text-gray-300 text-sm uppercase tracking-wider">
+                    Established
+                  </div>
+                </div>
+
+                {/* Events Attended */}
+                <div className="text-center">
+                  <div className="text-4xl md:text-5xl font-light text-red-500 mb-2">
+                    10+
+                  </div>
+                  <div className="text-gray-300 text-sm uppercase tracking-wider">
+                    Events Attended<br />Annually
+                  </div>
+                </div>
+
+                {/* Conferences */}
+                <div className="text-center">
+                  <div className="text-4xl md:text-5xl font-light text-red-500 mb-2">
+                    3+
+                  </div>
+                  <div className="text-gray-300 text-sm uppercase tracking-wider">
+                    Conferences per year
+                  </div>
+                </div>
+
+                {/* Workshops */}
+                <div className="text-center">
+                  <div className="text-4xl md:text-5xl font-light text-red-500 mb-2">
+                    5+
+                  </div>
+                  <div className="text-gray-300 text-sm uppercase tracking-wider">
+                    No. of workshops
+                  </div>
+                </div>
+
+                {/* Members */}
+                <div className="text-center">
+                  <div className="text-4xl md:text-5xl font-light text-red-500 mb-2">
+                    50+
+                  </div>
+                  <div className="text-gray-300 text-sm uppercase tracking-wider">
+                    Members
+                  </div>
+                </div>
               </div>
             </div>
           </div>
