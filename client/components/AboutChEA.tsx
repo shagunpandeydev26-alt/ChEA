@@ -512,13 +512,13 @@ export default function AboutChEA() {
       </section>
 
       {/* Join ChEA CTA Section */}
-      <section className="relative min-h-screen bg-background overflow-hidden">
-        {/* Background Image with Zoom Effect */}
+      <section id="join-chea-cta" className="relative min-h-screen bg-background overflow-hidden">
+        {/* Enhanced Background Image with Dramatic Zoom Effect */}
         <div className="absolute inset-0">
           <div
             className="absolute inset-0 transition-all duration-3000 ease-in-out opacity-70"
             style={{
-              transform: `scale(${backgroundScale})`,
+              transform: `scale(${joinCTAImageScale})`,
               transition: 'transform 0.8s ease-out, opacity 3s ease-in-out'
             }}
           >
@@ -536,59 +536,106 @@ export default function AboutChEA() {
         {/* Background overlay for better text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-background/45 to-background/20"></div>
 
+        {/* Background chemical imagery overlay (similar to hero) */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full border border-primary/30"></div>
+          <div className="absolute top-1/2 left-1/3 w-32 h-32 rounded-full border border-primary/20"></div>
+          <div className="absolute bottom-1/3 left-1/5 w-48 h-48 rounded-full border border-primary/25"></div>
+          {/* Molecular dots */}
+          <div className="absolute top-1/3 left-1/4 w-2 h-2 bg-primary/40 rounded-full"></div>
+          <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-primary/40 rounded-full"></div>
+          <div className="absolute bottom-1/2 left-1/3 w-2 h-2 bg-primary/40 rounded-full"></div>
+          <div className="absolute bottom-1/4 left-1/4 w-2 h-2 bg-primary/40 rounded-full"></div>
+        </div>
+
         {/* Content Container */}
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10 h-full">
           <div className="grid lg:grid-cols-2 gap-16 items-center min-h-screen">
-            {/* Left Side - Heading */}
+            {/* Left Side - Animated Heading */}
             <div
               className="flex flex-col justify-center"
               style={{
-                transform: `translateX(${isLoaded ? 0 : -50}px)`,
-                opacity: isLoaded ? 1 : 0,
-                transition: 'transform 1.5s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 1.5s ease-out'
+                transform: `translateX(${isLoaded ? joinCTATextTranslateX * 0.3 : -100}vw)`,
+                opacity: isLoaded ? joinCTATextOpacity : 0,
+                transition: 'transform 2.5s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 2.5s ease-out'
               }}
             >
-              <h2
-                className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-8"
-                style={{
-                  transform: `translateX(${isLoaded ? 0 : -40}px)`,
-                  opacity: isLoaded ? 1 : 0,
-                  transitionDelay: '0.4s',
-                  textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)'
-                }}
-              >
-                Join ChEA and Ignite Your Potential
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-8">
+                <span
+                  className="inline-block transition-all duration-[2500ms] ease-out"
+                  style={{
+                    transform: `translateX(${isLoaded ? (joinCTATextTranslateX * 0.5) : -100}vw)`,
+                    opacity: isLoaded ? joinCTATextOpacity : 0,
+                    transitionDelay: '0.2s',
+                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)'
+                  }}
+                >
+                  Join ChEA and
+                </span>
+                <br />
+                <span
+                  className="inline-block transition-all duration-[2500ms] ease-out"
+                  style={{
+                    transform: `translateX(${isLoaded ? (joinCTATextTranslateX * 0.6) : -100}vw)`,
+                    opacity: isLoaded ? joinCTATextOpacity : 0,
+                    transitionDelay: '0.4s',
+                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)'
+                  }}
+                >
+                  Ignite Your Potential
+                </span>
               </h2>
             </div>
 
-            {/* Right Side - Content and CTA */}
+            {/* Right Side - Content and CTA with Enhanced Animations */}
             <div
               className="flex flex-col justify-center"
               style={{
-                transform: `translateX(${isLoaded ? 0 : 50}px)`,
-                opacity: isLoaded ? 1 : 0,
-                transition: 'transform 1.5s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 1.5s ease-out'
+                transform: `translateX(${isLoaded ? (joinCTATextTranslateX * -0.3) : 100}vw)`,
+                opacity: isLoaded ? joinCTATextOpacity : 0,
+                transition: 'transform 2.5s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 2.5s ease-out'
               }}
             >
               <p
                 className="text-lg md:text-xl text-gray-300 leading-relaxed mb-8"
                 style={{
-                  transform: `translateX(${isLoaded ? 0 : 40}px)`,
+                  transform: `translateX(${isLoaded ? 0 : 80}px)`,
                   opacity: isLoaded ? 1 : 0,
+                  transition: 'transform 2s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 2s ease-out',
                   transitionDelay: '0.6s',
                   textShadow: '1px 1px 3px rgba(0, 0, 0, 0.6)'
                 }}
               >
-                Take the first step towards a successful career in chemical engineering. Join ChEA to access a world of opportunities, enrich your learning, and connect with a community of passionate individuals.
+                <span
+                  className="inline-block transition-all duration-[2000ms] ease-out"
+                  style={{
+                    transform: `translateX(${isLoaded ? 0 : 60}px)`,
+                    opacity: isLoaded ? 1 : 0,
+                    transitionDelay: '0.8s'
+                  }}
+                >
+                  Take the first step towards a successful career in chemical engineering.
+                </span>
+                <span
+                  className="inline-block transition-all duration-[2000ms] ease-out"
+                  style={{
+                    transform: `translateX(${isLoaded ? 0 : 60}px)`,
+                    opacity: isLoaded ? 1 : 0,
+                    transitionDelay: '1s'
+                  }}
+                >
+                  {" "}Join ChEA to access a world of opportunities, enrich your learning, and connect with a community of passionate individuals.
+                </span>
               </p>
 
               <Button
                 size="lg"
                 className="bg-red-500 hover:bg-red-600 text-white px-8 py-3 text-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 w-fit"
                 style={{
-                  transform: `translateX(${isLoaded ? 0 : 40}px) scale(${isLoaded ? 1 : 0.95})`,
+                  transform: `translateX(${isLoaded ? 0 : 100}px) scale(${isLoaded ? 1 : 0.8})`,
                   opacity: isLoaded ? 1 : 0,
-                  transitionDelay: '0.8s'
+                  transition: 'transform 2s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 2s ease-out, scale 0.3s ease-out',
+                  transitionDelay: '1.2s'
                 }}
               >
                 Become a Member
