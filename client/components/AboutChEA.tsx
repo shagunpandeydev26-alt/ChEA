@@ -405,7 +405,7 @@ export default function AboutChEA() {
       </section>
 
       {/* ChEA in Numbers Section */}
-      <section className="py-24 bg-background relative overflow-hidden">
+      <section id="chea-numbers" className="py-24 bg-background relative overflow-hidden">
         {/* Section Background Image */}
         <div className="absolute inset-0">
           <div
@@ -437,14 +437,26 @@ export default function AboutChEA() {
         </div>
 
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
-          <div className="min-h-[600px] flex flex-col justify-center">
+          <div className="min-h-[600px] flex flex-col justify-start pt-16">
             {/* Section Title */}
-            <h2 className="text-4xl md:text-5xl font-light text-white text-center mb-16">
+            <h2
+              className="text-4xl md:text-5xl font-light text-white text-center mb-12"
+              style={{
+                transform: `translateX(${numbersTextTranslateX}px)`,
+                transition: "transform 0.8s ease-out",
+              }}
+            >
               ChEA in Numbers
             </h2>
 
             {/* Statistics Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-8 max-w-6xl mx-auto">
+            <div
+              className="grid grid-cols-2 md:grid-cols-5 gap-8 max-w-6xl mx-auto"
+              style={{
+                transform: `translateX(${numbersTextTranslateX}px)`,
+                transition: "transform 0.8s ease-out",
+              }}
+            >
               {/* Established */}
               <div className="text-center">
                 <div className="text-4xl md:text-5xl font-light text-red-500 mb-2">
