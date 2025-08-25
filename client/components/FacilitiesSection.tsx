@@ -1,4 +1,4 @@
-import { Card, CardContent } from "./ui/card";
+port { Card, CardContent } from "./ui/card";
 
 export default function FacilitiesSection() {
   return (
