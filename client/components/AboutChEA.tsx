@@ -37,29 +37,24 @@ export default function AboutChEA() {
 
   return (
     <section id="about-chea" className="py-24 bg-background relative overflow-hidden">
-      {/* Animated Background Carousel - Same as Hero */}
+      {/* Single Background Image */}
       <div className="absolute inset-0">
-        {backgroundImages.map((image, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-all duration-3000 ease-in-out ${
-              index === currentImageIndex ? 'opacity-40' : 'opacity-0'
-            }`}
+        <div
+          className="absolute inset-0"
+          style={{
+            transform: `scale(${backgroundScale})`,
+            transition: 'transform 0.8s ease-out'
+          }}
+        >
+          <img
+            src={backgroundImage}
+            alt="About ChEA Background"
+            className="w-full h-full object-cover object-center opacity-100"
             style={{
-              transform: `scale(${backgroundScale})`,
-              transition: 'transform 0.8s ease-out, opacity 3s ease-in-out'
+              filter: 'brightness(1.0) contrast(1.0)',
             }}
-          >
-            <img
-              src={image}
-              alt={`About ChEA Background ${index + 1}`}
-              className="w-full h-full object-cover object-center"
-              style={{
-                filter: 'blur(0.5px) brightness(0.6) contrast(1.05)',
-              }}
-            />
-          </div>
-        ))}
+          />
+        </div>
       </div>
 
       {/* Background overlay for better content readability */}
