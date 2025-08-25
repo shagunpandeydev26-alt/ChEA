@@ -7,6 +7,7 @@ export default function Header() {
   const [opacity, setOpacity] = useState(1);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up');
+  const [isMoreDropdownOpen, setIsMoreDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -136,9 +137,40 @@ export default function Header() {
               <Link to="/programs" className="text-white hover:text-primary transition-colors text-sm font-light">
                 Programs
               </Link>
-              <a href="#more" className="text-white hover:text-primary transition-colors text-sm font-light">
-                More
-              </a>
+
+              {/* More Dropdown */}
+              <div
+                className="relative"
+                onMouseEnter={() => setIsMoreDropdownOpen(true)}
+                onMouseLeave={() => setIsMoreDropdownOpen(false)}
+              >
+                <button className="text-white hover:text-primary transition-colors text-sm font-light flex items-center">
+                  More
+                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+
+                {/* Dropdown Menu */}
+                <div className={`absolute top-full left-0 mt-2 w-48 bg-black/90 backdrop-blur-sm border border-white/20 rounded-lg shadow-xl transition-all duration-300 ${
+                  isMoreDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
+                }`}>
+                  <div className="py-2">
+                    <Link
+                      to="/student-section"
+                      className="block px-4 py-2 text-sm text-white hover:text-primary hover:bg-white/10 transition-colors"
+                    >
+                      Student Section
+                    </Link>
+                    <Link
+                      to="/our-achievers"
+                      className="block px-4 py-2 text-sm text-white hover:text-primary hover:bg-white/10 transition-colors"
+                    >
+                      Our Achievers
+                    </Link>
+                  </div>
+                </div>
+              </div>
             </nav>
 
             {/* Auth Buttons */}
