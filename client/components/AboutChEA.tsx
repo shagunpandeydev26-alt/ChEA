@@ -88,9 +88,11 @@ export default function AboutChEA() {
     ),
   );
 
-  // Individual card visibility based on scroll progress (only 2 cards now)
+  // Individual card visibility based on scroll progress (4 cards now)
   const card1Visible = cardScrollProgress > 0.1;
   const card2Visible = cardScrollProgress > 0.3;
+  const card3Visible = cardScrollProgress > 0.5;
+  const card4Visible = cardScrollProgress > 0.7;
 
   return (
     <>
