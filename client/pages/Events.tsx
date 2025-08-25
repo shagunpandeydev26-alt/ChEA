@@ -159,7 +159,7 @@ export default function Events() {
             {/* Left side - Image Section */}
             <div className="relative h-[500px] lg:h-[600px] bg-chea-dark overflow-hidden">
               <img
-                src="https://static.wixstatic.com/media/c837a6_a56caf65f5424508937c5d7a4ced1619~mv2.jpg/v1/fill/w_828,h_788,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_a56caf65f5424508937c5d7a4ced1619~mv2.jpg"
+                src="https://static.wixstatic.com/media/c837a6_41007e02b626433b850e5cfc4f2fb91d~mv2.jpg/v1/fill/w_828,h_585,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_41007e02b626433b850e5cfc4f2fb91d~mv2.jpg"
                 alt="Empowering Student Community"
                 className="w-full h-full object-cover"
                 style={{
