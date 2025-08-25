@@ -76,7 +76,7 @@ export default function Header() {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo and Brand - Positioned with margin */}
-          <div className="flex items-center space-x-4">
+          <Link to="/" className="flex items-center space-x-4">
             <div className="relative mt-6">
               {/* Circular frame for logo */}
               <div 
@@ -116,7 +116,7 @@ export default function Header() {
                 <div className="text-lg text-white/90 font-bold">Chemical Engineering Association</div>
               </div>
             </div>
-          </div>
+          </Link>
 
           {/* Navigation Menu and Auth Buttons - All on Right */}
           <div 
