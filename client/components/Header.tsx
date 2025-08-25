@@ -133,9 +133,9 @@ export default function Header() {
               <Link to="/events" className="text-white hover:text-primary transition-colors text-sm font-light">
                 Events
               </Link>
-              <a href="#programs" className="text-white hover:text-primary transition-colors text-sm font-light">
+              <Link to="/programs" className="text-white hover:text-primary transition-colors text-sm font-light">
                 Programs
-              </a>
+              </Link>
               <a href="#more" className="text-white hover:text-primary transition-colors text-sm font-light">
                 More
               </a>
