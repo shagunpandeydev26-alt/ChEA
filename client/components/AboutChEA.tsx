@@ -26,10 +26,20 @@ export default function AboutChEA() {
   // Calculate scroll-based effects for this section
   const sectionElement = typeof document !== 'undefined' ? document.getElementById('about-chea') : null;
   const sectionTop = sectionElement?.offsetTop || 1000;
+  const sectionHeight = sectionElement?.offsetHeight || 800;
+
+  // Extended scroll progress - starts when section appears and continues until it completely passes
+  const startPoint = sectionTop - window.innerHeight; // Section starts appearing
+  const endPoint = sectionTop + sectionHeight; // Section completely passes
+  const totalDistance = endPoint - startPoint;
+  const currentDistance = scrollY - startPoint;
+  const extendedScrollProgress = Math.max(0, Math.min(currentDistance / totalDistance, 1));
+
+  // Image sliding effect - slides throughout the entire time section is visible
+  const imageTranslateX = extendedScrollProgress * -200; // Extended slide range
+
+  // Regular scroll progress for background scaling
   const scrollProgress = Math.max(0, Math.min((scrollY - sectionTop + window.innerHeight) / window.innerHeight, 1));
-  
-  // Image sliding effect - slides left when scrolling down, right when scrolling up
-  const imageTranslateX = scrollProgress * -100; // Move left up to -100px when scrolling down
 
   // Background image scaling effect
   const backgroundScale = 1 + (scrollProgress * 0.15);
