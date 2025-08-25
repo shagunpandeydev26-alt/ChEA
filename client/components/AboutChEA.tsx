@@ -67,7 +67,7 @@ export default function AboutChEA() {
       </div>
 
       {/* Background overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/60 to-background/70"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-background/30 via-background/20 to-background/30"></div>
       
       {/* Background chemical imagery overlay */}
       <div className="absolute inset-0 opacity-5">
