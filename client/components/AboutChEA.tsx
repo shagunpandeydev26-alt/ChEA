@@ -361,7 +361,7 @@ export default function AboutChEA() {
         className="py-0 bg-background relative overflow-hidden"
       >
         <div className="container mx-auto px-4 lg:px-8 max-w-none relative z-10">
-          <div className="border border-white bg-black min-h-[600px]">
+          <div className="border border-white bg-black min-h-[750px]">
             <div className="grid lg:grid-cols-2 gap-0 h-full">
               {/* Left Side - Image with Reverse Sliding Effect */}
               <div className="relative overflow-hidden">
@@ -378,7 +378,7 @@ export default function AboutChEA() {
                 <div className="absolute inset-0 bg-black/40"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <h2 className="text-4xl md:text-5xl font-light text-white text-center px-8">
-                    Student Development Initiatives
+                    Student Development<br />Initiatives
                   </h2>
                 </div>
               </div>
