@@ -5,9 +5,6 @@ export default function AboutChEA() {
   const [scrollY, setScrollY] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // Single background image
-  const backgroundImage = "https://static.wixstatic.com/media/c837a6_2119733e838e4a2f8813ebde736f99d5~mv2.jpg/v1/fill/w_1901,h_1625,al_b,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_2119733e838e4a2f8813ebde736f99d5~mv2.jpg?format=webp&width=800";
-
   // Handle scroll effects
   useEffect(() => {
     const handleScroll = () => {
@@ -17,8 +14,6 @@ export default function AboutChEA() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  // No carousel effect needed
 
   // Page load animation
   useEffect(() => {
@@ -33,85 +28,69 @@ export default function AboutChEA() {
   const sectionTop = sectionElement?.offsetTop || 1000;
   const scrollProgress = Math.max(0, Math.min((scrollY - sectionTop + window.innerHeight) / window.innerHeight, 1));
   
-  // Background image scaling effect (same as hero)
-  const backgroundScale = 1 + (scrollProgress * 0.15); // Gentle zoom from 1x to 1.15x
+  // Image sliding effect - slides left when scrolling down, right when scrolling up
+  const imageTranslateX = scrollProgress * -100; // Move left up to -100px when scrolling down
 
   return (
-    <section id="about-chea" className="py-24 bg-background relative overflow-hidden min-h-screen">
-      {/* Single Background Image */}
-      <div className="absolute inset-0">
-        <div
-          className="absolute inset-0"
-          style={{
-            transform: `scale(${backgroundScale})`,
-            transition: 'transform 0.8s ease-out'
-          }}
-        >
-          <img
-            src={backgroundImage}
-            alt="About ChEA Background"
-            className="w-full h-full object-cover object-center opacity-100"
-            style={{
-              filter: 'brightness(0.4) contrast(1.1)',
-            }}
-          />
-        </div>
-      </div>
-
-      {/* Background overlay for better content readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-background/40 to-background/60"></div>
-      
-      {/* Background chemical imagery overlay - Same as Hero */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full border border-primary/30"></div>
-        <div className="absolute top-1/2 left-1/3 w-32 h-32 rounded-full border border-primary/20"></div>
-        <div className="absolute bottom-1/3 left-1/5 w-48 h-48 rounded-full border border-primary/25"></div>
-        {/* Molecular dots */}
-        <div className="absolute top-1/3 left-1/4 w-2 h-2 bg-primary/40 rounded-full"></div>
-        <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-primary/40 rounded-full"></div>
-        <div className="absolute bottom-1/2 left-1/3 w-2 h-2 bg-primary/40 rounded-full"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-2 h-2 bg-primary/40 rounded-full"></div>
-      </div>
-
+    <section id="about-chea" className="py-24 bg-background relative overflow-hidden">
       <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
-        {/* Top Section - About ChEA Text Left, Cards Right */}
-        <div className="grid lg:grid-cols-2 gap-16 items-start mb-20">
-          {/* About ChEA Text Content - Left Side */}
-          <div
-            className="space-y-8"
-            style={{
-              transform: `translateX(${isLoaded ? 0 : -80}px)`,
-              opacity: isLoaded ? 1 : 0,
-              transition: 'transform 2s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 2s ease-out',
-              transitionDelay: '0.2s'
-            }}
-          >
-            <h2 className="text-5xl md:text-6xl font-light text-foreground mb-8">
-              About ChEA
-            </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              ChEA (Chemical Engineering Association) is dedicated to fostering 
-              the growth and development of aspiring chemical engineers. We 
-              provide a platform for students to enhance their knowledge, skills, and 
-              understanding of the field through various events, workshops, and 
-              networking opportunities.
-            </p>
+        <div className="grid lg:grid-cols-5 gap-8 min-h-[800px]">
+          {/* Left Side - Vertical About ChEA Box */}
+          <div className="lg:col-span-2">
+            <Card 
+              className="relative overflow-hidden border-border/20 h-full"
+              style={{
+                transform: `translateX(${isLoaded ? 0 : -100}px)`,
+                opacity: isLoaded ? 1 : 0,
+                transition: 'transform 2s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 2s ease-out',
+                transitionDelay: '0.2s'
+              }}
+            >
+              {/* Background Image with Scroll Animation */}
+              <div className="absolute inset-0 overflow-hidden">
+                <img
+                  src="https://static.wixstatic.com/media/c837a6_eb322a4179e54d788eef6896e67f05d0~mv2.jpg/v1/fill/w_828,h_1338,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_eb322a4179e54d788eef6896e67f05d0~mv2.jpg"
+                  alt="About ChEA Background"
+                  className="w-full h-full object-cover"
+                  style={{
+                    transform: `translateX(${imageTranslateX}px)`,
+                    transition: 'transform 0.1s ease-out',
+                    minWidth: '120%', // Make image wider to allow sliding
+                  }}
+                />
+                <div className="absolute inset-0 bg-black/60"></div>
+              </div>
+
+              {/* Content Overlay */}
+              <CardContent className="relative z-10 p-8 h-full flex flex-col justify-center">
+                <h2 className="text-4xl md:text-5xl font-light text-white mb-6">
+                  About ChEA
+                </h2>
+                <p className="text-gray-300 text-lg leading-relaxed">
+                  ChEA (Chemical Engineering Association) is dedicated to fostering 
+                  the growth and development of aspiring chemical engineers. We 
+                  provide a platform for students to enhance their knowledge, skills, and 
+                  understanding of the field through various events, workshops, and 
+                  networking opportunities.
+                </p>
+              </CardContent>
+            </Card>
           </div>
 
-          {/* Right Side Cards */}
-          <div className="space-y-8">
+          {/* Right Side - Four Cards Stacked */}
+          <div className="lg:col-span-3 flex flex-col justify-between space-y-6">
             {/* Student's Corner Card */}
             <Card 
-              className="bg-card/80 border-border/30 backdrop-blur-sm hover:bg-card/90 transition-all duration-[2000ms] ease-out"
+              className="bg-card/80 border-border/30 backdrop-blur-sm hover:bg-card/90 transition-all duration-[2000ms] ease-out flex-1"
               style={{
-                transform: `translateX(${isLoaded ? 0 : 80}px)`,
+                transform: `translateX(${isLoaded ? 0 : 100}px)`,
                 opacity: isLoaded ? 1 : 0,
                 transition: 'transform 2s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 2s ease-out',
                 transitionDelay: '0.4s'
               }}
             >
-              <CardContent className="p-6">
-                <div className="flex items-start space-x-4">
+              <CardContent className="p-6 h-full flex items-center">
+                <div className="flex items-start space-x-4 w-full">
                   <div className="flex-shrink-0 mt-1">
                     <div className="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center">
                       <svg className="w-6 h-6 text-red-500" fill="currentColor" viewBox="0 0 24 24">
@@ -136,16 +115,16 @@ export default function AboutChEA() {
 
             {/* Events Card */}
             <Card 
-              className="bg-card/80 border-border/30 backdrop-blur-sm hover:bg-card/90 transition-all duration-[2000ms] ease-out"
+              className="bg-card/80 border-border/30 backdrop-blur-sm hover:bg-card/90 transition-all duration-[2000ms] ease-out flex-1"
               style={{
-                transform: `translateX(${isLoaded ? 0 : 80}px)`,
+                transform: `translateX(${isLoaded ? 0 : 100}px)`,
                 opacity: isLoaded ? 1 : 0,
                 transition: 'transform 2s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 2s ease-out',
                 transitionDelay: '0.6s'
               }}
             >
-              <CardContent className="p-6">
-                <div className="flex items-start space-x-4">
+              <CardContent className="p-6 h-full flex items-center">
+                <div className="flex items-start space-x-4 w-full">
                   <div className="flex-shrink-0 mt-1">
                     <div className="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center">
                       <svg className="w-6 h-6 text-red-500" fill="currentColor" viewBox="0 0 24 24">
@@ -167,25 +146,19 @@ export default function AboutChEA() {
                 </div>
               </CardContent>
             </Card>
-          </div>
-        </div>
 
-        {/* Bottom Section - Cards Left, Text Right */}
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Left Side Cards */}
-          <div className="space-y-8">
             {/* Facility Details Card */}
             <Card 
-              className="bg-card/80 border-border/30 backdrop-blur-sm hover:bg-card/90 transition-all duration-[2000ms] ease-out"
+              className="bg-card/80 border-border/30 backdrop-blur-sm hover:bg-card/90 transition-all duration-[2000ms] ease-out flex-1"
               style={{
-                transform: `translateX(${isLoaded ? 0 : -80}px)`,
+                transform: `translateX(${isLoaded ? 0 : 100}px)`,
                 opacity: isLoaded ? 1 : 0,
                 transition: 'transform 2s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 2s ease-out',
                 transitionDelay: '0.8s'
               }}
             >
-              <CardContent className="p-6">
-                <div className="flex items-start space-x-4">
+              <CardContent className="p-6 h-full flex items-center">
+                <div className="flex items-start space-x-4 w-full">
                   <div className="flex-shrink-0 mt-1">
                     <div className="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center">
                       <svg className="w-6 h-6 text-red-500" fill="currentColor" viewBox="0 0 24 24">
@@ -207,21 +180,19 @@ export default function AboutChEA() {
                 </div>
               </CardContent>
             </Card>
-          </div>
 
-          {/* Event Registration Text Content - Right Side */}
-          <div
-            className="space-y-8"
-            style={{
-              transform: `translateX(${isLoaded ? 0 : 80}px)`,
-              opacity: isLoaded ? 1 : 0,
-              transition: 'transform 2s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 2s ease-out',
-              transitionDelay: '1.0s'
-            }}
-          >
-            <Card className="bg-card/80 border-border/30 backdrop-blur-sm hover:bg-card/90 transition-all duration-[2000ms] ease-out">
-              <CardContent className="p-6">
-                <div className="flex items-start space-x-4">
+            {/* Event Registration Card */}
+            <Card 
+              className="bg-card/80 border-border/30 backdrop-blur-sm hover:bg-card/90 transition-all duration-[2000ms] ease-out flex-1"
+              style={{
+                transform: `translateX(${isLoaded ? 0 : 100}px)`,
+                opacity: isLoaded ? 1 : 0,
+                transition: 'transform 2s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 2s ease-out',
+                transitionDelay: '1.0s'
+              }}
+            >
+              <CardContent className="p-6 h-full flex items-center">
+                <div className="flex items-start space-x-4 w-full">
                   <div className="flex-shrink-0 mt-1">
                     <div className="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center">
                       <svg className="w-6 h-6 text-red-500" fill="currentColor" viewBox="0 0 24 24">
