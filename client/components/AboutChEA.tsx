@@ -436,24 +436,12 @@ export default function AboutChEA() {
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
           <div className="min-h-[600px] flex flex-col justify-start pt-16">
             {/* Section Title */}
-            <h2
-              className="text-4xl md:text-5xl font-light text-white text-center mb-12"
-              style={{
-                transform: `translateX(${numbersTextTranslateX}px)`,
-                transition: "transform 0.8s ease-out",
-              }}
-            >
+            <h2 className="text-4xl md:text-5xl font-light text-white text-center mb-12">
               ChEA in Numbers
             </h2>
 
             {/* Statistics Grid */}
-            <div
-              className="grid grid-cols-2 md:grid-cols-5 gap-8 max-w-6xl mx-auto"
-              style={{
-                transform: `translateX(${numbersTextTranslateX}px)`,
-                transition: "transform 0.8s ease-out",
-              }}
-            >
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-8 max-w-6xl mx-auto">
               {/* Established */}
               <div className="text-center">
                 <div className="text-4xl md:text-5xl font-light text-red-500 mb-2">
