@@ -499,7 +499,7 @@ export default function AboutChEA() {
       {/* New Section Below ChEA in Numbers */}
       <section className="py-0 bg-background relative overflow-hidden">
         <div className="container mx-auto px-4 lg:px-8 max-w-none relative z-10">
-          <div className="border-[0.5px] border-white bg-black min-h-[188px]">
+          <div className="border-[0.5px] border-white bg-black min-h-[47px]">
             <div className="grid lg:grid-cols-2 gap-0 h-full">
               {/* Left Side - Image */}
               <div className="relative overflow-hidden">
