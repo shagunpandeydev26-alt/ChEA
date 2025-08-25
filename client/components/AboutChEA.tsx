@@ -130,7 +130,7 @@ export default function AboutChEA() {
           </div>
 
           {/* Right Side - Four Cards in Zig-Zag Format (50% width) - No Outer Container */}
-          <div className="flex flex-col justify-between space-y-6">
+          <div className="flex flex-col justify-between space-y-2">
             {/* Student's Corner Card - Aligned Left */}
             <div className="flex justify-start">
               <Card 
@@ -141,7 +141,7 @@ export default function AboutChEA() {
                   transition: 'transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.8s ease-out'
                 }}
               >
-                <CardContent className="p-6">
+                <CardContent className="p-4">
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0 mt-1">
                       <div className="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center">
@@ -174,7 +174,7 @@ export default function AboutChEA() {
                   transition: 'transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.8s ease-out'
                 }}
               >
-                <CardContent className="p-6">
+                <CardContent className="p-4">
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0 mt-1">
                       <div className="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center">
@@ -208,7 +208,7 @@ export default function AboutChEA() {
                   transition: 'transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.8s ease-out'
                 }}
               >
-                <CardContent className="p-6">
+                <CardContent className="p-4">
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0 mt-1">
                       <div className="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center">
@@ -241,7 +241,7 @@ export default function AboutChEA() {
                   transition: 'transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.8s ease-out'
                 }}
               >
-                <CardContent className="p-6">
+                <CardContent className="p-4">
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0 mt-1">
                       <div className="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center">
