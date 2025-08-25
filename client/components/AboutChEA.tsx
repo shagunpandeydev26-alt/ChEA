@@ -156,7 +156,7 @@ export default function AboutChEA() {
             {/* Left Side - About ChEA Card with Border (50% width) */}
             <div className="flex justify-center items-center">
               <Card
-                className="relative overflow-hidden border-1 border-white bg-black/90 h-full w-full max-w-md"
+                className="relative overflow-hidden border border-white bg-black/90 h-full w-full max-w-md"
                 style={{
                   transform: `translateX(${isLoaded ? 0 : -100}px)`,
                   opacity: isLoaded ? 1 : 0,
@@ -202,7 +202,7 @@ export default function AboutChEA() {
               {/* Student's Corner Card - Aligned Left */}
               <div className="flex justify-start">
                 <Card
-                  className="bg-black border-1 border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-80"
+                  className="bg-black border border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-80"
                   style={{
                     transform: `translateX(${card1Visible ? 0 : 100}px) translateY(${card1Visible ? 0 : 20}px)`,
                     opacity: card1Visible ? 1 : 0,
@@ -241,7 +241,7 @@ export default function AboutChEA() {
               {/* Events Card - Aligned Right */}
               <div className="flex justify-end">
                 <Card
-                  className="bg-black border-1 border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-80"
+                  className="bg-black border border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-80"
                   style={{
                     transform: `translateX(${card2Visible ? 0 : -100}px) translateY(${card2Visible ? 0 : 20}px)`,
                     opacity: card2Visible ? 1 : 0,
@@ -280,7 +280,7 @@ export default function AboutChEA() {
               {/* Facility Details Card - Aligned Left */}
               <div className="flex justify-start">
                 <Card
-                  className="bg-black border-1 border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-80"
+                  className="bg-black border border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-80"
                   style={{
                     transform: `translateX(${card3Visible ? 0 : 100}px) translateY(${card3Visible ? 0 : 20}px)`,
                     opacity: card3Visible ? 1 : 0,
@@ -317,7 +317,7 @@ export default function AboutChEA() {
               {/* Event Registration Card - Aligned Right */}
               <div className="flex justify-end">
                 <Card
-                  className="bg-black border-1 border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-80"
+                  className="bg-black border border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-80"
                   style={{
                     transform: `translateX(${card4Visible ? 0 : -100}px) translateY(${card4Visible ? 0 : 20}px)`,
                     opacity: card4Visible ? 1 : 0,
@@ -360,8 +360,8 @@ export default function AboutChEA() {
         id="student-development"
         className="py-0 bg-background relative overflow-hidden"
       >
-        <div className="container mx-auto px-4 lg:px-8 max-w-8xl relative z-10">
-          <div className="border-1 border-white bg-black min-h-[600px]">
+        <div className="container mx-auto px-4 lg:px-8 max-w-none relative z-10">
+          <div className="border border-white bg-black min-h-[600px]">
             <div className="grid lg:grid-cols-2 gap-0 h-full">
               {/* Left Side - Image with Reverse Sliding Effect */}
               <div className="relative overflow-hidden">
