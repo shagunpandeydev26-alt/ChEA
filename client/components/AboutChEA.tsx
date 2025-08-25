@@ -174,12 +174,12 @@ export default function AboutChEA() {
               </Card>
             </div>
 
-            {/* Right Side - Two Cards in Zig-Zag Format (50% width) */}
-            <div className="flex flex-col justify-center space-y-2">
-              {/* Student's Corner Card - Aligned Left */}
-              <div className="flex justify-start">
+            {/* Right Side - Two Cards matching main card dimensions */}
+            <div className="flex flex-col justify-center space-y-4">
+              {/* Student's Corner Card */}
+              <div className="flex justify-center">
                 <Card
-                  className="bg-black border-2 border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-80"
+                  className="bg-black border-2 border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-full max-w-md h-full"
                   style={{
                     transform: `translateX(${card1Visible ? 0 : 100}px) translateY(${card1Visible ? 0 : 20}px)`,
                     opacity: card1Visible ? 1 : 0,
@@ -187,7 +187,7 @@ export default function AboutChEA() {
                       "transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.8s ease-out",
                   }}
                 >
-                  <CardContent className="p-4">
+                  <CardContent className="p-8 h-full flex flex-col justify-center">
                     <div className="flex items-start space-x-4">
                       <div className="flex-shrink-0 mt-1">
                         <div className="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center">
@@ -204,7 +204,7 @@ export default function AboutChEA() {
                         <h3 className="text-xl font-light text-white mb-3">
                           Student's Corner
                         </h3>
-                        <p className="text-gray-300 leading-relaxed text-sm">
+                        <p className="text-gray-300 leading-relaxed text-lg">
                           The student's corner is where our members can access
                           resources, articles, and educational materials related
                           to chemical engineering.
@@ -215,10 +215,10 @@ export default function AboutChEA() {
                 </Card>
               </div>
 
-              {/* Events Card - Aligned Right */}
-              <div className="flex justify-end">
+              {/* Events Card */}
+              <div className="flex justify-center">
                 <Card
-                  className="bg-black border-2 border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-80"
+                  className="bg-black border-2 border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-full max-w-md h-full"
                   style={{
                     transform: `translateX(${card2Visible ? 0 : -100}px) translateY(${card2Visible ? 0 : 20}px)`,
                     opacity: card2Visible ? 1 : 0,
@@ -226,7 +226,7 @@ export default function AboutChEA() {
                       "transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.8s ease-out",
                   }}
                 >
-                  <CardContent className="p-4">
+                  <CardContent className="p-8 h-full flex flex-col justify-center">
                     <div className="flex items-start space-x-4">
                       <div className="flex-shrink-0 mt-1">
                         <div className="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center">
@@ -243,7 +243,7 @@ export default function AboutChEA() {
                         <h3 className="text-xl font-light text-white mb-3">
                           Events
                         </h3>
-                        <p className="text-gray-300 leading-relaxed text-sm">
+                        <p className="text-gray-300 leading-relaxed text-lg">
                           Stay updated with our past and upcoming events. We
                           host workshops, seminars, and industry visits to give
                           students practical exposure and insights.
