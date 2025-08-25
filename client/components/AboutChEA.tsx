@@ -408,18 +408,15 @@ export default function AboutChEA() {
       <section id="chea-numbers" className="py-24 bg-background relative overflow-hidden">
         {/* Section Background Image */}
         <div className="absolute inset-0">
-          <div
-            className="absolute inset-0"
-            style={{
-              transform: `scale(${backgroundScale})`,
-              transition: "transform 0.8s ease-out",
-            }}
-          >
+          <div className="absolute inset-0 overflow-hidden">
             <img
               src="https://static.wixstatic.com/media/c837a6_d11c6c437c0f4feb9de8591b42ead168~mv2.jpg/v1/fill/w_2281,h_1119,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_d11c6c437c0f4feb9de8591b42ead168~mv2.jpg"
               alt="ChEA Statistics Background"
               className="w-full h-full object-cover opacity-100"
               style={{
+                transform: `translateX(${numbersTextTranslateX}px) scale(1.3)`,
+                transition: "transform 0.5s ease-out",
+                minWidth: "150%",
                 filter: "brightness(1.0) contrast(1.0)",
               }}
             />
