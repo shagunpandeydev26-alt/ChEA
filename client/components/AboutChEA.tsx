@@ -384,81 +384,93 @@ export default function AboutChEA() {
       </section>
 
       {/* ChEA in Numbers Section */}
-      <section className="py-0 bg-background relative overflow-hidden">
+      <section className="py-24 bg-background relative overflow-hidden">
+        {/* Section Background Image */}
+        <div className="absolute inset-0">
+          <div
+            className="absolute inset-0"
+            style={{
+              transform: `scale(${backgroundScale})`,
+              transition: "transform 0.8s ease-out",
+            }}
+          >
+            <img
+              src="https://static.wixstatic.com/media/c837a6_d11c6c437c0f4feb9de8591b42ead168~mv2.jpg/v1/fill/w_2281,h_1119,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_d11c6c437c0f4feb9de8591b42ead168~mv2.jpg"
+              alt="ChEA Statistics Background"
+              className="w-full h-full object-cover opacity-100"
+              style={{
+                filter: "brightness(1.0) contrast(1.0)",
+              }}
+            />
+          </div>
+        </div>
+
+        {/* Background overlay - reduced for better image visibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background/30 via-background/20 to-background/30"></div>
+
+        {/* Background chemical imagery overlay */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full border border-primary/30"></div>
+          <div className="absolute top-1/2 right-1/3 w-32 h-32 rounded-full border border-primary/20"></div>
+          <div className="absolute bottom-1/3 right-1/5 w-48 h-48 rounded-full border border-primary/25"></div>
+        </div>
+
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
-          <div className="border-2 border-white bg-black min-h-[600px] relative overflow-hidden">
-            {/* Background Image with Zoom Effect */}
-            <div className="absolute inset-0 overflow-hidden">
-              <img
-                src="https://static.wixstatic.com/media/c837a6_d11c6c437c0f4feb9de8591b42ead168~mv2.jpg/v1/fill/w_2281,h_1119,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_d11c6c437c0f4feb9de8591b42ead168~mv2.jpg"
-                alt="ChEA Statistics Background"
-                className="w-full h-full object-cover"
-                style={{
-                  transform: `translateX(${extendedScrollProgress * -100}px) scale(1.4)`,
-                  transition: "transform 0.5s ease-out",
-                  minWidth: "160%",
-                }}
-              />
-              <div className="absolute inset-0 bg-black/70"></div>
-            </div>
+          <div className="min-h-[600px] flex flex-col justify-center">
+            {/* Section Title */}
+            <h2 className="text-4xl md:text-5xl font-light text-white text-center mb-16">
+              ChEA in Numbers
+            </h2>
 
-            {/* Content Overlay */}
-            <div className="relative z-10 p-8 h-full flex flex-col justify-center">
-              {/* Section Title */}
-              <h2 className="text-4xl md:text-5xl font-light text-white text-center mb-16">
-                ChEA in Numbers
-              </h2>
-
-              {/* Statistics Grid */}
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-8 max-w-6xl mx-auto">
-                {/* Established */}
-                <div className="text-center">
-                  <div className="text-4xl md:text-5xl font-light text-red-500 mb-2">
-                    2022
-                  </div>
-                  <div className="text-gray-300 text-sm uppercase tracking-wider">
-                    Established
-                  </div>
+            {/* Statistics Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-8 max-w-6xl mx-auto">
+              {/* Established */}
+              <div className="text-center">
+                <div className="text-4xl md:text-5xl font-light text-red-500 mb-2">
+                  2022
                 </div>
-
-                {/* Events Attended */}
-                <div className="text-center">
-                  <div className="text-4xl md:text-5xl font-light text-red-500 mb-2">
-                    10+
-                  </div>
-                  <div className="text-gray-300 text-sm uppercase tracking-wider">
-                    Events Attended<br />Annually
-                  </div>
+                <div className="text-gray-300 text-sm uppercase tracking-wider">
+                  Established
                 </div>
+              </div>
 
-                {/* Conferences */}
-                <div className="text-center">
-                  <div className="text-4xl md:text-5xl font-light text-red-500 mb-2">
-                    3+
-                  </div>
-                  <div className="text-gray-300 text-sm uppercase tracking-wider">
-                    Conferences per year
-                  </div>
+              {/* Events Attended */}
+              <div className="text-center">
+                <div className="text-4xl md:text-5xl font-light text-red-500 mb-2">
+                  10+
                 </div>
-
-                {/* Workshops */}
-                <div className="text-center">
-                  <div className="text-4xl md:text-5xl font-light text-red-500 mb-2">
-                    5+
-                  </div>
-                  <div className="text-gray-300 text-sm uppercase tracking-wider">
-                    No. of workshops
-                  </div>
+                <div className="text-gray-300 text-sm uppercase tracking-wider">
+                  Events Attended<br />Annually
                 </div>
+              </div>
 
-                {/* Members */}
-                <div className="text-center">
-                  <div className="text-4xl md:text-5xl font-light text-red-500 mb-2">
-                    50+
-                  </div>
-                  <div className="text-gray-300 text-sm uppercase tracking-wider">
-                    Members
-                  </div>
+              {/* Conferences */}
+              <div className="text-center">
+                <div className="text-4xl md:text-5xl font-light text-red-500 mb-2">
+                  3+
+                </div>
+                <div className="text-gray-300 text-sm uppercase tracking-wider">
+                  Conferences per year
+                </div>
+              </div>
+
+              {/* Workshops */}
+              <div className="text-center">
+                <div className="text-4xl md:text-5xl font-light text-red-500 mb-2">
+                  5+
+                </div>
+                <div className="text-gray-300 text-sm uppercase tracking-wider">
+                  No. of workshops
+                </div>
+              </div>
+
+              {/* Members */}
+              <div className="text-center">
+                <div className="text-4xl md:text-5xl font-light text-red-500 mb-2">
+                  50+
+                </div>
+                <div className="text-gray-300 text-sm uppercase tracking-wider">
+                  Members
                 </div>
               </div>
             </div>
