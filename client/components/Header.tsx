@@ -130,9 +130,9 @@ export default function Header() {
               <Link to="/vision" className="text-white hover:text-primary transition-colors text-sm font-light">
                 Vision
               </Link>
-              <a href="#events" className="text-white hover:text-primary transition-colors text-sm font-light">
+              <Link to="/events" className="text-white hover:text-primary transition-colors text-sm font-light">
                 Events
-              </a>
+              </Link>
               <a href="#programs" className="text-white hover:text-primary transition-colors text-sm font-light">
                 Programs
               </a>
