@@ -4,6 +4,15 @@ import { useState, useEffect } from "react";
 export default function AboutChEA() {
   const [scrollY, setScrollY] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Array of background images for the carousel
+  const backgroundImages = [
+    "https://cdn.builder.io/api/v1/image/assets%2F612e9a82b86748da836eaf9bc77dd81e%2F6772b371f4814bc98b2cf668c8b63c85?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F612e9a82b86748da836eaf9bc77dd81e%2F7f76d15846714e82b37da415ec914a8f?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F612e9a82b86748da836eaf9bc77dd81e%2F4722d5d1ce014a308bb79a3a758dd8ac?format=webp&width=800",
+    "https://cdn.builder.io/api/v1/image/assets%2F612e9a82b86748da836eaf9bc77dd81e%2F00108060be0b49f38e94860468ddbfef?format=webp&width=800"
+  ];
 
   // Handle scroll effects
   useEffect(() => {
@@ -14,6 +23,15 @@ export default function AboutChEA() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Background image carousel effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % backgroundImages.length);
+    }, 4000); // Change image every 4 seconds
+
+    return () => clearInterval(interval);
+  }, [backgroundImages.length]);
 
   // Page load animation
   useEffect(() => {
@@ -28,12 +46,51 @@ export default function AboutChEA() {
   const sectionTop = sectionElement?.offsetTop || 1000;
   const scrollProgress = Math.max(0, Math.min((scrollY - sectionTop + window.innerHeight) / window.innerHeight, 1));
   
-  // Text animation effects
-  const textTranslateX = scrollProgress * -20;
-  const textOpacity = Math.max(0.6, 1 - (scrollProgress * 0.4));
+  // Background image scaling effect (same as hero)
+  const backgroundScale = 1 + (scrollProgress * 0.15); // Gentle zoom from 1x to 1.15x
 
   return (
     <section id="about-chea" className="py-24 bg-background relative overflow-hidden">
+      {/* Animated Background Carousel - Same as Hero */}
+      <div className="absolute inset-0">
+        {backgroundImages.map((image, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-all duration-3000 ease-in-out ${
+              index === currentImageIndex ? 'opacity-40' : 'opacity-0'
+            }`}
+            style={{
+              transform: `scale(${backgroundScale})`,
+              transition: 'transform 0.8s ease-out, opacity 3s ease-in-out'
+            }}
+          >
+            <img
+              src={image}
+              alt={`About ChEA Background ${index + 1}`}
+              className="w-full h-full object-cover object-center"
+              style={{
+                filter: 'blur(0.5px) brightness(0.6) contrast(1.05)',
+              }}
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Background overlay for better content readability */}
+      <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/70 to-background/60"></div>
+      
+      {/* Background chemical imagery overlay - Same as Hero */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full border border-primary/30"></div>
+        <div className="absolute top-1/2 left-1/3 w-32 h-32 rounded-full border border-primary/20"></div>
+        <div className="absolute bottom-1/3 left-1/5 w-48 h-48 rounded-full border border-primary/25"></div>
+        {/* Molecular dots */}
+        <div className="absolute top-1/3 left-1/4 w-2 h-2 bg-primary/40 rounded-full"></div>
+        <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-primary/40 rounded-full"></div>
+        <div className="absolute bottom-1/2 left-1/3 w-2 h-2 bg-primary/40 rounded-full"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-2 h-2 bg-primary/40 rounded-full"></div>
+      </div>
+
       <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
         {/* Main Grid Layout */}
         <div className="grid lg:grid-cols-2 gap-8 h-screen max-h-[800px]">
@@ -221,6 +278,27 @@ export default function AboutChEA() {
               </p>
             </CardContent>
           </Card>
+        </div>
+      </div>
+
+      {/* Background Carousel indicators - Same as Hero */}
+      <div className="absolute bottom-8 right-8 z-20">
+        <div className="flex space-x-3">
+          {backgroundImages.map((_, index) => (
+            <div
+              key={index}
+              className={`w-3 h-3 rounded-full transition-all duration-700 ease-out ${
+                index === currentImageIndex
+                  ? 'bg-primary scale-125 shadow-lg'
+                  : 'bg-white/50 hover:bg-white/70 hover:scale-110'
+              }`}
+              onClick={() => setCurrentImageIndex(index)}
+              style={{
+                cursor: 'pointer',
+                backdropFilter: 'blur(2px)'
+              }}
+            />
+          ))}
         </div>
       </div>
     </section>
