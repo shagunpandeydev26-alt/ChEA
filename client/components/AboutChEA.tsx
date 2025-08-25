@@ -94,6 +94,27 @@ export default function AboutChEA() {
   const card3Visible = cardScrollProgress > 0.5;
   const card4Visible = cardScrollProgress > 0.7;
 
+  // ChEA in Numbers section scroll effects
+  const numbersElement =
+    typeof document !== "undefined"
+      ? document.getElementById("chea-numbers")
+      : null;
+  const numbersTop = numbersElement?.offsetTop || 3000;
+  const numbersHeight = numbersElement?.offsetHeight || 600;
+
+  // Motion effect for ChEA in Numbers content
+  const numbersStartPoint = numbersTop - window.innerHeight;
+  const numbersEndPoint = numbersTop + numbersHeight;
+  const numbersTotalDistance = numbersEndPoint - numbersStartPoint;
+  const numbersCurrentDistance = scrollY - numbersStartPoint;
+  const numbersScrollProgress = Math.max(
+    0,
+    Math.min(numbersCurrentDistance / numbersTotalDistance, 1),
+  );
+
+  // Text motion effect - slides in from right
+  const numbersTextTranslateX = numbersScrollProgress * -100;
+
   return (
     <>
       <section
