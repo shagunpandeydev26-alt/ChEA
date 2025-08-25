@@ -87,10 +87,10 @@ export default function AboutChEA() {
 
       <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 min-h-[800px]">
-          {/* Left Side - About ChEA Card with Border (50% width) */}
+          {/* Left Side - About ChEA Card with Border (20% width) */}
           <div className="flex justify-center items-center">
             <Card 
-              className="relative overflow-hidden border-4 border-white bg-black/90 h-full w-full max-w-md"
+              className="relative overflow-hidden border-2 border-white bg-black/90 h-full w-full max-w-md"
               style={{
                 transform: `translateX(${isLoaded ? 0 : -100}px)`,
                 opacity: isLoaded ? 1 : 0,
