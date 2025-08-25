@@ -88,7 +88,7 @@ export default function Header() {
                 <img
                   src="https://cdn.builder.io/api/v1/image/assets%2F612e9a82b86748da836eaf9bc77dd81e%2F4e42fd0353e140c7b4e2963d14193c78?format=webp&width=800"
                   alt="ChEA Logo"
-                  className="w-full h-full object-cover object-center scale-150 transition-transform duration-1000"
+                  className="w-full h-full object-cover object-center scale-150 transition-transform duration-[2500ms]"
                   onError={(e) => {
                     // Fallback if image fails to load
                     e.currentTarget.style.display = 'none';
@@ -104,7 +104,7 @@ export default function Header() {
               </div>
             </div>
             <div 
-              className="hidden sm:block mt-6 transition-all duration-1000"
+              className="hidden sm:block mt-6 transition-all duration-[2500ms]"
               style={{
                 opacity: opacity,
                 transform: `translateX(${(1 - opacity) * -20}px)`
@@ -119,7 +119,7 @@ export default function Header() {
 
           {/* Navigation Menu and Auth Buttons - All on Right */}
           <div 
-            className="hidden md:flex items-center space-x-8 transition-all duration-1000"
+            className="hidden md:flex items-center space-x-8 transition-all duration-[2500ms]"
             style={{
               opacity: opacity,
               transform: `translateX(${(1 - opacity) * 20}px)`
