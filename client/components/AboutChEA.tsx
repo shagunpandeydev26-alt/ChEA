@@ -60,7 +60,7 @@ export default function AboutChEA() {
             alt="About Section Background"
             className="w-full h-full object-cover opacity-100"
             style={{
-              filter: 'brightness(1.0) contrast(1.1)',
+              filter: 'brightness(1.0) contrast(1.0)',
             }}
           />
         </div>
