@@ -28,11 +28,11 @@ export default function FacilitiesSection() {
                       Facility Details
                     </h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      Our state-of-the-art facilities are equipped with
-                      the latest tools and technologies to provide
-                      students with a hands-on learning experience. From
-                      modern laboratories to conference centers, we ensure that our
-                      members have access to the best resources.
+                      Our state-of-the-art facilities are equipped with the
+                      latest tools and technologies to provide students with a
+                      hands-on learning experience. From modern laboratories to
+                      conference centers, we ensure that our members have access
+                      to the best resources.
                     </p>
                   </div>
                 </div>
@@ -53,10 +53,10 @@ export default function FacilitiesSection() {
                       Event Registration
                     </h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      Register for our upcoming events and secure your
-                      spot. Take advantage of this opportunity to network
-                      with industry professionals and expand your knowledge to further your
-                      career in chemical engineering.
+                      Register for our upcoming events and secure your spot.
+                      Take advantage of this opportunity to network with
+                      industry professionals and expand your knowledge to
+                      further your career in chemical engineering.
                     </p>
                   </div>
                 </div>
