@@ -496,47 +496,6 @@ export default function AboutChEA() {
         </div>
       </section>
 
-      {/* New Section Below ChEA in Numbers */}
-      <section className="py-0 bg-background relative overflow-hidden">
-        <div className="container mx-auto px-4 lg:px-8 max-w-none relative z-10">
-          <div className="border-[0.5px] border-white bg-black min-h-screen">
-            <div className="grid lg:grid-cols-2 gap-0 h-full">
-              {/* Left Side - Image */}
-              <div className="relative overflow-hidden">
-                <img
-                  src="https://static.wixstatic.com/media/c837a6_41aece62e57346379d12018aece18ea2~mv2.jpg/v1/fill/w_860,h_1310,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_41aece62e57346379d12018aece18ea2~mv2.jpg"
-                  alt="Additional Section Background"
-                  className="w-full h-full object-cover"
-                  style={{
-                    transform: `translateX(${studentDevImageTranslateX}px) scale(1.6)`,
-                    transition: "transform 0.5s ease-out",
-                    minWidth: "170%",
-                  }}
-                />
-                <div className="absolute inset-0 bg-black/40"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <h2 className="text-2xl md:text-3xl font-light text-white text-center px-8">
-                    Additional<br />Information
-                  </h2>
-                </div>
-              </div>
-
-              {/* Right Side - Content */}
-              <div className="bg-black p-6 flex flex-col justify-center">
-                <p className="text-gray-300 text-xl leading-relaxed mb-6">
-                  Explore more opportunities and resources available through our association. Connect with industry professionals and expand your network.
-                </p>
-                <Button
-                  size="lg"
-                  className="bg-red-500 hover:bg-red-600 text-white px-6 py-2 text-base font-medium transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 w-fit"
-                >
-                  Learn More
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </>
   );
 }
