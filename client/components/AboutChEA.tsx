@@ -17,14 +17,7 @@ export default function AboutChEA() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Background image carousel effect
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % backgroundImages.length);
-    }, 4000); // Change image every 4 seconds
-
-    return () => clearInterval(interval);
-  }, [backgroundImages.length]);
+  // No carousel effect needed
 
   // Page load animation
   useEffect(() => {
