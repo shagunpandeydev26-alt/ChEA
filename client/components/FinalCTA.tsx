@@ -1,4 +1,4 @@
-`1import { Button } from "./ui/button";
+import { Button } from "./ui/button";
 import { useState, useEffect } from "react";
 
 export default function FinalCTA() {
