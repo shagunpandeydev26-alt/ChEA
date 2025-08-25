@@ -18,20 +18,30 @@ export default function Vision() {
     return `translateX(${direction * scrollEffect}px)`;
   };
 
+  // Calculate hero background zoom based on scroll position
+  const getHeroBackgroundTransform = () => {
+    const zoomEffect = 1 + (scrollY * 0.0005); // Zoom in as we scroll down
+    return `scale(${zoomEffect})`;
+  };
+
   return (
     <div className="min-h-screen bg-black">
       <Header />
       
       {/* Hero Section with Background Image */}
-      <section 
-        className="min-h-screen flex items-center justify-center relative"
-        style={{
-          backgroundImage: `url('https://static.wixstatic.com/media/c837a6_3f53cdbff83b47b19a97bd35c767333c~mv2.jpg/v1/fill/w_1901,h_913,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_3f53cdbff83b47b19a97bd35c767333c~mv2.jpg')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
+      <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+        {/* Background image with zoom effect */}
+        <div
+          className="absolute inset-0 w-full h-full"
+          style={{
+            backgroundImage: `url('https://static.wixstatic.com/media/c837a6_3f53cdbff83b47b19a97bd35c767333c~mv2.jpg/v1/fill/w_1901,h_913,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_3f53cdbff83b47b19a97bd35c767333c~mv2.jpg')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            transform: getHeroBackgroundTransform(),
+            transition: 'transform 0.1s ease-out'
+          }}
+        ></div>
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
           <div className="text-center text-white">
@@ -49,21 +59,28 @@ export default function Vision() {
       <section className="py-20 bg-chea-dark">
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-0 bg-chea-dark-card rounded-lg overflow-hidden shadow-2xl">
-            {/* Left side - Image */}
-            <div 
-              className="relative h-[500px] lg:h-[600px] overflow-hidden"
-              style={{ transform: getImageTransform(0, false) }}
-            >
-              <img
-                src="https://static.wixstatic.com/media/c837a6_a56caf65f5424508937c5d7a4ced1619~mv2.jpg/v1/fill/w_828,h_788,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_a56caf65f5424508937c5d7a4ced1619~mv2.jpg"
-                alt="About ChEA"
-                className="w-full h-full object-cover transition-transform duration-300"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-chea-dark/20"></div>
+            {/* Left side - Image Section */}
+            <div className="relative h-[500px] lg:h-[600px] bg-chea-dark overflow-hidden">
+              <div
+                className="absolute inset-0 p-8 flex items-center justify-center"
+                style={{
+                  transform: getImageTransform(0, false),
+                  transition: 'transform 0.3s ease-out'
+                }}
+              >
+                <div className="w-full h-full max-w-md max-h-md rounded-lg overflow-hidden shadow-xl">
+                  <img
+                    src="https://static.wixstatic.com/media/c837a6_a56caf65f5424508937c5d7a4ced1619~mv2.jpg/v1/fill/w_828,h_788,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_a56caf65f5424508937c5d7a4ced1619~mv2.jpg"
+                    alt="About ChEA"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-chea-dark/30"></div>
             </div>
-            
+
             {/* Right side - Content */}
-            <div className="p-12 lg:p-16 flex flex-col justify-center">
+            <div className="p-12 lg:p-16 flex flex-col justify-center bg-chea-dark-card">
               <h2 className="text-4xl lg:text-5xl font-light text-white mb-8">About ChEA</h2>
               <p className="text-gray-300 text-lg leading-relaxed">
                 ChEA (Chemical Engineering Association) was established with the goal of creating a collaborative space for students enthusiastic about chemical engineering. Our journey began with a small group of dedicated individuals who envisioned a platform where students could exchange ideas, gain practical experience, and form lifelong connections. Today, ChEA stands as a testament to the collective effort of our members in fostering innovation and excellence in the field of chemical engineering.
@@ -78,24 +95,31 @@ export default function Vision() {
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-0 bg-chea-dark-card rounded-lg overflow-hidden shadow-2xl">
             {/* Left side - Content */}
-            <div className="p-12 lg:p-16 flex flex-col justify-center order-2 lg:order-1">
+            <div className="p-12 lg:p-16 flex flex-col justify-center order-2 lg:order-1 bg-chea-dark-card">
               <h2 className="text-4xl lg:text-5xl font-light text-white mb-8">Meet Our Leadership</h2>
               <p className="text-gray-300 text-lg leading-relaxed">
                 At ChEA, our leadership brings a wealth of experience and a shared passion for nurturing the next generation of chemical engineers. Our dedicated team is committed to creating opportunities for students to thrive in their academic and professional pursuits. With a focus on mentorship and guidance, our leadership ensures that ChEA remains at the forefront of empowering students and preparing them for successful careers in chemical engineering.
               </p>
             </div>
-            
-            {/* Right side - Image */}
-            <div 
-              className="relative h-[500px] lg:h-[600px] overflow-hidden order-1 lg:order-2"
-              style={{ transform: getImageTransform(0, true) }}
-            >
-              <img
-                src="https://static.wixstatic.com/media/c837a6_e166632dd5264456b9b5beba3bd949dd~mv2.jpg/v1/fill/w_828,h_788,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_e166632dd5264456b9b5beba3bd949dd~mv2.jpg"
-                alt="Meet Our Leadership"
-                className="w-full h-full object-cover transition-transform duration-300"
-              />
-              <div className="absolute inset-0 bg-gradient-to-l from-transparent to-chea-dark/20"></div>
+
+            {/* Right side - Image Section */}
+            <div className="relative h-[500px] lg:h-[600px] bg-chea-dark overflow-hidden order-1 lg:order-2">
+              <div
+                className="absolute inset-0 p-8 flex items-center justify-center"
+                style={{
+                  transform: getImageTransform(0, true),
+                  transition: 'transform 0.3s ease-out'
+                }}
+              >
+                <div className="w-full h-full max-w-md max-h-md rounded-lg overflow-hidden shadow-xl">
+                  <img
+                    src="https://static.wixstatic.com/media/c837a6_e166632dd5264456b9b5beba3bd949dd~mv2.jpg/v1/fill/w_828,h_788,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_e166632dd5264456b9b5beba3bd949dd~mv2.jpg"
+                    alt="Meet Our Leadership"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-l from-transparent to-chea-dark/30"></div>
             </div>
           </div>
         </div>
