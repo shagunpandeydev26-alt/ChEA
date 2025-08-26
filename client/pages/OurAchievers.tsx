@@ -1,11 +1,25 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Card, CardContent } from "../components/ui/card";
 
 export default function OurAchievers() {
+  const navigate = useNavigate();
+  const { currentUser } = useAuth();
   const [scrollY, setScrollY] = useState(0);
   const [activeTab, setActiveTab] = useState("students");
+
+  const handleJoinClick = () => {
+    if (currentUser) {
+      // User is already a member, navigate to programs
+      navigate('/programs');
+    } else {
+      // User is not logged in, navigate to auth page for registration
+      navigate('/auth', { state: { defaultTab: 'register' } });
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -374,8 +388,11 @@ export default function OurAchievers() {
               Join ChEA and follow in the footsteps of our successful alumni.
               Your journey to excellence starts here.
             </p>
-            <button className="bg-chea-red hover:bg-chea-red-dark text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-              Join ChEA Today
+            <button 
+              onClick={handleJoinClick}
+              className="bg-chea-red hover:bg-chea-red-dark text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            >
+              {currentUser ? 'Explore Programs' : 'Join ChEA Today'}
             </button>
           </div>
         </div>

@@ -1,6 +1,10 @@
 import { Button } from "./ui/button";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
+import { useUser } from "@/contexts/UserContext";
+import { LogOut, User, Settings, Shield } from "lucide-react";
+import { toast } from "sonner";
 
 export default function Header() {
   const [isVisible, setIsVisible] = useState(true);
@@ -8,6 +12,25 @@ export default function Header() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [scrollDirection, setScrollDirection] = useState<"up" | "down">("up");
   const [isMoreDropdownOpen, setIsMoreDropdownOpen] = useState(false);
+  const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
+  
+  const { currentUser, logout } = useAuth();
+  const { isAdmin } = useUser();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      toast.success("Successfully logged out!");
+      setIsUserDropdownOpen(false);
+    } catch (error: any) {
+      toast.error("Failed to log out");
+    }
+  };
+
+  const handleAuthNavigation = (action: 'login' | 'register') => {
+    navigate('/auth', { state: { defaultTab: action } });
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -94,8 +117,10 @@ export default function Header() {
                   onError={(e) => {
                     // Fallback if image fails to load
                     e.currentTarget.style.display = "none";
-                    e.currentTarget.parentElement.nextElementSibling.style.display =
-                      "flex";
+                    const fallback = e.currentTarget.parentElement?.nextElementSibling as HTMLElement;
+                    if (fallback) {
+                      fallback.style.display = "flex";
+                    }
                   }}
                 />
               </div>
@@ -199,22 +224,92 @@ export default function Header() {
               </div>
             </nav>
 
-            {/* Auth Buttons */}
+            {/* Auth Buttons or User Menu */}
             <div className="flex items-center space-x-3">
-              <Button
-                variant="ghost"
-                size="sm"
-                className="text-white hover:text-primary font-light transition-all duration-300"
-              >
-                Log In
-              </Button>
-              <Button
-                size="sm"
-                variant="outline"
-                className="bg-transparent border-white text-white hover:bg-white hover:text-black font-light transition-all duration-300"
-              >
-                Join Now
-              </Button>
+              {currentUser ? (
+                /* User is logged in - show user menu */
+                <div
+                  className="relative"
+                  onMouseEnter={() => setIsUserDropdownOpen(true)}
+                  onMouseLeave={() => setIsUserDropdownOpen(false)}
+                >
+                  <button className="flex items-center space-x-2 text-white hover:text-primary transition-colors text-sm font-light px-3 py-2 rounded-md hover:bg-white/10">
+                    <User className="w-4 h-4" />
+                    <span>{currentUser.displayName || currentUser.email?.split('@')[0]}</span>
+                    <svg
+                      className="w-4 h-4 ml-1"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </button>
+
+                  {/* User Dropdown Menu */}
+                  <div
+                    className={`absolute top-full right-0 mt-2 w-48 bg-black/90 backdrop-blur-sm border border-white/20 rounded-lg shadow-xl transition-all duration-300 ${
+                      isUserDropdownOpen
+                        ? "opacity-100 visible translate-y-0"
+                        : "opacity-0 invisible -translate-y-2"
+                    }`}
+                  >
+                    <div className="py-2">
+                      <div className="px-4 py-2 text-sm text-white/70 border-b border-white/10">
+                        {currentUser.email}
+                      </div>
+                      <Link
+                        to="/dashboard"
+                        className="flex items-center w-full px-4 py-2 text-sm text-white hover:text-primary hover:bg-white/10 transition-colors"
+                      >
+                        <User className="w-4 h-4 mr-2" />
+                        Dashboard
+                      </Link>
+                      {isAdmin && (
+                        <Link
+                          to="/admin"
+                          className="flex items-center w-full px-4 py-2 text-sm text-white hover:text-primary hover:bg-white/10 transition-colors"
+                        >
+                          <Shield className="w-4 h-4 mr-2" />
+                          Admin Panel
+                        </Link>
+                      )}
+                      <button
+                        onClick={handleLogout}
+                        className="flex items-center w-full px-4 py-2 text-sm text-white hover:text-primary hover:bg-white/10 transition-colors"
+                      >
+                        <LogOut className="w-4 h-4 mr-2" />
+                        Log Out
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                /* User is not logged in - show auth buttons */
+                <>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => handleAuthNavigation('login')}
+                    className="text-white hover:text-primary font-light transition-all duration-300"
+                  >
+                    Log In
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() => handleAuthNavigation('register')}
+                    className="bg-transparent border-white text-white hover:bg-white hover:text-black font-light transition-all duration-300"
+                  >
+                    Join Now
+                  </Button>
+                </>
+              )}
             </div>
           </div>
 

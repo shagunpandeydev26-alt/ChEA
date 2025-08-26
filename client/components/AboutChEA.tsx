@@ -1,10 +1,25 @@
 import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 
 export default function AboutChEA() {
   const [scrollY, setScrollY] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
+  
+  const { currentUser } = useAuth();
+  const navigate = useNavigate();
+
+  const handleCtaClick = () => {
+    if (currentUser) {
+      // User is already a member, navigate to programs
+      navigate('/programs');
+    } else {
+      // User is not logged in, navigate to auth page for registration
+      navigate('/auth', { state: { defaultTab: 'register' } });
+    }
+  };
 
   // Handle scroll effects
   useEffect(() => {
@@ -416,9 +431,10 @@ export default function AboutChEA() {
                 </p>
                 <Button
                   size="lg"
+                  onClick={handleCtaClick}
                   className="bg-red-500 hover:bg-red-600 text-white px-8 py-3 text-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 w-fit"
                 >
-                  Join Now
+                  {currentUser ? 'Explore Programs' : 'Join Now'}
                 </Button>
               </div>
             </div>
@@ -652,6 +668,7 @@ export default function AboutChEA() {
 
               <Button
                 size="lg"
+                onClick={handleCtaClick}
                 className="bg-red-500 hover:bg-red-600 text-white px-8 py-3 text-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 w-fit"
                 style={{
                   transform: `translateX(${isLoaded ? 0 : 100}px) scale(${isLoaded ? 1 : 0.8})`,
@@ -661,7 +678,7 @@ export default function AboutChEA() {
                   transitionDelay: "1.2s",
                 }}
               >
-                Become a Member
+                {currentUser ? 'Explore Programs' : 'Become a Member'}
               </Button>
             </div>
           </div>

@@ -1,11 +1,25 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Card, CardContent } from "../components/ui/card";
 
 export default function Programs() {
+  const navigate = useNavigate();
+  const { currentUser } = useAuth();
   const [scrollY, setScrollY] = useState(0);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+
+  const handleEnrollClick = () => {
+    if (currentUser) {
+      // Logged in users - can enroll (for now redirect to contact)
+      window.open('mailto:chea@hbtu.ac.in?subject=Program Enrollment&body=Hello ChEA Team,%0A%0AI would like to enroll in your development programs.%0A%0AProgram of Interest: %0AAdditional Information: %0A%0AThank you!', '_blank');
+    } else {
+      // Not logged in - need to authenticate first
+      navigate('/auth', { state: { defaultTab: 'register' } });
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -273,8 +287,11 @@ export default function Programs() {
                 through our comprehensive development programs. Your success
                 story starts here.
               </p>
-              <button className="bg-chea-red hover:bg-chea-red-dark text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                Enroll Now
+              <button 
+                onClick={handleEnrollClick}
+                className="bg-chea-red hover:bg-chea-red-dark text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              >
+                {currentUser ? 'Enroll Now' : 'Join to Enroll'}
               </button>
             </div>
           </div>

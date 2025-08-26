@@ -1,9 +1,24 @@
 import { Button } from "./ui/button";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 
 export default function FinalCTA() {
   const [scrollY, setScrollY] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
+  
+  const { currentUser } = useAuth();
+  const navigate = useNavigate();
+
+  const handleCtaClick = () => {
+    if (currentUser) {
+      // User is already a member, navigate to programs
+      navigate('/programs');
+    } else {
+      // User is not logged in, navigate to auth page for registration
+      navigate('/auth', { state: { defaultTab: 'register' } });
+    }
+  };
 
   // Handle scroll effects
   useEffect(() => {
@@ -115,6 +130,7 @@ export default function FinalCTA() {
 
             <Button
               size="lg"
+              onClick={handleCtaClick}
               className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg font-light transition-all duration-1500 ease-out shadow-lg hover:shadow-xl transform hover:scale-105"
               style={{
                 transform: `translateX(${isLoaded ? 0 : 40}px) scale(${isLoaded ? 1 : 0.95})`,
@@ -122,7 +138,7 @@ export default function FinalCTA() {
                 transitionDelay: "0.8s",
               }}
             >
-              Become a Member
+              {currentUser ? 'Explore Programs' : 'Become a Member'}
             </Button>
           </div>
         </div>

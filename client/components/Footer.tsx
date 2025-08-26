@@ -1,7 +1,32 @@
 import { Button } from "./ui/button";
 import { MessageCircle } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 
 export default function Footer() {
+  const navigate = useNavigate();
+  const { currentUser } = useAuth();
+
+  const handleExploreClick = () => {
+    // Navigate to home page and scroll to top
+    navigate('/');
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100);
+  };
+
+  const handleChatClick = () => {
+    // You can add chat functionality here
+    // For now, let's navigate to contact section or auth
+    if (currentUser) {
+      // Logged in users - maybe open a support chat
+      window.open('mailto:chea@hbtu.ac.in?subject=ChEA Support', '_blank');
+    } else {
+      // Non-logged in users - navigate to auth
+      navigate('/auth');
+    }
+  };
+
   return (
     <footer className="bg-chea-dark relative">
       <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
@@ -42,7 +67,8 @@ export default function Footer() {
               <div>
                 <h3 className="text-white font-normal text-base mb-4">Quick Links</h3>
                 <Button
-                  className="bg-chea-red hover:bg-chea-red-dark text-white border-0 px-6 py-2 rounded text-sm font-medium"
+                  onClick={handleExploreClick}
+                  className="bg-chea-red hover:bg-chea-red-dark text-white border-0 px-6 py-2 rounded text-sm font-medium transition-all duration-300 transform hover:scale-105"
                 >
                   Explore
                 </Button>
@@ -82,9 +108,12 @@ export default function Footer() {
 
       {/* Chat bubble - positioned absolutely */}
       <div className="fixed bottom-6 right-6 z-50">
-        <div className="w-12 h-12 bg-chea-red rounded-full flex items-center justify-center cursor-pointer hover:bg-chea-red-dark transition-colors shadow-lg">
+        <button
+          onClick={handleChatClick}
+          className="w-12 h-12 bg-chea-red rounded-full flex items-center justify-center cursor-pointer hover:bg-chea-red-dark transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-110"
+        >
           <MessageCircle className="w-6 h-6 text-white" />
-        </div>
+        </button>
       </div>
     </footer>
   );

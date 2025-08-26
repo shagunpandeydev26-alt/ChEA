@@ -1,10 +1,24 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Card, CardContent } from "../components/ui/card";
 
 export default function StudentSection() {
+  const navigate = useNavigate();
+  const { currentUser } = useAuth();
   const [scrollY, setScrollY] = useState(0);
+
+  const handleSubmitArticle = () => {
+    if (currentUser) {
+      // Logged in users - can submit articles (for now redirect to contact)
+      window.open('mailto:chea@hbtu.ac.in?subject=Article Submission&body=Hello ChEA Team,%0A%0AI would like to submit an article for the student blog.%0A%0ATitle: %0AContent: %0A%0AThank you!', '_blank');
+    } else {
+      // Not logged in - need to authenticate first
+      navigate('/auth', { state: { defaultTab: 'register' } });
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -278,8 +292,11 @@ export default function StudentSection() {
                 insight to share? We'd love to feature your story on our student
                 blog.
               </p>
-              <button className="bg-chea-red hover:bg-chea-red-dark text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                Submit Your Article
+              <button 
+                onClick={handleSubmitArticle}
+                className="bg-chea-red hover:bg-chea-red-dark text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              >
+                {currentUser ? 'Submit Your Article' : 'Join to Submit Articles'}
               </button>
             </div>
           </div>

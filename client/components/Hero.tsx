@@ -1,10 +1,25 @@
 import { Button } from "./ui/button";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 
 export default function Hero() {
   const [scrollY, setScrollY] = useState(0);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
+  
+  const { currentUser } = useAuth();
+  const navigate = useNavigate();
+
+  const handleCtaClick = () => {
+    if (currentUser) {
+      // User is logged in, navigate to programs or dashboard
+      navigate('/programs');
+    } else {
+      // User is not logged in, navigate to auth page
+      navigate('/auth');
+    }
+  };
 
   // Array of images for the carousel
   const images = [
@@ -183,6 +198,7 @@ export default function Hero() {
 
           <Button
             size="lg"
+            onClick={handleCtaClick}
             className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg font-light transition-all duration-[2500ms] ease-out shadow-lg hover:shadow-xl transform hover:scale-105"
             style={{
               transform: `translateX(${isLoaded ? (textTranslateX * 0.2) : -100}vw) scale(${isLoaded ? 1 : 0.95})`,
@@ -190,7 +206,7 @@ export default function Hero() {
               transitionDelay: '0.4s'
             }}
           >
-            Discover More
+            {currentUser ? 'Explore Programs' : 'Join ChEA Today'}
           </Button>
         </div>
       </div>
