@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Card, CardContent } from "../components/ui/card";
+import { contentImage, handleImageError, siteImages } from "@/lib/images";
 
 export default function Programs() {
   const [scrollY, setScrollY] = useState(0);
@@ -15,7 +16,7 @@ export default function Programs() {
 
   // Calculate hero background zoom based on scroll position
   const getHeroBackgroundTransform = () => {
-    const zoomEffect = 1 + scrollY * 0.0003; // Slightly less zoom for variety
+    const zoomEffect = 1 + Math.min(scrollY, 800) * 0.0003;
     return `scale(${zoomEffect})`;
   };
 
@@ -26,8 +27,7 @@ export default function Programs() {
       title: "Leadership Excellence Program",
       duration: "6 Months",
       participants: "25 Students",
-      image:
-        "https://static.wixstatic.com/media/c837a6_2b1c3d4e5f6a7b8c9d0e1f2a3b4c5d6e~mv2.jpg/v1/fill/w_600,h_400,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/leadership.jpg",
+      image: contentImage(0),
       description:
         "Develop essential leadership skills through workshops, case studies, and real-world project management experience.",
       features: [
@@ -42,8 +42,7 @@ export default function Programs() {
       title: "Advanced Technical Skills Bootcamp",
       duration: "4 Months",
       participants: "40 Students",
-      image:
-        "https://static.wixstatic.com/media/c837a6_3c2d4e5f6a7b8c9d0e1f2a3b4c5d6e7f~mv2.jpg/v1/fill/w_600,h_400,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/technical.jpg",
+      image: contentImage(1),
       description:
         "Master cutting-edge technologies and software tools essential for modern chemical engineering practice.",
       features: ["MATLAB/Simulink", "ASPEN Plus", "CFD Analysis"],
@@ -54,8 +53,7 @@ export default function Programs() {
       title: "Research Mentorship Initiative",
       duration: "8 Months",
       participants: "15 Students",
-      image:
-        "https://static.wixstatic.com/media/c837a6_4d3e5f6a7b8c9d0e1f2a3b4c5d6e7f8a~mv2.jpg/v1/fill/w_600,h_400,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/research.jpg",
+      image: contentImage(2),
       description:
         "Work alongside faculty on groundbreaking research projects and develop analytical thinking skills.",
       features: ["Literature Review", "Experimental Design", "Data Analysis"],
@@ -66,8 +64,7 @@ export default function Programs() {
       title: "Industry Immersion Program",
       duration: "3 Months",
       participants: "30 Students",
-      image:
-        "https://static.wixstatic.com/media/c837a6_5e4f6a7b8c9d0e1f2a3b4c5d6e7f8a9b~mv2.jpg/v1/fill/w_600,h_400,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/industry.jpg",
+      image: contentImage(3),
       description:
         "Gain hands-on experience through internships and collaborative projects with leading chemical companies.",
       features: ["Plant Operations", "Quality Control", "Process Safety"],
@@ -78,8 +75,7 @@ export default function Programs() {
       title: "Innovation & Entrepreneurship Hub",
       duration: "5 Months",
       participants: "20 Students",
-      image:
-        "https://static.wixstatic.com/media/c837a6_6f5a7b8c9d0e1f2a3b4c5d6e7f8a9b0c~mv2.jpg/v1/fill/w_600,h_400,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/innovation.jpg",
+      image: contentImage(4),
       description:
         "Transform ideas into viable business ventures with guidance from successful entrepreneurs and industry experts.",
       features: ["Business Planning", "Pitch Development", "Market Analysis"],
@@ -90,8 +86,7 @@ export default function Programs() {
       title: "Global Communication Excellence",
       duration: "3 Months",
       participants: "35 Students",
-      image:
-        "https://static.wixstatic.com/media/c837a6_7a6b8c9d0e1f2a3b4c5d6e7f8a9b0c1d~mv2.jpg/v1/fill/w_600,h_400,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/communication.jpg",
+      image: contentImage(5),
       description:
         "Enhance professional communication skills for international collaborations and technical presentations.",
       features: [
@@ -106,8 +101,7 @@ export default function Programs() {
       title: "Sustainable Engineering Solutions",
       duration: "4 Months",
       participants: "28 Students",
-      image:
-        "https://static.wixstatic.com/media/c837a6_8b7c9d0e1f2a3b4c5d6e7f8a9b0c1d2e~mv2.jpg/v1/fill/w_600,h_400,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/sustainable.jpg",
+      image: contentImage(6),
       description:
         "Focus on green chemistry and sustainable process design to address environmental challenges.",
       features: ["Green Chemistry", "Renewable Energy", "Waste Management"],
@@ -118,8 +112,7 @@ export default function Programs() {
       title: "Digital Transformation Workshop",
       duration: "2 Months",
       participants: "45 Students",
-      image:
-        "https://static.wixstatic.com/media/c837a6_9c8d0e1f2a3b4c5d6e7f8a9b0c1d2e3f~mv2.jpg/v1/fill/w_600,h_400,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/digital.jpg",
+      image: contentImage(7),
       description:
         "Learn about Industry 4.0, IoT applications, and digital tools transforming chemical engineering.",
       features: ["IoT Integration", "Data Analytics", "Automation Systems"],
@@ -137,7 +130,7 @@ export default function Programs() {
         <div
           className="absolute inset-0 w-full h-full"
           style={{
-            backgroundImage: `url('https://static.wixstatic.com/media/c837a6_0f9a4576e86442e3b124952322acdd72~mv2.jpg/v1/fill/w_1188,h_1004,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_0f9a4576e86442e3b124952322acdd72~mv2.jpg')`,
+            backgroundImage: `url('${siteImages.joinCta}')`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
@@ -196,10 +189,7 @@ export default function Programs() {
                     src={program.image}
                     alt={program.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    onError={(e) => {
-                      e.currentTarget.src =
-                        "https://static.wixstatic.com/media/c837a6_a56caf65f5424508937c5d7a4ced1619~mv2.jpg/v1/fill/w_600,h_400,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/placeholder.jpg";
-                    }}
+                    onError={handleImageError}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
                 </div>
@@ -273,9 +263,12 @@ export default function Programs() {
                 through our comprehensive development programs. Your success
                 story starts here.
               </p>
-              <button className="bg-chea-red hover:bg-chea-red-dark text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+              <a
+                href="mailto:chea@hbtu.ac.in?subject=ChEA%20Program%20Enrollment"
+                className="inline-block bg-chea-red hover:bg-chea-red-dark text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              >
                 Enroll Now
-              </button>
+              </a>
             </div>
           </div>
         </div>

@@ -1,5 +1,7 @@
 import { Button } from "./ui/button";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { siteImages } from "@/lib/images";
 
 export default function Hero() {
   const [scrollY, setScrollY] = useState(0);
@@ -7,12 +9,7 @@ export default function Hero() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   // Array of images for the carousel
-  const images = [
-    "https://cdn.builder.io/api/v1/image/assets%2F612e9a82b86748da836eaf9bc77dd81e%2F6772b371f4814bc98b2cf668c8b63c85?format=webp&width=800",
-    "https://cdn.builder.io/api/v1/image/assets%2F612e9a82b86748da836eaf9bc77dd81e%2F7f76d15846714e82b37da415ec914a8f?format=webp&width=800",
-    "https://cdn.builder.io/api/v1/image/assets%2F612e9a82b86748da836eaf9bc77dd81e%2F4722d5d1ce014a308bb79a3a758dd8ac?format=webp&width=800",
-    "https://cdn.builder.io/api/v1/image/assets%2F612e9a82b86748da836eaf9bc77dd81e%2F00108060be0b49f38e94860468ddbfef?format=webp&width=800"
-  ];
+  const images = siteImages.heroSlides;
 
   // Handle scroll effects
   useEffect(() => {
@@ -111,7 +108,7 @@ export default function Hero() {
             }}
           >
             <span
-              className="inline-block transition-all duration-[2500ms] ease-out"
+              className="inline-block transition-all duration-2500 ease-out"
               style={{
                 transform: `translateX(${isLoaded ? (textTranslateX * 0.5) : -100}vw)`,
                 opacity: isLoaded ? textOpacity : 0,
@@ -122,7 +119,7 @@ export default function Hero() {
             </span>
             <br />
             <span
-              className="text-foreground inline-block transition-all duration-[2500ms] ease-out"
+              className="text-foreground inline-block transition-all duration-2500 ease-out"
               style={{
                 transform: `translateX(${isLoaded ? (textTranslateX * 0.6) : -100}vw)`,
                 opacity: isLoaded ? textOpacity : 0,
@@ -133,7 +130,7 @@ export default function Hero() {
             </span>
             <br />
             <span
-              className="text-foreground inline-block transition-all duration-[2500ms] ease-out"
+              className="text-foreground inline-block transition-all duration-2500 ease-out"
               style={{
                 transform: `translateX(${isLoaded ? (textTranslateX * 0.7) : -100}vw)`,
                 opacity: isLoaded ? textOpacity : 0,
@@ -144,7 +141,7 @@ export default function Hero() {
             </span>
             <br />
             <span
-              className="text-foreground inline-block transition-all duration-[2500ms] ease-out"
+              className="text-foreground inline-block transition-all duration-2500 ease-out"
               style={{
                 transform: `translateX(${isLoaded ? (textTranslateX * 0.8) : -100}vw)`,
                 opacity: isLoaded ? textOpacity : 0,
@@ -157,7 +154,7 @@ export default function Hero() {
 
           <div className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl font-light">
             <span
-              className="inline-block transition-all duration-[2500ms] ease-out"
+              className="inline-block transition-all duration-2500 ease-out"
               style={{
                 transform: `translateX(${isLoaded ? (textTranslateX * 0.3) : -100}vw)`,
                 opacity: isLoaded ? textOpacity : 0,
@@ -169,7 +166,7 @@ export default function Hero() {
             </span>
             <br />
             <span
-              className="inline-block transition-all duration-[2500ms] ease-out"
+              className="inline-block transition-all duration-2500 ease-out"
               style={{
                 transform: `translateX(${isLoaded ? (textTranslateX * 0.4) : -100}vw)`,
                 opacity: isLoaded ? textOpacity : 0,
@@ -183,14 +180,15 @@ export default function Hero() {
 
           <Button
             size="lg"
-            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg font-light transition-all duration-[2500ms] ease-out shadow-lg hover:shadow-xl transform hover:scale-105"
+            asChild
+            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg font-light transition-all duration-2500 ease-out shadow-lg hover:shadow-xl transform hover:scale-105"
             style={{
               transform: `translateX(${isLoaded ? (textTranslateX * 0.2) : -100}vw) scale(${isLoaded ? 1 : 0.95})`,
               opacity: isLoaded ? textOpacity : 0,
               transitionDelay: '0.4s'
             }}
           >
-            Discover More
+            <Link to="/vision">Discover More</Link>
           </Button>
         </div>
       </div>
@@ -199,18 +197,18 @@ export default function Hero() {
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
         <div className="flex space-x-3">
           {images.map((_, index) => (
-            <div
+            <button
               key={index}
+              type="button"
+              aria-label={`Show slide ${index + 1}`}
+              aria-current={index === currentImageIndex}
               className={`w-3 h-3 rounded-full transition-all duration-700 ease-out ${
                 index === currentImageIndex
                   ? 'bg-primary scale-125 shadow-lg'
                   : 'bg-white/50 hover:bg-white/70 hover:scale-110'
               }`}
               onClick={() => setCurrentImageIndex(index)}
-              style={{
-                cursor: 'pointer',
-                backdropFilter: 'blur(2px)'
-              }}
+              style={{ backdropFilter: 'blur(2px)' }}
             />
           ))}
         </div>

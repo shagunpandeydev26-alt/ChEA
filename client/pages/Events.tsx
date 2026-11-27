@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { contentImage, handleImageError, siteImages } from "@/lib/images";
 
 export default function Events() {
   const [scrollY, setScrollY] = useState(0);
@@ -31,7 +32,7 @@ export default function Events() {
 
   // Calculate hero background zoom based on scroll position
   const getHeroBackgroundTransform = () => {
-    const zoomEffect = 1 + scrollY * 0.0005; // Zoom in as we scroll down
+    const zoomEffect = 1 + Math.min(scrollY, 800) * 0.0005;
     return `scale(${zoomEffect})`;
   };
 
@@ -39,8 +40,7 @@ export default function Events() {
   const eventsData = [
     {
       id: 1,
-      image:
-        "https://static.wixstatic.com/media/c837a6_5f8a2b1c94d54e9e8e7f6c3a2d1b9e5f~mv2.jpg/v1/fill/w_400,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/workshop.jpg",
+      image: contentImage(0),
       title: "Chemical Process Design Workshop",
       date: "March 15, 2024",
       description:
@@ -49,8 +49,7 @@ export default function Events() {
     },
     {
       id: 2,
-      image:
-        "https://static.wixstatic.com/media/c837a6_8b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e~mv2.jpg/v1/fill/w_400,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/seminar.jpg",
+      image: contentImage(1),
       title: "Industry Expert Seminar Series",
       date: "April 22, 2024",
       description:
@@ -59,8 +58,7 @@ export default function Events() {
     },
     {
       id: 3,
-      image:
-        "https://static.wixstatic.com/media/c837a6_1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d~mv2.jpg/v1/fill/w_400,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/competition.jpg",
+      image: contentImage(2),
       title: "ChemE Innovation Challenge",
       date: "May 10, 2024",
       description:
@@ -69,8 +67,7 @@ export default function Events() {
     },
     {
       id: 4,
-      image:
-        "https://static.wixstatic.com/media/c837a6_9c8d7e6f5a4b3c2d1e0f9a8b7c6d5e4f~mv2.jpg/v1/fill/w_400,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/visit.jpg",
+      image: contentImage(3),
       title: "Industrial Plant Visit",
       date: "June 8, 2024",
       description:
@@ -79,8 +76,7 @@ export default function Events() {
     },
     {
       id: 5,
-      image:
-        "https://static.wixstatic.com/media/c837a6_7d6e5f4a3b2c1d0e9f8a7b6c5d4e3f2a~mv2.jpg/v1/fill/w_400,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/research.jpg",
+      image: contentImage(4),
       title: "Research Symposium",
       date: "July 18, 2024",
       description:
@@ -89,8 +85,7 @@ export default function Events() {
     },
     {
       id: 6,
-      image:
-        "https://static.wixstatic.com/media/c837a6_3e2d1c0b9a8f7e6d5c4b3a2f1e0d9c8b~mv2.jpg/v1/fill/w_400,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/networking.jpg",
+      image: contentImage(5),
       title: "Alumni Networking Event",
       date: "August 25, 2024",
       description:
@@ -109,7 +104,7 @@ export default function Events() {
         <div
           className="absolute inset-0 w-full h-full"
           style={{
-            backgroundImage: `url('https://static.wixstatic.com/media/c837a6_3f53cdbff83b47b19a97bd35c767333c~mv2.jpg/v1/fill/w_1901,h_913,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_3f53cdbff83b47b19a97bd35c767333c~mv2.jpg')`,
+            backgroundImage: `url('${siteImages.pageHero}')`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
@@ -141,9 +136,7 @@ export default function Events() {
               {eventsData.map((event, index) => (
                 <div
                   key={event.id}
-                  className={`grid lg:grid-cols-2 gap-8 bg-chea-dark-card rounded-lg overflow-hidden shadow-xl ${
-                    index % 2 === 1 ? "lg:flex-row-reverse" : ""
-                  }`}
+                  className="grid lg:grid-cols-2 gap-8 bg-chea-dark-card rounded-lg overflow-hidden shadow-xl"
                 >
                   {/* Image Side */}
                   <div
@@ -153,11 +146,7 @@ export default function Events() {
                       src={event.image}
                       alt={event.title}
                       className="w-full h-full object-cover"
-                      onError={(e) => {
-                        // Fallback to a placeholder image if the image fails to load
-                        e.currentTarget.src =
-                          "https://static.wixstatic.com/media/c837a6_a56caf65f5424508937c5d7a4ced1619~mv2.jpg/v1/fill/w_400,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/placeholder.jpg";
-                      }}
+                      onError={handleImageError}
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent"></div>
                   </div>
@@ -194,7 +183,7 @@ export default function Events() {
             {/* Left side - Image Section */}
             <div className="relative h-[500px] lg:h-[600px] bg-chea-dark overflow-hidden">
               <img
-                src="https://static.wixstatic.com/media/c837a6_41007e02b626433b850e5cfc4f2fb91d~mv2.jpg/v1/fill/w_828,h_585,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_41007e02b626433b850e5cfc4f2fb91d~mv2.jpg"
+                src={siteImages.empowerment}
                 alt="Empowering Student Community"
                 className="w-full h-full object-cover"
                 style={{

@@ -66,6 +66,11 @@ export default {
           "dark-border": "hsl(220, 13%, 20%)",
         },
       },
+      transitionDuration: {
+        2000: "2000ms",
+        2500: "2500ms",
+        3000: "3000ms",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

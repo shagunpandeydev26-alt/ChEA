@@ -12,6 +12,7 @@ import Events from "./pages/Events";
 import Programs from "./pages/Programs";
 import StudentSection from "./pages/StudentSection";
 import OurAchievers from "./pages/OurAchievers";
+import BecomeMember from "./pages/BecomeMember";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -21,7 +22,9 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter
+        future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
+      >
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/vision" element={<Vision />} />
@@ -29,6 +32,7 @@ const App = () => (
           <Route path="/programs" element={<Programs />} />
           <Route path="/student-section" element={<StudentSection />} />
           <Route path="/our-achievers" element={<OurAchievers />} />
+          <Route path="/become-a-member" element={<BecomeMember />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

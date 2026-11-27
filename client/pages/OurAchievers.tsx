@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Card, CardContent } from "../components/ui/card";
+import { contentImage, handleImageError, siteImages } from "@/lib/images";
 
 export default function OurAchievers() {
   const [scrollY, setScrollY] = useState(0);
@@ -15,7 +16,7 @@ export default function OurAchievers() {
 
   // Calculate hero background zoom based on scroll position
   const getHeroBackgroundTransform = () => {
-    const zoomEffect = 1 + scrollY * 0.0003;
+    const zoomEffect = 1 + Math.min(scrollY, 800) * 0.0003;
     return `scale(${zoomEffect})`;
   };
 
@@ -26,8 +27,7 @@ export default function OurAchievers() {
       name: "Arjun Patel",
       achievement: "Google Software Engineer",
       year: "2024",
-      image:
-        "https://static.wixstatic.com/media/c837a6_1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p~mv2.jpg/v1/fill/w_300,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/student1.jpg",
+      image: contentImage(0),
       description:
         "Secured a Software Engineer position at Google with a focus on machine learning applications in process optimization.",
       company: "Google",
@@ -39,8 +39,7 @@ export default function OurAchievers() {
       name: "Shreya Reddy",
       achievement: "Microsoft Product Manager",
       year: "2024",
-      image:
-        "https://static.wixstatic.com/media/c837a6_2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q~mv2.jpg/v1/fill/w_300,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/student2.jpg",
+      image: contentImage(1),
       description:
         "Joined Microsoft as a Product Manager for their Azure cloud platform, focusing on chemical engineering applications.",
       company: "Microsoft",
@@ -52,8 +51,7 @@ export default function OurAchievers() {
       name: "Karan Singh",
       achievement: "McKinsey & Company Consultant",
       year: "2024",
-      image:
-        "https://static.wixstatic.com/media/c837a6_3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r~mv2.jpg/v1/fill/w_300,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/student3.jpg",
+      image: contentImage(2),
       description:
         "Selected as a Management Consultant at McKinsey, specializing in chemical industry strategy and operations.",
       company: "McKinsey & Company",
@@ -65,8 +63,7 @@ export default function OurAchievers() {
       name: "Priya Sharma",
       achievement: "ONGC Chemical Engineer",
       year: "2024",
-      image:
-        "https://static.wixstatic.com/media/c837a6_4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s~mv2.jpg/v1/fill/w_300,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/student4.jpg",
+      image: contentImage(3),
       description:
         "Joined ONGC as a Chemical Engineer, working on refinery operations and process improvement initiatives.",
       company: "ONGC",
@@ -78,8 +75,7 @@ export default function OurAchievers() {
       name: "Rohit Kumar",
       achievement: "IIT Bombay PhD Scholar",
       year: "2024",
-      image:
-        "https://static.wixstatic.com/media/c837a6_5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t~mv2.jpg/v1/fill/w_300,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/student5.jpg",
+      image: contentImage(4),
       description:
         "Pursuing PhD in Chemical Engineering at IIT Bombay with research focus on renewable energy systems.",
       company: "IIT Bombay",
@@ -91,8 +87,7 @@ export default function OurAchievers() {
       name: "Ananya Gupta",
       achievement: "Unilever R&D Engineer",
       year: "2024",
-      image:
-        "https://static.wixstatic.com/media/c837a6_6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u~mv2.jpg/v1/fill/w_300,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/student6.jpg",
+      image: contentImage(5),
       description:
         "Working as an R&D Engineer at Unilever, developing sustainable personal care and home care products.",
       company: "Unilever",
@@ -108,8 +103,7 @@ export default function OurAchievers() {
       name: "Dr. Rajesh Verma",
       achievement: "Chief Technology Officer",
       year: "2018 Graduate",
-      image:
-        "https://static.wixstatic.com/media/c837a6_7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v~mv2.jpg/v1/fill/w_300,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/alumni1.jpg",
+      image: contentImage(6),
       description:
         "Leading technology innovation at Reliance Industries, overseeing digital transformation in petrochemical operations.",
       company: "Reliance Industries",
@@ -121,8 +115,7 @@ export default function OurAchievers() {
       name: "Meera Joshi",
       achievement: "Senior Principal Scientist",
       year: "2016 Graduate",
-      image:
-        "https://static.wixstatic.com/media/c837a6_8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w~mv2.jpg/v1/fill/w_300,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/alumni2.jpg",
+      image: contentImage(7),
       description:
         "Leading research in sustainable chemistry at CSIR-NCL, with 15+ publications in top-tier journals.",
       company: "CSIR-NCL",
@@ -134,8 +127,7 @@ export default function OurAchievers() {
       name: "Amit Saxena",
       achievement: "Plant Manager",
       year: "2015 Graduate",
-      image:
-        "https://static.wixstatic.com/media/c837a6_9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x~mv2.jpg/v1/fill/w_300,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/alumni3.jpg",
+      image: contentImage(0),
       description:
         "Managing operations at Tata Chemicals' largest manufacturing facility, driving efficiency and safety initiatives.",
       company: "Tata Chemicals",
@@ -147,8 +139,7 @@ export default function OurAchievers() {
       name: "Dr. Sunita Rao",
       achievement: "Professor & Department Head",
       year: "2012 Graduate",
-      image:
-        "https://static.wixstatic.com/media/c837a6_0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y~mv2.jpg/v1/fill/w_300,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/alumni4.jpg",
+      image: contentImage(1),
       description:
         "Professor and Head of Chemical Engineering Department at NIT Trichy, renowned for membrane technology research.",
       company: "NIT Trichy",
@@ -160,8 +151,7 @@ export default function OurAchievers() {
       name: "Vikash Agarwal",
       achievement: "Startup Founder & CEO",
       year: "2017 Graduate",
-      image:
-        "https://static.wixstatic.com/media/c837a6_1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z~mv2.jpg/v1/fill/w_300,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/alumni5.jpg",
+      image: contentImage(2),
       description:
         "Founded GreenTech Solutions, a startup focused on developing eco-friendly chemical processes, raised $5M Series A.",
       company: "GreenTech Solutions",
@@ -173,8 +163,7 @@ export default function OurAchievers() {
       name: "Kavya Nair",
       achievement: "International Process Engineer",
       year: "2014 Graduate",
-      image:
-        "https://static.wixstatic.com/media/c837a6_2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7a~mv2.jpg/v1/fill/w_300,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/alumni6.jpg",
+      image: contentImage(3),
       description:
         "Working as a Senior Process Engineer at Shell Netherlands, leading major refinery optimization projects across Europe.",
       company: "Shell Netherlands",
@@ -194,7 +183,7 @@ export default function OurAchievers() {
         <div
           className="absolute inset-0 w-full h-full"
           style={{
-            backgroundImage: `url('https://static.wixstatic.com/media/c837a6_0f9a4576e86442e3b124952322acdd72~mv2.jpg/v1/fill/w_1188,h_1004,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_0f9a4576e86442e3b124952322acdd72~mv2.jpg')`,
+            backgroundImage: `url('${siteImages.joinCta}')`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
@@ -280,10 +269,7 @@ export default function OurAchievers() {
                     src={person.image}
                     alt={person.name}
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                    onError={(e) => {
-                      e.currentTarget.src =
-                        "https://static.wixstatic.com/media/c837a6_a56caf65f5424508937c5d7a4ced1619~mv2.jpg/v1/fill/w_300,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/placeholder.jpg";
-                    }}
+                    onError={handleImageError}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                   <div className="absolute bottom-4 left-4 right-4">
@@ -374,9 +360,12 @@ export default function OurAchievers() {
               Join ChEA and follow in the footsteps of our successful alumni.
               Your journey to excellence starts here.
             </p>
-            <button className="bg-chea-red hover:bg-chea-red-dark text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+            <a
+              href="mailto:chea@hbtu.ac.in?subject=ChEA%20Membership"
+              className="inline-block bg-chea-red hover:bg-chea-red-dark text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            >
               Join ChEA Today
-            </button>
+            </a>
           </div>
         </div>
       </section>

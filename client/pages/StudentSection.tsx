@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Card, CardContent } from "../components/ui/card";
+import { contentImage, handleImageError, siteImages } from "@/lib/images";
 
 export default function StudentSection() {
   const [scrollY, setScrollY] = useState(0);
@@ -14,7 +15,7 @@ export default function StudentSection() {
 
   // Calculate hero background zoom based on scroll position
   const getHeroBackgroundTransform = () => {
-    const zoomEffect = 1 + scrollY * 0.0003;
+    const zoomEffect = 1 + Math.min(scrollY, 800) * 0.0003;
     return `scale(${zoomEffect})`;
   };
 
@@ -26,8 +27,7 @@ export default function StudentSection() {
       author: "Priya Sharma",
       date: "January 15, 2024",
       category: "Academic",
-      image:
-        "https://static.wixstatic.com/media/c837a6_1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p~mv2.jpg/v1/fill/w_600,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/process-design.jpg",
+      image: contentImage(0),
       excerpt:
         "Diving deep into the fundamentals of chemical process design has been an incredible learning experience. From understanding heat exchangers to optimizing reaction conditions...",
       readTime: "5 min read",
@@ -39,8 +39,7 @@ export default function StudentSection() {
       author: "Rahul Gupta",
       date: "January 12, 2024",
       category: "Technology",
-      image:
-        "https://static.wixstatic.com/media/c837a6_2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q~mv2.jpg/v1/fill/w_600,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/industry4.jpg",
+      image: contentImage(1),
       excerpt:
         "The digital transformation in chemical engineering is revolutionizing how we approach process control, data analytics, and predictive maintenance...",
       readTime: "7 min read",
@@ -52,8 +51,7 @@ export default function StudentSection() {
       author: "Anjali Verma",
       date: "January 10, 2024",
       category: "Career",
-      image:
-        "https://static.wixstatic.com/media/c837a6_3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r~mv2.jpg/v1/fill/w_600,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/internship.jpg",
+      image: contentImage(2),
       excerpt:
         "Working at ONGC as a summer intern provided invaluable insights into the petroleum industry. From refinery operations to safety protocols...",
       readTime: "6 min read",
@@ -65,8 +63,7 @@ export default function StudentSection() {
       author: "Vikash Kumar",
       date: "January 8, 2024",
       category: "Sustainability",
-      image:
-        "https://static.wixstatic.com/media/c837a6_4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s~mv2.jpg/v1/fill/w_600,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/green-chemistry.jpg",
+      image: contentImage(3),
       excerpt:
         "Exploring green chemistry principles and their applications in developing environmentally friendly chemical processes and products...",
       readTime: "8 min read",
@@ -78,8 +75,7 @@ export default function StudentSection() {
       author: "Neha Agarwal",
       date: "January 5, 2024",
       category: "Academic",
-      image:
-        "https://static.wixstatic.com/media/c837a6_5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t~mv2.jpg/v1/fill/w_600,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/thermodynamics.jpg",
+      image: contentImage(4),
       excerpt:
         "Understanding thermodynamics can be challenging, but with the right approach and practical examples, it becomes much more manageable...",
       readTime: "10 min read",
@@ -91,8 +87,7 @@ export default function StudentSection() {
       author: "Aman Singh",
       date: "January 3, 2024",
       category: "Research",
-      image:
-        "https://static.wixstatic.com/media/c837a6_6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u~mv2.jpg/v1/fill/w_600,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/nanotechnology.jpg",
+      image: contentImage(5),
       excerpt:
         "Our latest research explores how nanotechnology can revolutionize drug delivery systems, improving efficacy and reducing side effects...",
       readTime: "9 min read",
@@ -113,7 +108,7 @@ export default function StudentSection() {
         <div
           className="absolute inset-0 w-full h-full"
           style={{
-            backgroundImage: `url('https://static.wixstatic.com/media/c837a6_d11c6c437c0f4feb9de8591b42ead168~mv2.jpg/v1/fill/w_2281,h_1119,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_d11c6c437c0f4feb9de8591b42ead168~mv2.jpg')`,
+            backgroundImage: `url('${siteImages.statistics}')`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
@@ -163,10 +158,7 @@ export default function StudentSection() {
                     src={post.image}
                     alt={post.title}
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                    onError={(e) => {
-                      e.currentTarget.src =
-                        "https://static.wixstatic.com/media/c837a6_a56caf65f5424508937c5d7a4ced1619~mv2.jpg/v1/fill/w_600,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/placeholder.jpg";
-                    }}
+                    onError={handleImageError}
                   />
                   <div className="absolute top-4 left-4">
                     <span className="bg-chea-red text-white px-3 py-1 rounded-full text-sm font-medium">
@@ -224,10 +216,7 @@ export default function StudentSection() {
                       src={post.image}
                       alt={post.title}
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                      onError={(e) => {
-                        e.currentTarget.src =
-                          "https://static.wixstatic.com/media/c837a6_a56caf65f5424508937c5d7a4ced1619~mv2.jpg/v1/fill/w_600,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/placeholder.jpg";
-                      }}
+                      onError={handleImageError}
                     />
                     <div className="absolute top-4 left-4">
                       <span className="bg-chea-red text-white px-3 py-1 rounded-full text-sm font-medium">
@@ -278,9 +267,12 @@ export default function StudentSection() {
                 insight to share? We'd love to feature your story on our student
                 blog.
               </p>
-              <button className="bg-chea-red hover:bg-chea-red-dark text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+              <a
+                href="mailto:chea@hbtu.ac.in?subject=ChEA%20Student%20Story%20Submission"
+                className="inline-block bg-chea-red hover:bg-chea-red-dark text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              >
                 Submit Your Article
-              </button>
+              </a>
             </div>
           </div>
         </div>

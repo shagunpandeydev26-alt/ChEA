@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { siteImages } from "@/lib/images";
 
 export default function Vision() {
   const [scrollY, setScrollY] = useState(0);
@@ -35,7 +36,7 @@ export default function Vision() {
 
   // Calculate hero background zoom based on scroll position
   const getHeroBackgroundTransform = () => {
-    const zoomEffect = 1 + (scrollY * 0.0005); // Zoom in as we scroll down
+    const zoomEffect = 1 + Math.min(scrollY, 800) * 0.0005;
     return `scale(${zoomEffect})`;
   };
 
@@ -49,7 +50,7 @@ export default function Vision() {
         <div
           className="absolute inset-0 w-full h-full"
           style={{
-            backgroundImage: `url('https://static.wixstatic.com/media/c837a6_3f53cdbff83b47b19a97bd35c767333c~mv2.jpg/v1/fill/w_1901,h_913,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_3f53cdbff83b47b19a97bd35c767333c~mv2.jpg')`,
+            backgroundImage: `url('${siteImages.pageHero}')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
@@ -63,7 +64,7 @@ export default function Vision() {
             <h1 className="text-5xl lg:text-6xl font-light mb-8">Our Vision</h1>
             <div className="max-w-4xl mx-auto">
               <p className="text-xl lg:text-2xl font-light leading-relaxed">
-                ChEA (Chemical Engineering Association) is dedicated to fostering a community of aspiring chemical engineers at the University of H.B.T.U. Our vision is to provide a platform for students to enhance their skills, knowledge, and passion for chemical engineering. We strive to create a supportive environment that encourages growth and learning, ultimately preparing
+                ChEA (Chemical Engineering Association) is dedicated to fostering a community of aspiring chemical engineers at the University of H.B.T.U. Our vision is to provide a platform for students to enhance their skills, knowledge, and passion for chemical engineering. We strive to create a supportive environment that encourages growth and learning, ultimately preparing students for successful careers in the chemical engineering industry.
               </p>
             </div>
           </div>
@@ -77,7 +78,7 @@ export default function Vision() {
             {/* Left side - Image Section */}
             <div className="relative h-[500px] lg:h-[600px] bg-chea-dark overflow-hidden">
               <img
-                src="https://static.wixstatic.com/media/c837a6_a56caf65f5424508937c5d7a4ced1619~mv2.jpg/v1/fill/w_828,h_788,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_a56caf65f5424508937c5d7a4ced1619~mv2.jpg"
+                src={siteImages.aboutVision}
                 alt="About ChEA"
                 className="w-full h-full object-cover"
                 style={{
@@ -120,7 +121,7 @@ export default function Vision() {
             {/* Right side - Image Section */}
             <div className="relative h-[500px] lg:h-[600px] bg-chea-dark overflow-hidden order-1 lg:order-2">
               <img
-                src="https://static.wixstatic.com/media/c837a6_e166632dd5264456b9b5beba3bd949dd~mv2.jpg/v1/fill/w_828,h_788,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_e166632dd5264456b9b5beba3bd949dd~mv2.jpg"
+                src={siteImages.leadership}
                 alt="Meet Our Leadership"
                 className="w-full h-full object-cover"
                 style={{

@@ -1,6 +1,8 @@
 import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { siteImages } from "@/lib/images";
 
 export default function AboutChEA() {
   const [scrollY, setScrollY] = useState(0);
@@ -146,7 +148,7 @@ export default function AboutChEA() {
             }}
           >
             <img
-              src="https://static.wixstatic.com/media/c837a6_2119733e838e4a2f8813ebde736f99d5~mv2.jpg/v1/fill/w_1901,h_1625,al_b,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_2119733e838e4a2f8813ebde736f99d5~mv2.jpg?format=webp&width=800"
+              src={siteImages.aboutBackground}
               alt="About Section Background"
               className="w-full h-full object-cover opacity-100"
               style={{
@@ -183,7 +185,7 @@ export default function AboutChEA() {
                 {/* Background Image with Scroll Animation - Zoomed In */}
                 <div className="absolute inset-0 overflow-hidden">
                   <img
-                    src="https://static.wixstatic.com/media/c837a6_eb322a4179e54d788eef6896e67f05d0~mv2.jpg/v1/fill/w_828,h_1338,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_eb322a4179e54d788eef6896e67f05d0~mv2.jpg"
+                    src={siteImages.aboutCard}
                     alt="About ChEA Background"
                     className="w-full h-full object-cover"
                     style={{
@@ -217,7 +219,7 @@ export default function AboutChEA() {
               {/* Student's Corner Card - Aligned Left */}
               <div className="flex justify-start">
                 <Card
-                  className="bg-black border-[0.5px] border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-80"
+                  className="bg-black border-[0.5px] border-white hover:bg-black/90 transition-all duration-2000 ease-out w-80"
                   style={{
                     transform: `translateX(${card1Visible ? 0 : 100}px) translateY(${card1Visible ? 0 : 20}px)`,
                     opacity: card1Visible ? 1 : 0,
@@ -256,7 +258,7 @@ export default function AboutChEA() {
               {/* Events Card - Aligned Right */}
               <div className="flex justify-end">
                 <Card
-                  className="bg-black border-[0.5px] border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-80"
+                  className="bg-black border-[0.5px] border-white hover:bg-black/90 transition-all duration-2000 ease-out w-80"
                   style={{
                     transform: `translateX(${card2Visible ? 0 : -100}px) translateY(${card2Visible ? 0 : 20}px)`,
                     opacity: card2Visible ? 1 : 0,
@@ -295,7 +297,7 @@ export default function AboutChEA() {
               {/* Facility Details Card - Aligned Left */}
               <div className="flex justify-start">
                 <Card
-                  className="bg-black border-[0.5px] border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-80"
+                  className="bg-black border-[0.5px] border-white hover:bg-black/90 transition-all duration-2000 ease-out w-80"
                   style={{
                     transform: `translateX(${card3Visible ? 0 : 100}px) translateY(${card3Visible ? 0 : 20}px)`,
                     opacity: card3Visible ? 1 : 0,
@@ -335,7 +337,7 @@ export default function AboutChEA() {
               {/* Event Registration Card - Aligned Right */}
               <div className="flex justify-end">
                 <Card
-                  className="bg-black border-[0.5px] border-white hover:bg-black/90 transition-all duration-[2000ms] ease-out w-80"
+                  className="bg-black border-[0.5px] border-white hover:bg-black/90 transition-all duration-2000 ease-out w-80"
                   style={{
                     transform: `translateX(${card4Visible ? 0 : -100}px) translateY(${card4Visible ? 0 : 20}px)`,
                     opacity: card4Visible ? 1 : 0,
@@ -386,7 +388,7 @@ export default function AboutChEA() {
               {/* Left Side - Image with Reverse Sliding Effect */}
               <div className="relative overflow-hidden">
                 <img
-                  src="https://static.wixstatic.com/media/c837a6_41aece62e57346379d12018aece18ea2~mv2.jpg/v1/fill/w_860,h_1310,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_41aece62e57346379d12018aece18ea2~mv2.jpg"
+                  src={siteImages.studentDevelopment}
                   alt="Student Development Background"
                   className="w-full h-full object-cover"
                   style={{
@@ -416,9 +418,12 @@ export default function AboutChEA() {
                 </p>
                 <Button
                   size="lg"
+                  asChild
                   className="bg-red-500 hover:bg-red-600 text-white px-8 py-3 text-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 w-fit"
                 >
-                  Join Now
+                  <a href="mailto:chea@hbtu.ac.in?subject=ChEA%20Membership">
+                    Join Now
+                  </a>
                 </Button>
               </div>
             </div>
@@ -435,7 +440,7 @@ export default function AboutChEA() {
         <div className="absolute inset-0">
           <div className="absolute inset-0 overflow-hidden">
             <img
-              src="https://static.wixstatic.com/media/c837a6_d11c6c437c0f4feb9de8591b42ead168~mv2.jpg/v1/fill/w_2281,h_1119,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_d11c6c437c0f4feb9de8591b42ead168~mv2.jpg"
+              src={siteImages.statistics}
               alt="ChEA Statistics Background"
               className="w-full h-full object-cover opacity-100"
               style={{
@@ -538,7 +543,7 @@ export default function AboutChEA() {
             }}
           >
             <img
-              src="https://static.wixstatic.com/media/c837a6_0f9a4576e86442e3b124952322acdd72~mv2.jpg/v1/fill/w_1188,h_1004,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_0f9a4576e86442e3b124952322acdd72~mv2.jpg"
+              src={siteImages.joinCta}
               alt="Join ChEA Background"
               className="w-full h-full object-cover object-center"
               style={{
@@ -578,7 +583,7 @@ export default function AboutChEA() {
             >
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-8">
                 <span
-                  className="inline-block transition-all duration-[2500ms] ease-out"
+                  className="inline-block transition-all duration-2500 ease-out"
                   style={{
                     transform: `translateX(${isLoaded ? joinCTATextTranslateX * 0.5 : -100}vw)`,
                     opacity: isLoaded ? joinCTATextOpacity : 0,
@@ -590,7 +595,7 @@ export default function AboutChEA() {
                 </span>
                 <br />
                 <span
-                  className="inline-block transition-all duration-[2500ms] ease-out"
+                  className="inline-block transition-all duration-2500 ease-out"
                   style={{
                     transform: `translateX(${isLoaded ? joinCTATextTranslateX * 0.6 : -100}vw)`,
                     opacity: isLoaded ? joinCTATextOpacity : 0,
@@ -625,7 +630,7 @@ export default function AboutChEA() {
                 }}
               >
                 <span
-                  className="inline-block transition-all duration-[2000ms] ease-out"
+                  className="inline-block transition-all duration-2000 ease-out"
                   style={{
                     transform: `translateX(${isLoaded ? 0 : 60}px)`,
                     opacity: isLoaded ? 1 : 0,
@@ -636,7 +641,7 @@ export default function AboutChEA() {
                   engineering.
                 </span>
                 <span
-                  className="inline-block transition-all duration-[2000ms] ease-out"
+                  className="inline-block transition-all duration-2000 ease-out"
                   style={{
                     transform: `translateX(${isLoaded ? 0 : 60}px)`,
                     opacity: isLoaded ? 1 : 0,
@@ -652,6 +657,7 @@ export default function AboutChEA() {
 
               <Button
                 size="lg"
+                asChild
                 className="bg-red-500 hover:bg-red-600 text-white px-8 py-3 text-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 w-fit"
                 style={{
                   transform: `translateX(${isLoaded ? 0 : 100}px) scale(${isLoaded ? 1 : 0.8})`,
@@ -661,7 +667,7 @@ export default function AboutChEA() {
                   transitionDelay: "1.2s",
                 }}
               >
-                Become a Member
+                <Link to="/become-a-member">Become a Member</Link>
               </Button>
             </div>
           </div>
