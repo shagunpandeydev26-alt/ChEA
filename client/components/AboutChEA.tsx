@@ -421,7 +421,7 @@ export default function AboutChEA() {
                   asChild
                   className="bg-red-500 hover:bg-red-600 text-white px-8 py-3 text-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 w-fit"
                 >
-                  <a href="mailto:chea@hbtu.ac.in?subject=ChEA%20Membership">
+                  <a href="mailto:official.chea@hbtu.ac.in?subject=ChEA%20Membership">
                     Join Now
                   </a>
                 </Button>

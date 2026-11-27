@@ -264,7 +264,7 @@ export default function Programs() {
                 story starts here.
               </p>
               <a
-                href="mailto:chea@hbtu.ac.in?subject=ChEA%20Program%20Enrollment"
+                href="mailto:official.chea@hbtu.ac.in?subject=ChEA%20Program%20Enrollment"
                 className="inline-block bg-chea-red hover:bg-chea-red-dark text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
                 Enroll Now

@@ -5,16 +5,14 @@ import {
   Linkedin,
   Mail,
   MessageCircle,
-  Twitter,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { siteImages } from "@/lib/images";
 import { socialLinks } from "@/lib/social";
 
 const socials = [
-  { name: "Email", href: "mailto:chea@hbtu.ac.in", icon: Mail },
+  { name: "Email", href: "mailto:official.chea@hbtu.ac.in", icon: Mail },
   { name: "Instagram", href: socialLinks.instagram, icon: Instagram },
-  { name: "Twitter", href: socialLinks.twitter, icon: Twitter },
   { name: "Facebook", href: socialLinks.facebook, icon: Facebook },
   { name: "LinkedIn", href: socialLinks.linkedin, icon: Linkedin },
 ];
@@ -63,10 +61,10 @@ export default function Footer() {
                 </p>
                 <p>
                   <a
-                    href="mailto:chea@hbtu.ac.in"
+                    href="mailto:official.chea@hbtu.ac.in"
                     className="hover:text-white transition-colors"
                   >
-                    chea@hbtu.ac.in
+                    official.chea@hbtu.ac.in
                   </a>
                 </p>
                 <p>University of H.B.T.U.</p>
@@ -147,7 +145,7 @@ export default function Footer() {
       </div>
 
       <a
-        href="mailto:chea@hbtu.ac.in"
+        href="mailto:official.chea@hbtu.ac.in"
         aria-label="Chat with ChEA"
         className="fixed bottom-6 right-6 z-50 w-12 h-12 bg-chea-red rounded-full flex items-center justify-center hover:bg-chea-red-dark transition-colors shadow-lg"
       >

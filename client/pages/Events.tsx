@@ -36,62 +36,115 @@ export default function Events() {
     return `scale(${zoomEffect})`;
   };
 
-  // Sample events data
   const eventsData = [
     {
       id: 1,
       image: contentImage(0),
-      title: "Chemical Process Design Workshop",
-      date: "March 15, 2024",
+      title: "ChEA and IIChE Orientation",
+      date: "16th September, 2026",
       description:
-        "Hands-on workshop covering fundamentals of chemical process design, equipment selection, and process optimization techniques.",
-      location: "Main Auditorium, ChE Department",
+        "Orientation for students introducing ChEA and IIChE, their activities, membership benefits and the year ahead.",
+      location: "H.B.T.U. Campus, Kanpur",
     },
     {
       id: 2,
       image: contentImage(1),
-      title: "Industry Expert Seminar Series",
-      date: "April 22, 2024",
+      title: "Chem-Fiesta",
+      date: "9th October, 2026",
       description:
-        "Guest lectures by industry professionals sharing insights on current trends, career opportunities, and emerging technologies in chemical engineering.",
-      location: "Conference Hall, Block A",
+        "The annual chemical engineering fest with competitions, technical exhibits, guest talks and student-led events.",
+      location: "H.B.T.U. Campus, Kanpur",
     },
     {
       id: 3,
       image: contentImage(2),
-      title: "ChemE Innovation Challenge",
-      date: "May 10, 2024",
+      title: "Design Workshop",
+      date: "14th October, 2026",
       description:
-        "Annual competition where teams present innovative solutions to real-world chemical engineering problems and sustainability challenges.",
-      location: "Engineering Complex",
+        "A hands-on workshop focused on process design tools, problem-solving and team-based engineering projects.",
+      location: "H.B.T.U. Campus, Kanpur",
     },
     {
       id: 4,
       image: contentImage(3),
-      title: "Industrial Plant Visit",
-      date: "June 8, 2024",
+      title: "Traditional Day",
+      date: "17th October, 2026",
       description:
-        "Educational visit to local chemical manufacturing facilities to observe industrial processes and interact with working professionals.",
-      location: "Various Industrial Sites",
+        "A campus celebration of culture and tradition, bringing students together in festive spirit.",
+      location: "H.B.T.U. Campus, Kanpur",
     },
     {
       id: 5,
       image: contentImage(4),
-      title: "Research Symposium",
-      date: "July 18, 2024",
+      title: "MATLAB Workshop",
+      date: "23rd-24th October, 2026",
       description:
-        "Platform for students and faculty to present ongoing research projects, exchange ideas, and foster collaborative opportunities.",
-      location: "Research Center Auditorium",
+        "A two-day hands-on MATLAB workshop covering numerical methods, simulation and engineering applications.",
+      location: "H.B.T.U. Campus, Kanpur",
     },
     {
       id: 6,
       image: contentImage(5),
-      title: "Alumni Networking Event",
-      date: "August 25, 2024",
+      title: "No Bag Day",
+      date: "28th October, 2026",
       description:
-        "Meet and connect with successful ChEA alumni working in diverse industries, gain career insights and mentorship opportunities.",
-      location: "Alumni Hall",
+        "A student-friendly day without books or bags, filled with informal activities and bonding sessions.",
+      location: "H.B.T.U. Campus, Kanpur",
     },
+    {
+      id: 7,
+      image: contentImage(6),
+      title: "Sports Day",
+      date: "21-22nd November, 2026",
+      description:
+        "Two days of outdoor sports and team competitions for the ChEA student community.",
+      location: "H.B.T.U. Campus, Kanpur",
+    },
+    {
+      id: 8,
+      image: contentImage(7),
+      title: "E-Sports (Fun Games)",
+      date: "December last week, 2026 (2 Days)",
+      description:
+        "A two-day fun gaming event in the last week of December, featuring casual esports tournaments.",
+      location: "H.B.T.U. Campus, Kanpur",
+    },
+    {
+      id: 9,
+      image: contentImage(0),
+      title: "INTERFACE 2027",
+      date: "15-20th January, 2027",
+      description:
+        "The flagship annual technical symposium with paper presentations, industry talks, workshops and competitions.",
+      location: "H.B.T.U. Campus, Kanpur",
+    },
+    {
+      id: 10,
+      image: contentImage(1),
+      title: "Industrial Visit",
+      date: "6th February, 2027",
+      description:
+        "A guided visit to an industrial facility to observe real chemical processes and discuss career pathways.",
+      location: "Industrial site, Kanpur region",
+    },
+    {
+      id: 11,
+      image: contentImage(2),
+      title: "GATE Mentorship Panel",
+      date: "31st March, 2027",
+      description:
+        "A mentorship panel for GATE aspirants covering preparation strategy, exam insights and guidance from seniors and faculty.",
+      location: "H.B.T.U. Campus, Kanpur",
+    },
+  ];
+
+  const yearRoundActivities = [
+    "Chemical Cricket League",
+    "Interactive Sessions",
+    "Alumni Talk",
+    "Mock Interviews",
+    "Group Discussions",
+    "Interview Session of Faculty",
   ];
 
   return (
@@ -118,7 +171,9 @@ export default function Events() {
             <h1 className="text-5xl lg:text-6xl font-light mb-8">
               Welcome to ChEA - Chemical Engineering Association
             </h1>
-            <h2 className="text-3xl lg:text-4xl font-light">Our Offerings</h2>
+            <h2 className="text-3xl lg:text-4xl font-light">
+              Tentative Annual Calendar 2026-27
+            </h2>
           </div>
         </div>
       </section>
@@ -127,9 +182,13 @@ export default function Events() {
       <section className="py-20 bg-chea-dark">
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
           <div className="w-full max-w-full">
-            <h2 className="text-4xl lg:text-5xl font-light text-white mb-12 text-center">
+            <h2 className="text-4xl lg:text-5xl font-light text-white mb-4 text-center">
               Upcoming Events & Activities
             </h2>
+            <p className="text-center text-gray-400 mb-12">
+              Session 2026-27 · Dates are tentative and may be updated as the
+              session progresses.
+            </p>
 
             {/* Events Grid */}
             <div className="space-y-8">
@@ -171,6 +230,22 @@ export default function Events() {
                   </div>
                 </div>
               ))}
+            </div>
+
+            <div className="mt-16">
+              <h3 className="text-2xl lg:text-3xl font-light text-white mb-6 text-center">
+                Activities Throughout the Year
+              </h3>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {yearRoundActivities.map((activity) => (
+                  <div
+                    key={activity}
+                    className="bg-chea-dark-card border border-white/10 rounded-lg px-6 py-5 text-gray-200 text-center"
+                  >
+                    {activity}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

@@ -201,7 +201,7 @@ export default function Header() {
               </Button>
               <Button variant="outline" size="sm" asChild>
                 <a
-                  href="mailto:chea@hbtu.ac.in?subject=ChEA%20Membership"
+                  href="mailto:official.chea@hbtu.ac.in?subject=ChEA%20Membership"
                   className="bg-transparent border-white text-white hover:bg-white hover:text-black font-light transition-all duration-300"
                 >
                   Join Now
@@ -252,7 +252,7 @@ export default function Header() {
                 </Button>
                 <Button variant="outline" size="sm" asChild>
                   <a
-                    href="mailto:chea@hbtu.ac.in?subject=ChEA%20Membership"
+                    href="mailto:official.chea@hbtu.ac.in?subject=ChEA%20Membership"
                     className="border-white text-white hover:bg-white hover:text-black"
                   >
                     Join Now

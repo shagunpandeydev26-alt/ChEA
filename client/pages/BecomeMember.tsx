@@ -64,7 +64,7 @@ export default function BecomeMember() {
         ? "Faculty Membership (₹1000 + GST)"
         : `Alumni Donation (₹${donationAmount} + GST)`;
 
-  const applyHref = `mailto:chea@hbtu.ac.in?subject=${encodeURIComponent(
+  const applyHref = `mailto:official.chea@hbtu.ac.in?subject=${encodeURIComponent(
     "ChEA Membership",
   )}&body=${encodeURIComponent(`I would like to continue with: ${planLabel}`)}`;
 
