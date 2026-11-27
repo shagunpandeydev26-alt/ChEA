@@ -49,24 +49,6 @@ export default function Events() {
     {
       id: 2,
       image: contentImage(1),
-      title: "Chem-Fiesta",
-      date: "9th October, 2026",
-      description:
-        "The annual chemical engineering fest with competitions, technical exhibits, guest talks and student-led events.",
-      location: "H.B.T.U. Campus, Kanpur",
-    },
-    {
-      id: 3,
-      image: contentImage(2),
-      title: "Design Workshop",
-      date: "14th October, 2026",
-      description:
-        "A hands-on workshop focused on process design tools, problem-solving and team-based engineering projects.",
-      location: "H.B.T.U. Campus, Kanpur",
-    },
-    {
-      id: 4,
-      image: contentImage(3),
       title: "Traditional Day",
       date: "17th October, 2026",
       description:
@@ -74,17 +56,8 @@ export default function Events() {
       location: "H.B.T.U. Campus, Kanpur",
     },
     {
-      id: 5,
-      image: contentImage(4),
-      title: "MATLAB Workshop",
-      date: "23rd-24th October, 2026",
-      description:
-        "A two-day hands-on MATLAB workshop covering numerical methods, simulation and engineering applications.",
-      location: "H.B.T.U. Campus, Kanpur",
-    },
-    {
-      id: 6,
-      image: contentImage(5),
+      id: 3,
+      image: contentImage(2),
       title: "No Bag Day",
       date: "28th October, 2026",
       description:
@@ -92,35 +65,8 @@ export default function Events() {
       location: "H.B.T.U. Campus, Kanpur",
     },
     {
-      id: 7,
-      image: contentImage(6),
-      title: "Sports Day",
-      date: "21-22nd November, 2026",
-      description:
-        "Two days of outdoor sports and team competitions for the ChEA student community.",
-      location: "H.B.T.U. Campus, Kanpur",
-    },
-    {
-      id: 8,
-      image: contentImage(7),
-      title: "E-Sports (Fun Games)",
-      date: "December last week, 2026 (2 Days)",
-      description:
-        "A two-day fun gaming event in the last week of December, featuring casual esports tournaments.",
-      location: "H.B.T.U. Campus, Kanpur",
-    },
-    {
-      id: 9,
-      image: contentImage(0),
-      title: "INTERFACE 2027",
-      date: "15-20th January, 2027",
-      description:
-        "The flagship annual technical symposium with paper presentations, industry talks, workshops and competitions.",
-      location: "H.B.T.U. Campus, Kanpur",
-    },
-    {
-      id: 10,
-      image: contentImage(1),
+      id: 4,
+      image: contentImage(3),
       title: "Industrial Visit",
       date: "6th February, 2027",
       description:
@@ -128,8 +74,8 @@ export default function Events() {
       location: "Industrial site, Kanpur region",
     },
     {
-      id: 11,
-      image: contentImage(2),
+      id: 5,
+      image: contentImage(4),
       title: "GATE Mentorship Panel",
       date: "31st March, 2027",
       description:

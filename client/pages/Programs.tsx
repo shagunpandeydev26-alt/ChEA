@@ -4,6 +4,18 @@ import Footer from "../components/Footer";
 import { Card, CardContent } from "../components/ui/card";
 import { contentImage, handleImageError, siteImages } from "@/lib/images";
 
+type Program = {
+  id: number;
+  title: string;
+  duration: string;
+  date?: string;
+  participants: string;
+  image: string;
+  description: string;
+  features: string[];
+  icon: string;
+};
+
 export default function Programs() {
   const [scrollY, setScrollY] = useState(0);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
@@ -20,103 +32,90 @@ export default function Programs() {
     return `scale(${zoomEffect})`;
   };
 
-  // Student development programs data
-  const programsData = [
+  const programsData: Program[] = [
     {
       id: 1,
-      title: "Leadership Excellence Program",
-      duration: "6 Months",
-      participants: "25 Students",
+      title: "Chem-Fiesta Freshers Party",
+      duration: "1 Day",
+      date: "16th October, 2026",
+      participants: "Freshers",
       image: contentImage(0),
       description:
-        "Develop essential leadership skills through workshops, case studies, and real-world project management experience.",
-      features: [
-        "Team Management",
-        "Strategic Thinking",
-        "Communication Skills",
-      ],
-      icon: "👑",
+        "A welcome celebration for the new batch with games, cultural activities and an introduction to the ChEA community.",
+      features: ["Freshers Welcome", "Fun Games", "Cultural Activities"],
+      icon: "🎉",
     },
     {
       id: 2,
-      title: "Advanced Technical Skills Bootcamp",
-      duration: "4 Months",
-      participants: "40 Students",
+      title: "Design Workshop",
+      duration: "1 Day",
+      date: "14th October, 2026",
+      participants: "Students",
       image: contentImage(1),
       description:
-        "Master cutting-edge technologies and software tools essential for modern chemical engineering practice.",
-      features: ["MATLAB/Simulink", "ASPEN Plus", "CFD Analysis"],
-      icon: "⚡",
+        "A hands-on workshop on process design tools, problem-solving and team-based engineering projects.",
+      features: ["Process Design", "Team Projects", "Problem Solving"],
+      icon: "📐",
     },
     {
       id: 3,
-      title: "Research Mentorship Initiative",
-      duration: "8 Months",
-      participants: "15 Students",
+      title: "MATLAB Workshop",
+      duration: "2 Days",
+      date: "23rd-24th October, 2026",
+      participants: "Students",
       image: contentImage(2),
       description:
-        "Work alongside faculty on groundbreaking research projects and develop analytical thinking skills.",
-      features: ["Literature Review", "Experimental Design", "Data Analysis"],
-      icon: "🔬",
+        "A two-day practical workshop covering MATLAB fundamentals, numerical methods and engineering simulation.",
+      features: ["MATLAB Basics", "Numerical Methods", "Simulation"],
+      icon: "💻",
     },
     {
       id: 4,
-      title: "Industry Immersion Program",
-      duration: "3 Months",
-      participants: "30 Students",
+      title: "Sports Days",
+      duration: "2 Days",
+      date: "21-22nd November, 2026",
+      participants: "Students",
       image: contentImage(3),
       description:
-        "Gain hands-on experience through internships and collaborative projects with leading chemical companies.",
-      features: ["Plant Operations", "Quality Control", "Process Safety"],
-      icon: "🏭",
+        "Two days of outdoor sports, team competitions and fun activities for the ChEA student community.",
+      features: ["Outdoor Sports", "Team Events", "Fun Activities"],
+      icon: "🏆",
     },
     {
       id: 5,
-      title: "Innovation & Entrepreneurship Hub",
-      duration: "5 Months",
-      participants: "20 Students",
+      title: "E-Sports",
+      duration: "2 Days",
+      date: "December last week, 2026",
+      participants: "Students",
       image: contentImage(4),
       description:
-        "Transform ideas into viable business ventures with guidance from successful entrepreneurs and industry experts.",
-      features: ["Business Planning", "Pitch Development", "Market Analysis"],
-      icon: "💡",
+        "A two-day gaming event with casual tournaments, fun games and friendly competition.",
+      features: ["Gaming Tournament", "Fun Games", "Team Play"],
+      icon: "🎮",
     },
     {
       id: 6,
-      title: "Global Communication Excellence",
-      duration: "3 Months",
-      participants: "35 Students",
+      title: "Synopsis Symposium",
+      duration: "1 Day",
+      date: "End of January, 2027",
+      participants: "Students & Faculty",
       image: contentImage(5),
       description:
-        "Enhance professional communication skills for international collaborations and technical presentations.",
-      features: [
-        "Technical Writing",
-        "Presentation Skills",
-        "Cross-cultural Communication",
-      ],
-      icon: "🌐",
+        "A platform for students to present research synopses and receive feedback from faculty and peers.",
+      features: ["Research Synopsis", "Presentations", "Faculty Feedback"],
+      icon: "📊",
     },
     {
       id: 7,
-      title: "Sustainable Engineering Solutions",
-      duration: "4 Months",
-      participants: "28 Students",
+      title: "INTERFACE 2027",
+      duration: "6 Days",
+      date: "15-20th January, 2027",
+      participants: "Students & Alumni",
       image: contentImage(6),
       description:
-        "Focus on green chemistry and sustainable process design to address environmental challenges.",
-      features: ["Green Chemistry", "Renewable Energy", "Waste Management"],
-      icon: "🌱",
-    },
-    {
-      id: 8,
-      title: "Digital Transformation Workshop",
-      duration: "2 Months",
-      participants: "45 Students",
-      image: contentImage(7),
-      description:
-        "Learn about Industry 4.0, IoT applications, and digital tools transforming chemical engineering.",
-      features: ["IoT Integration", "Data Analytics", "Automation Systems"],
-      icon: "🤖",
+        "The flagship annual technical symposium with paper presentations, industry talks, workshops and competitions.",
+      features: ["Technical Symposium", "Industry Talks", "Competitions"],
+      icon: "🌐",
     },
   ];
 
@@ -228,9 +227,9 @@ export default function Programs() {
                     <div className="flex justify-between text-sm">
                       <div className="text-gray-400">
                         <span className="block text-white font-medium">
-                          {program.duration}
+                          {program.date ?? program.duration}
                         </span>
-                        Duration
+                        {program.date ? "Date" : "Duration"}
                       </div>
                       <div className="text-gray-400 text-right">
                         <span className="block text-white font-medium">

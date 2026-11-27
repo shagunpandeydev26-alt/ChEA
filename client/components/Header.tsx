@@ -9,10 +9,7 @@ const mainLinks = [
   { to: "/programs", label: "Programs" },
 ];
 
-const moreLinks = [
-  { to: "/student-section", label: "Student Section" },
-  { to: "/our-achievers", label: "Our Achievers" },
-];
+const moreLinks = [{ to: "/student-section", label: "Student Section" }];
 
 const allLinks = [...mainLinks, ...moreLinks];
 
