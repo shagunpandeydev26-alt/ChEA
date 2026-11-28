@@ -1,11 +1,5 @@
 import { Button } from "./ui/button";
-import {
-  Facebook,
-  Instagram,
-  Linkedin,
-  Mail,
-  MessageCircle,
-} from "lucide-react";
+import { Instagram, Linkedin, Mail, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { siteImages } from "@/lib/images";
 import { socialLinks } from "@/lib/social";
@@ -13,7 +7,6 @@ import { socialLinks } from "@/lib/social";
 const socials = [
   { name: "Email", href: "mailto:official.chea@hbtu.ac.in", icon: Mail },
   { name: "Instagram", href: socialLinks.instagram, icon: Instagram },
-  { name: "Facebook", href: socialLinks.facebook, icon: Facebook },
   { name: "LinkedIn", href: socialLinks.linkedin, icon: Linkedin },
 ];
 
